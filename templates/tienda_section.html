@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TIENDA ONLINE – TECNOMEDIC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/tecnomedic.css">
+
+
+    <style>
+        /* ════════ TIENDA NUBE — Estilos integrados al index ════════ */
+
+        #tienda {
+            background: var(--navy, #0d1b2a);
+            padding: 96px 0;
+        }
+
+        /* Header de sección */
+        .tn-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tn-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(152, 197, 68, .75);
+            /* brand lime */
+            margin-bottom: 8px;
+        }
+
+        .tn-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: clamp(30px, 5vw, 50px);
+            color: #edf1f0;
+            /* brand white */
+            line-height: 1.0;
+        }
+
+        .tn-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 50px;
+            background: #98c544;
+            /* brand green */
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background .2s, transform .2s, box-shadow .2s;
+            white-space: nowrap;
+        }
+
+        .tn-cta-link:hover {
+            background: #7aad2e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(152, 197, 68, .35);
+        }
+
+        /* ── Grilla de productos manuales (respaldo visual) ── */
+        .tn-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .tn-card {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(26, 165, 165, .18);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tn-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
+            border-color: rgba(152, 197, 68, .35);
+        }
+
+        .tn-card-img {
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .tn-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s ease;
+            display: block;
+        }
+
+        .tn-card:hover .tn-card-img img {
+            transform: scale(1.06);
+        }
+
+        .tn-card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tn-card-cat {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1aa5a5;
+            /* teal */
+            margin-bottom: 6px;
+        }
+
+        .tn-card-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #edf1f0;
+            line-height: 1.25;
+            margin-bottom: 6px;
+            flex: 1;
+        }
+
+        .tn-card-price {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #98c544;
+        }
+
+        .tn-card-price.consultar {
+            font-size: 15px;
+            color: #8aada9;
+        }
+
+        .tn-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .tn-add-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #f59e0b;
+            /* amber */
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, transform .2s;
+            flex-shrink: 0;
+        }
+
+        .tn-add-btn:hover {
+            background: #d97706;
+            transform: scale(1.12);
+        }
+
+        /* Badge "Nuevo" / "Oferta" */
+        .tn-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #98c544;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .tn-badge.oferta {
+            background: #f59e0b;
+        }
+
+        /* Wrapper embed Tienda Nube */
+        .tn-embed-wrap {
+            width: 100%;
+            min-height: 480px;
+            position: relative;
+        }
+
+        /* Loading skeleton mientras carga el iframe */
+        .tn-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 64px 0;
+            color: rgba(255, 255, 255, .4);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .tn-loading-spinner {
+            width: 42px;
+            height: 42px;
+            border: 3px solid rgba(152, 197, 68, .2);
+            border-top-color: #98c544;
+            border-radius: 50%;
+            animation: tnSpin .8s linear infinite;
+        }
+
+        @keyframes tnSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .tn-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tn-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .tn-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tn-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <!-- ★★★ FIN del bloque <style> ★★★ -->
+
+
+    <!-- TIENDA ONLINE -->
+    <section id="tienda">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tn-header">
+                <div>
+                    <div class="tn-label">Tienda Online</div>
+                    <div class="tn-title">PRODUCTOS PARA<br>TU RECUPERACIÓN</div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+                   <!-- Header  // El link "Ver tienda completa" debe apuntar a tu URL real de Tienda Nube (reemplazar el href)//--> 
+                    <a href="https://TU-TIENDA.mitiendanube.com"  target="_blank" class="tn-cta-link">
+                        <i class="fa-solid fa-store"></i> Ver tienda completa
+                    </a>
+                    <a href="https://wa.me/543794775341?text=Hola!%20Quiero%20consultar%20sobre%20un%20producto"
+                        target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;
+                              border-radius:50px;border:1.5px solid rgba(26,165,165,.4);
+                              color:#1aa5a5;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;
+                              text-decoration:none;transition:all .2s;"
+                        onmouseover="this.style.background='rgba(26,165,165,.1)'"
+                        onmouseout="this.style.background='transparent'">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════
+                 EMBED DE TIENDA NUBE
+                 
+                 OPCIÓN A — Buy Button (recomendada si tenés
+                 los IDs de producto de Tienda Nube):
+                 Ir a tu panel → Canales de venta → Buy Button
+                 → copiá el script de cada producto y pegalo
+                 dentro de .tn-grid reemplazando las cards.
+
+                 OPCIÓN B — iframe de la tienda completa
+                 (más simple, carga toda la tienda incrustada):
+                 Descomentar el bloque iframe de abajo y
+                 comentar el bloque .tn-grid.
+            ══════════════════════════════════════════════════ -->
+
+            <!-- ── OPCIÓN B: iframe tienda completa (descomentar si elegís esta) ──
+            <div class="tn-embed-wrap">
+                <div class="tn-loading" id="tnLoading">
+                    <div class="tn-loading-spinner"></div>
+                    <span>Cargando tienda…</span>
+                </div>
+                <iframe
+                    src="https://TU-TIENDA.mitiendanube.com"  ★ CAMBIAR
+                    width="100%"
+                    style="min-height:600px;border:none;border-radius:14px;display:block;"
+                    onload="document.getElementById('tnLoading').style.display='none';this.style.display='block';"
+                    loading="lazy"
+                    title="Tienda TECNOMEDIC"
+                ></iframe>
+            </div>
+            ── FIN OPCIÓN B ── -->
+
+            <!-- ── OPCIÓN A: Buy Button de Tienda Nube por producto ──
+                 Cada <div class="tn-card"> se reemplaza por el
+                 script que genera Tienda Nube en tu panel.
+                 El script crea su propio widget; el .tn-card
+                 actúa como "wrapper" de presentación.
+                 
+                 Estructura recomendada:
+                 <div class="tn-card">
+                   [script de Tienda Nube aquí]
+                 </div>
+            ── -->
+
+            <!-- ── OPCIÓN A — Cards manuales (estado actual, funciona sin Tienda Nube) ── -->
+            <div class="tn-grid" id="tnGrid">
+
+                <!-- PRODUCTO 1 — Audífonos -->
+                <div class="tn-card">
+                    <div class="tn-card-img" style="position:relative;">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80"
+                            alt="Audífonos Digitales Premium" loading="lazy" />
+                        <!-- ★ REEMPLAZAR el <img> con el script de Tienda Nube cuando lo tengas -->
+                        <!-- Ejemplo:
+                        <script src="https://TU-TIENDA.mitiendanube.com/buy-button/ID_PRODUCTO.js"
+                                data-store="TU_TIENDA"
+                                data-product="ID_PRODUCTO"
+                                data-button-bg="#98c544"
+                                data-button-color="#fff"
+                                charset="utf-8"></script>
+                        -->
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Audiología</div>
+                        <div class="tn-card-name">Audífonos Digitales Premium</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+audífonos','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2 — Pilas -->
+                <div class="tn-card">
+                    <div class="tn-card-img">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80"
+                            alt="Pilas para Audífonos" loading="lazy" />
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Audiología</div>
+                        <div class="tn-card-name">Pilas para Audífonos — Pack x60</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+pilas+para+audífonos','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3 — Silla de ruedas -->
+                <div class="tn-card">
+                    <div class="tn-card-img">
+                        <img src="https://images.unsplash.com/photo-1559234938-83d09e93e0d4?w=400&q=80"
+                            alt="Silla de Ruedas Plegable" loading="lazy" />
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Ortopedia</div>
+                        <div class="tn-card-name">Silla de Ruedas Plegable</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+silla+de+ruedas','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4 — Suplemento -->
+                <div class="tn-card">
+                    <div class="tn-card-img" style="position:relative;">
+                        <div class="tn-badge oferta">Oferta</div>
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80"
+                            alt="Suplemento Proteico" loading="lazy" />
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Nutrición</div>
+                        <div class="tn-card-name">Suplemento Proteico Recuperación</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+suplemento+proteico','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 5 — Muletas (ejemplo extra) -->
+                <div class="tn-card">
+                    <div class="tn-card-img">
+                        <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=400&q=80" alt="Muletas"
+                            loading="lazy" />
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Ortopedia</div>
+                        <div class="tn-card-name">Muletas Regulables Aluminio</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+muletas','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 6 — Bastón (ejemplo extra) -->
+                <div class="tn-card">
+                    <div class="tn-card-img" style="position:relative;">
+                        <div class="tn-badge">Nuevo</div>
+                        <img src="https://images.unsplash.com/photo-1559234938-83d09e93e0d4?w=400&q=80"
+                            alt="Bastón ortopédico" loading="lazy" />
+                    </div>
+                    <div class="tn-card-body">
+                        <div class="tn-card-cat">Ortopedia</div>
+                        <div class="tn-card-name">Bastón Plegable con Asiento</div>
+                        <div class="tn-card-footer">
+                            <div class="tn-card-price consultar">Consultar precio</div>
+                            <button class="tn-add-btn"
+                                onclick="window.open('https://wa.me/543794775341?text=Quiero+info+sobre+bastón','_blank')"
+                                title="Consultar por WhatsApp">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+                ★ PARA AGREGAR MÁS PRODUCTOS:
+                  Duplicar un <div class="tn-card"> y completar:
+                  - tn-card-cat  → categoría
+                  - tn-card-name → nombre del producto
+                  - tn-card-price → precio o "Consultar precio"
+                  - img src → foto del producto
+                  - data del link de WhatsApp → nombre del producto en el texto
+
+                ★ CUANDO TENGAS TIENDA NUBE ACTIVA:
+                  Panel Tienda Nube → Canales de venta → Buy Button
+                  → Seleccionar producto → Copiar código
+                  → Pegar dentro del <div class="tn-card">
+                     en lugar del <img>
+                -->
+
+            </div> <!-- /tn-grid -->
+
+            <!-- Pie de sección: total de categorías -->
+            <div style="display:flex;justify-content:center;gap:24px;margin-top:44px;flex-wrap:wrap;">
+                <a href="https://wa.me/543794775341?text=Quiero+ver+el+catálogo+de+ortopedia" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                          border-radius:50px;border:1px solid rgba(26,165,165,.3);color:#1aa5a5;
+                          font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+                          text-decoration:none;transition:all .2s;"
+                    onmouseover="this.style.background='rgba(26,165,165,.08)'"
+                    onmouseout="this.style.background='transparent'">
+                    <i class="fa-solid fa-wheelchair"></i> Ortopedia
+                </a>
+                <a href="https://wa.me/543794775341?text=Quiero+ver+el+catálogo+de+audiología" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                          border-radius:50px;border:1px solid rgba(26,165,165,.3);color:#1aa5a5;
+                          font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+                          text-decoration:none;transition:all .2s;"
+                    onmouseover="this.style.background='rgba(26,165,165,.08)'"
+                    onmouseout="this.style.background='transparent'">
+                    <i class="fa-solid fa-ear-listen"></i> Audiología
+                </a>
+                <a href="https://wa.me/543794775341?text=Quiero+ver+el+catálogo+de+nutrición" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                          border-radius:50px;border:1px solid rgba(26,165,165,.3);color:#1aa5a5;
+                          font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+                          text-decoration:none;transition:all .2s;"
+                    onmouseover="this.style.background='rgba(26,165,165,.08)'"
+                    onmouseout="this.style.background='transparent'">
+                    <i class="fa-solid fa-apple-whole"></i> Nutrición
+                </a>
+                <a href="https://wa.me/543794775341?text=Quiero+ver+el+catálogo+de+insumos" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                          border-radius:50px;border:1px solid rgba(26,165,165,.3);color:#1aa5a5;
+                          font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+                          text-decoration:none;transition:all .2s;"
+                    onmouseover="this.style.background='rgba(26,165,165,.08)'"
+                    onmouseout="this.style.background='transparent'">
+                    <i class="fa-solid fa-kit-medical"></i> Insumos médicos
+                </a>
+            </div>
+
+        </div>
+    </section>

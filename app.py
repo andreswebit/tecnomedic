@@ -623,6 +623,9 @@ def whatsapp_bot():
             log.error(f"Error en bot WA: {e}")
     return '<Response></Response>', 200, {'Content-Type': 'text/xml'}
 
+@app.route('/tienda')
+def tienda():
+    return render_template('tienda_section.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

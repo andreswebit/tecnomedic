@@ -1438,37 +1438,149 @@
             box-shadow: 0 8px 28px rgba(245, 158, 11, .4)
         }
 
-        /* TESTIMONIOS — grilla 4 columnas con video-thumbnail */
-        #testimonios { padding: 96px 0; background: var(--g50, #f8fafc) }
-        .testim-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; margin-top: 48px }
+        /* TESTIMONIOS */
+        #testimonios {
+            padding: 96px 0
+        }
 
-                .testim-card { background:#fff; border-radius:18px; overflow:hidden; border:1px solid rgba(0,0,0,.07); box-shadow:0 2px 12px rgba(0,0,0,.06); display:flex; flex-direction:column; transition:transform .25s,box-shadow .25s }
-        .testim-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(0,0,0,.12) }
-        .testim-media { position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--navy,#0d1b2a); cursor:pointer }
-        .testim-media img,.testim-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s }
-        .testim-card:hover .testim-media img { transform:scale(1.04) }
-        .testim-media .tm-video { display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
-        .testim-media.playing .tm-thumb { display:none }
-        .testim-media.playing .tm-video  { display:block }
-        .testim-media.playing .tm-play-btn { display:none }
-        .tm-play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(13,27,42,.3); transition:background .2s }
-        .tm-play-btn:hover { background:rgba(13,27,42,.5) }
-        .tm-play-icon { width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--green,#98c544); box-shadow:0 6px 20px rgba(0,0,0,.25); transition:transform .2s }
-        .tm-play-btn:hover .tm-play-icon { transform:scale(1.12) }
-        .tm-video-badge { position:absolute; top:10px; right:10px; background:rgba(13,27,42,.75); backdrop-filter:blur(6px); color:#fff; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 9px; border-radius:4px; display:flex; align-items:center; gap:5px }
-        .tm-video-badge i { color:var(--green,#98c544) }
-        .testim-body { padding:18px; display:flex; flex-direction:column; flex:1 }
-        .testim-brand { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green,#98c544); margin-bottom:10px }
-        .testim-icon  { color:var(--green,#98c544); font-size:20px; margin-bottom:6px }
-        .testim-quote { font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--navy,#0d1b2a); line-height:1.4; margin-bottom:10px; flex:1 }
-        .testim-result { background:var(--green,#98c544); color:#fff; font-size:12px; font-weight:600; padding:6px 10px; border-radius:6px; display:inline-block; margin-bottom:12px }
-        .testim-name  { font-size:13px; color:var(--navy,#0d1b2a); font-weight:700 }
-        .testim-role  { font-size:11px; color:var(--g400,#94a3b8); margin-top:2px }
-        .testim-badge { display:inline-flex; align-items:center; gap:4px; background:rgba(152,197,68,.1); color:var(--green-dk,#7aad2e); font-size:10px; font-weight:700; padding:3px 8px; border-radius:50px; margin-top:10px; width:fit-content }
-        @media(max-width:1024px){ .testim-grid{ grid-template-columns:repeat(2,1fr) } }
-        @media(max-width:580px) { .testim-grid{ grid-template-columns:1fr } }
+        .testim-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 12px;
+            scrollbar-width: none;
+            margin-top: 52px
+        }
 
-        /* FOOTER */        /* FOOTER */
+        .testim-track::-webkit-scrollbar {
+            display: none
+        }
+
+        .testim-card {
+            min-width: 460px;
+            border-radius: 18px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            scroll-snap-align: start;
+            border: 1px solid var(--g100)
+        }
+
+        .testim-img {
+            background: var(--navy-mid);
+            overflow: hidden
+        }
+
+        .testim-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain
+        }
+
+        .testim-body {
+            padding: 30px 26px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .testim-brand {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px
+        }
+
+        .testim-icon {
+            color: var(--green);
+            font-size: 26px;
+            margin-bottom: 8px
+        }
+
+        .testim-quote {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--navy);
+            line-height: 1.35;
+            margin-bottom: 14px
+        }
+
+        .testim-result {
+            background: var(--green);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 7px;
+            display: inline-block;
+            margin-bottom: 18px
+        }
+
+        .testim-name {
+            font-size: 13px;
+            color: var(--g800);
+            font-weight: 600
+        }
+
+        .testim-role {
+            font-size: 11px;
+            color: var(--g400)
+        }
+
+        .testim-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(152,197,68,.12);
+            color: var(--green-dk);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 50px;
+            margin-top: 8px
+        }
+
+        .testim-nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 26px
+        }
+
+        .testim-nav button {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid var(--g100);
+            background: #fff;
+            cursor: pointer;
+            color: var(--g600);
+            font-size: 15px;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .testim-nav button:hover {
+            border-color: var(--green);
+            color: var(--green)
+        }
+
+        /* testimonio con video*/
+        .testim-img video{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:grid;
+        }
+
+        /* FOOTER */
         footer {
             background: var(--navy);
             color: #fff;
@@ -1782,261 +1894,6 @@
 
             .prod-grid {
                 grid-template-columns: repeat(4, 220px)
-            }
-        }
-    
-        /* ── TIENDA ONLINE ── */
-/* ════════ TIENDA NUBE — Estilos integrados al index ════════ */
-
-        #tienda {
-            background: var(--navy, #0d1b2a);
-            padding: 96px 0;
-        }
-
-        /* Header de sección */
-        .tn-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .tn-label {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(152, 197, 68, .75);
-            /* brand lime */
-            margin-bottom: 8px;
-        }
-
-        .tn-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: clamp(30px, 5vw, 50px);
-            color: #edf1f0;
-            /* brand white */
-            line-height: 1.0;
-        }
-
-        .tn-cta-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 22px;
-            border-radius: 50px;
-            background: #98c544;
-            /* brand green */
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            transition: background .2s, transform .2s, box-shadow .2s;
-            white-space: nowrap;
-        }
-
-        .tn-cta-link:hover {
-            background: #7aad2e;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(152, 197, 68, .35);
-        }
-
-        /* ── Grilla de productos manuales (respaldo visual) ── */
-        .tn-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .tn-card {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(26, 165, 165, .18);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: transform .25s, box-shadow .25s, border-color .25s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tn-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
-            border-color: rgba(152, 197, 68, .35);
-        }
-
-        .tn-card-img {
-            aspect-ratio: 1;
-            overflow: hidden;
-            background: rgba(255, 255, 255, .06);
-        }
-
-        .tn-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .45s ease;
-            display: block;
-        }
-
-        .tn-card:hover .tn-card-img img {
-            transform: scale(1.06);
-        }
-
-        .tn-card-body {
-            padding: 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tn-card-cat {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #1aa5a5;
-            /* teal */
-            margin-bottom: 6px;
-        }
-
-        .tn-card-name {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            color: #edf1f0;
-            line-height: 1.25;
-            margin-bottom: 6px;
-            flex: 1;
-        }
-
-        .tn-card-price {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 20px;
-            color: #98c544;
-        }
-
-        .tn-card-price.consultar {
-            font-size: 15px;
-            color: #8aada9;
-        }
-
-        .tn-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, .07);
-        }
-
-        .tn-add-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: #f59e0b;
-            /* amber */
-            color: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background .2s, transform .2s;
-            flex-shrink: 0;
-        }
-
-        .tn-add-btn:hover {
-            background: #d97706;
-            transform: scale(1.12);
-        }
-
-        /* Badge "Nuevo" / "Oferta" */
-        .tn-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #98c544;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 3px 9px;
-            border-radius: 4px;
-            z-index: 2;
-        }
-
-        .tn-badge.oferta {
-            background: #f59e0b;
-        }
-
-        /* Wrapper embed Tienda Nube */
-        .tn-embed-wrap {
-            width: 100%;
-            min-height: 480px;
-            position: relative;
-        }
-
-        /* Loading skeleton mientras carga el iframe */
-        .tn-loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            padding: 64px 0;
-            color: rgba(255, 255, 255, .4);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-        }
-
-        .tn-loading-spinner {
-            width: 42px;
-            height: 42px;
-            border: 3px solid rgba(152, 197, 68, .2);
-            border-top-color: #98c544;
-            border-radius: 50%;
-            animation: tnSpin .8s linear infinite;
-        }
-
-        @keyframes tnSpin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .tn-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .tn-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .tn-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .tn-header {
-                flex-direction: column;
-                align-items: flex-start;
             }
         }
     </style>
@@ -2652,12 +2509,13 @@
         </div>
     </section>
 
+    <!-- PRODUCTOS -->
 
 
     <!-- TIENDA ONLINE -->
-<section id="tienda">
-            {% include 'tienda_section.html' %}
-</section>
+    <section id="tienda">
+        {% include 'tienda_section.html' %}
+    </section>
 
     <!-- TURNOS -->
     <section id="turnos">
@@ -2679,124 +2537,76 @@
         </div>
     </section>
 
-        <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios">
         <div class="container">
             <div class="section-label">Lo que dicen nuestros pacientes</div>
-            <h2 style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,44px);color:var(--navy);">
+            <h2
+                style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(30px,4vw,46px);color:var(--navy);">
                 TESTIMONIOS REALES</h2>
-
-            <!-- Grilla 4 columnas -->
-            <div class="testim-grid">
-
-                <!-- CARD 1 — Imagen simple -->
-                <div class="testim-card">
-                    <div class="testim-media">
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80"
-                             alt="Susana M." loading="lazy" />
-                    </div>
-                    <div class="testim-body">
+            <div class="testim-track" id="testimTrack">
+                <!-- <div class="testim-card">
+                    <div class="testim-img">
+                        <video 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline 
+                        controls
+                        loading="lazy"
+                        alt="Paciente">            
+                        <source src="/static/video/deporte2.mp4"  alt="Paciente">
+                        </video>
+                         -->
+                    <!-- <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
                         <div class="testim-quote">"Mi herida no cerraba hace 2 años."</div>
-                        <div class="testim-result">En 8 sesiones, cicatrizó.</div>
+                        <div class="testim-result">En 8 sesiones de cámara, cicatrizó.</div>
                         <div class="testim-name">Susana M.</div>
                         <div class="testim-role">Paciente de heridas complejas</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
-                </div>
-
-                <!-- CARD 2 — Video con thumbnail (click para reproducir) -->
+                </div> -->
                 <div class="testim-card">
-                    <div class="testim-media" id="tmMedia1">
-                        <!-- Thumbnail: reemplazá src por un frame del video -->
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80"
-                             alt="Video testimonio" loading="lazy" />
-                        <!-- Video: reemplazá src por tu video real -->
-                        <video class="tm-video" id="tmVideo1" controls preload="none">
-                            <source src="/static/video/deporte2.mp4" type="video/mp4" />
-                        </video>
-                        <!-- Botón play -->
-                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia1','tmVideo1')">
-                            <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="tm-video-badge">
-                            <i class="fa-solid fa-video"></i> Video
-                        </div>
-                    </div>
+                    <div class="testim-img">
+                        <img
+                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Paciente"
+                            loading="lazy" /></div>
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
                         <div class="testim-quote">"Tenía pie diabético y me dijeron que iban a amputar."</div>
-                        <div class="testim-result">Con el tratamiento, conservé mi pie.</div>
+                        <div class="testim-result">Con el tratamiento integral, conservé mi pie.</div>
                         <div class="testim-name">Roberto C.</div>
                         <div class="testim-role">Paciente de pie diabético</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
                 </div>
-
-                <!-- CARD 3 — Imagen simple -->
                 <div class="testim-card">
-                    <div class="testim-media">
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1553867745-6e651a6b5b1f?w=500&q=80"
-                             alt="Lucía P." loading="lazy" />
-                    </div>
+                    <div class="testim-img"><img
+                            src="https://images.unsplash.com/photo-1553867745-6e651a6b5b1f?w=400&q=80" alt="Paciente"
+                            loading="lazy" /></div>
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
                         <div class="testim-quote">"Volví al deporte 3 semanas antes de lo esperado."</div>
-                        <div class="testim-result">La OHB aceleró mi recuperación.</div>
+                        <div class="testim-result">La OHB aceleró mi recuperación post-cirugía.</div>
                         <div class="testim-name">Lucía P.</div>
                         <div class="testim-role">Deportista amateur</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
-                </div>
-
-                <!-- CARD 4 — Video con thumbnail (click para reproducir) -->
-                <div class="testim-card">
-                    <div class="testim-media" id="tmMedia2">
-                        <!-- Thumbnail del video: capturá un frame o usá una imagen representativa -->
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
-                             alt="Video testimonio deportista" loading="lazy" />
-                        <!-- Video: reemplazá src por tu segundo video -->
-                        <video class="tm-video" id="tmVideo2" controls preload="none">
-                            <source src="/static/video/deporte2.mp4" type="video/mp4" />
-                        </video>
-                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia2','tmVideo2')">
-                            <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="tm-video-badge">
-                            <i class="fa-solid fa-video"></i> Video
-                        </div>
-                    </div>
-                    <div class="testim-body">
-                        <div class="testim-brand">TECNOMEDIC SALUD</div>
-                        <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="testim-quote">"Sentía el cuerpo agotado después de cada entreno."</div>
-                        <div class="testim-result">Mejora notoria desde la 3ª sesión.</div>
-                        <div class="testim-name">Martín R.</div>
-                        <div class="testim-role">Deportista de alto rendimiento</div>
-                        <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
-                    </div>
-                </div>
-
-            </div><!-- /testim-grid -->
-
-            <!--
-              ★ PARA AGREGAR TARJETAS:
-                – Imagen: copiar CARD 1 o CARD 3
-                – Video:  copiar CARD 2 o CARD 4 y cambiar:
-                    · id="tmMedia3" id="tmVideo3" (número nuevo)
-                    · src del <video> por tu archivo
-                    · src del <img> por el thumbnail
-                    · onclick="playTestimVideo('tmMedia3','tmVideo3')"
-            -->
-
+                </div>   
+    </div>
+        <div class="testim-nav">
+                <button id="tPrev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button id="tNext"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+        
+    </div>
+
+
+    
     </section>
 
     <!-- FOOTER -->
@@ -2989,20 +2799,6 @@
         const tt = document.getElementById('testimTrack');
         document.getElementById('tNext').onclick = () => tt.scrollBy({ left: 490, behavior: 'smooth' });
         document.getElementById('tPrev').onclick = () => tt.scrollBy({ left: -490, behavior: 'smooth' });
-    
-        /* Testimonios: reproducir video al click del thumbnail */
-        function playTestimVideo(mediaId, videoId) {
-            const media = document.getElementById(mediaId);
-            const video = document.getElementById(videoId);
-            if (!media || !video) return;
-            media.classList.add('playing');
-            video.play().catch(() => {});
-            // Si el usuario pausa el video, mostrar thumbnail de nuevo
-            video.addEventListener('pause', function onPause() {
-                media.classList.remove('playing');
-                video.removeEventListener('pause', onPause);
-            }, { once: true });
-        }
     </script>
 </body>
 
