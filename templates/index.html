@@ -19,26 +19,34 @@
     <style>
         :root {
             /* ── Paleta de marca TECNOMEDIC ── */
-            --green:     #98c544;   /* Lima – color "MEDIC" del logo */
-            --green-dk:  #7aad2e;   /* Lima oscuro */
-            --teal:      #1aa5a5;   /* Teal – color secundario de marca */
-            --teal-dk:   #148080;   /* Teal oscuro */
-            --navy:      #0d1b2a;   /* Dark background */
-            --navy-mid:  #1a3354;
-            --text:      #454545;   /* Texto oscuro de marca */
-            --bg-light:  #edf1f0;   /* Fondo claro de marca */
-            --amber:     #f59e0b;
-            --amber-dk:  #d97706;
-            --white:     #ffffff;
-            --g50:       #edf1f0;   /* usa el bg-light de marca */
-            --g100:      #e2e8e6;
-            --g300:      #b0bfbc;
-            --g400:      #8a9e9b;
-            --g600:      #555f5e;
-            --g800:      #333a39;
-            --r:         12px;
-            --sh:        0 8px 24px rgba(0,0,0,.10);
-            --shl:       0 20px 60px rgba(0,0,0,.16);
+            --green: #98c544;
+            /* Lima – color "MEDIC" del logo */
+            --green-dk: #7aad2e;
+            /* Lima oscuro */
+            --teal: #1aa5a5;
+            /* Teal – color secundario de marca */
+            --teal-dk: #148080;
+            /* Teal oscuro */
+            --navy: #0d1b2a;
+            /* Dark background */
+            --navy-mid: #1a3354;
+            --text: #454545;
+            /* Texto oscuro de marca */
+            --bg-light: #edf1f0;
+            /* Fondo claro de marca */
+            --amber: #f59e0b;
+            --amber-dk: #d97706;
+            --white: #ffffff;
+            --g50: #edf1f0;
+            /* usa el bg-light de marca */
+            --g100: #e2e8e6;
+            --g300: #b0bfbc;
+            --g400: #8a9e9b;
+            --g600: #555f5e;
+            --g800: #333a39;
+            --r: 12px;
+            --sh: 0 8px 24px rgba(0, 0, 0, .10);
+            --shl: 0 20px 60px rgba(0, 0, 0, .16);
         }
 
         *,
@@ -115,7 +123,7 @@
         .btn-green:hover {
             background: var(--green-dk);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(152,197,68,.38)
+            box-shadow: 0 8px 24px rgba(152, 197, 68, .38)
         }
 
         .btn-outline {
@@ -252,8 +260,15 @@
         }
 
         @keyframes mmFadeIn {
-            from { opacity: 0; transform: translateY(-8px) }
-            to   { opacity: 1; transform: translateY(0) }
+            from {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
         }
 
         .mobile-menu a {
@@ -263,7 +278,9 @@
             color: var(--navy)
         }
 
-        .mobile-menu a:hover { color: var(--green) }
+        .mobile-menu a:hover {
+            color: var(--green)
+        }
 
         /* Botón cerrar — grande, visible, con fondo */
         .mobile-close {
@@ -419,8 +436,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(10,137,57,.18);
-            border: 1px solid rgba(152,197,68,.38);
+            background: rgba(10, 137, 57, .18);
+            border: 1px solid rgba(152, 197, 68, .38);
             color: #6ee7a0;
             padding: 8px 16px;
             border-radius: 50px;
@@ -530,7 +547,9 @@
 
         .ncar-progress {
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             z-index: 20
         }
@@ -573,7 +592,9 @@
         }
 
         /* sin la línea verde separadora (en este layout no va) */
-        .ncar-text::after { display: none }
+        .ncar-text::after {
+            display: none
+        }
 
         .ncar-tag {
             display: inline-flex;
@@ -636,9 +657,10 @@
             position: relative;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,.14);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .14);
             background: var(--g100);
-            aspect-ratio: 8/6          /* imagen contenida, no full-bleed */
+            aspect-ratio: 8/6
+                /* imagen contenida, no full-bleed */
         }
 
         .ncar-visual img {
@@ -654,7 +676,8 @@
         }
 
         /* iframes de video también contenidos */
-        .ncar-visual video, iframe {
+        .ncar-visual video,
+        iframe {
             position: absolute;
             inset: 0;
             width: 100%;
@@ -663,7 +686,11 @@
             display: block
         }
 
-        .ncar-overlay-left { display: none }  /* sin overlay en este estilo */
+        .ncar-overlay-left {
+            display: none
+        }
+
+        /* sin overlay en este estilo */
 
         /* ── Badge de estadística (estilo tarjeta verde, como en la screenshot) ── */
         .ncar-stat {
@@ -675,7 +702,7 @@
             border-radius: 12px;
             padding: 14px 18px;
             min-width: 140px;
-            box-shadow: 0 8px 24px rgba(152,197,68,.35)
+            box-shadow: 0 8px 24px rgba(152, 197, 68, .35)
         }
 
         .ncar-stat-num {
@@ -688,7 +715,7 @@
 
         .ncar-stat-txt {
             font-size: 11px;
-            color: rgba(255,255,255,.85);
+            color: rgba(255, 255, 255, .85);
             line-height: 1.4;
             margin-top: 2px
         }
@@ -699,7 +726,7 @@
             bottom: 14px;
             left: 14px;
             z-index: 5;
-            background: rgba(13,27,42,.78);
+            background: rgba(13, 27, 42, .78);
             backdrop-filter: blur(8px);
             border-radius: 8px;
             padding: 8px 12px;
@@ -710,19 +737,29 @@
         }
 
         .ncar-badge-logo {
-            width: 28px; height: 28px;
+            width: 28px;
+            height: 28px;
             border-radius: 5px;
-            overflow: hidden; flex-shrink: 0
+            overflow: hidden;
+            flex-shrink: 0
         }
 
-        .ncar-badge-logo img { width:100%;height:100%;object-fit:cover }
+        .ncar-badge-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
 
         .ncar-badge-name {
-            font-size: 11px; font-weight: 700; color: #fff; line-height: 1.2
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2
         }
 
         .ncar-badge-sub {
-            font-size: 9px; color: var(--g400)
+            font-size: 9px;
+            color: var(--g400)
         }
 
         /* ── Controles: sobre fondo blanco, centrados ── */
@@ -737,7 +774,8 @@
         }
 
         .ncar-btn {
-            width: 38px; height: 38px;
+            width: 38px;
+            height: 38px;
             border: 2px solid var(--g100);
             border-radius: 50%;
             cursor: pointer;
@@ -764,7 +802,8 @@
         }
 
         .ncar-dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: var(--g300, #cbd5e1);
             cursor: pointer;
@@ -788,8 +827,13 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .ncar-slide { padding: 48px 5% }
-            .ncar-text  { padding-right: 28px }
+            .ncar-slide {
+                padding: 48px 5%
+            }
+
+            .ncar-text {
+                padding-right: 28px
+            }
         }
 
         @media (max-width: 640px) {
@@ -797,9 +841,22 @@
                 grid-template-columns: 1fr;
                 padding: 36px 20px
             }
-            .ncar-text  { padding-right: 0; margin-bottom: 24px }
-            .ncar-visual { aspect-ratio: 16/9 }
-            .ncar-stat  { left: 8px; bottom: 8px; min-width: 110px; padding: 10px 12px }
+
+            .ncar-text {
+                padding-right: 0;
+                margin-bottom: 24px
+            }
+
+            .ncar-visual {
+                aspect-ratio: 16/9
+            }
+
+            .ncar-stat {
+                left: 8px;
+                bottom: 8px;
+                min-width: 110px;
+                padding: 10px 12px
+            }
         }
 
         /* SERVICIOS */
@@ -843,7 +900,7 @@
         }
 
         .si-g {
-            background: rgba(152,197,68,.12);
+            background: rgba(152, 197, 68, .12);
             color: var(--green)
         }
 
@@ -905,8 +962,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255,255,255,.12) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 60% at 10% 90%, rgba(0,0,0,.08) 0%, transparent 60%);
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 255, 255, .12) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 10% 90%, rgba(0, 0, 0, .08) 0%, transparent 60%);
             pointer-events: none
         }
 
@@ -918,7 +975,7 @@
         }
 
         .equipo-header .section-label {
-            color: rgba(255,255,255,.75)
+            color: rgba(255, 255, 255, .75)
         }
 
         .equipo-title {
@@ -939,7 +996,7 @@
 
         .doctors-grid {
             display: grid;
-            grid-template-columns: repeat(2,  1fr); 
+            grid-template-columns: repeat(2, 1fr);
             gap: 36px
         }
 
@@ -954,24 +1011,25 @@
             text-align: center;
             position: relative;
             transition: transform .25s, box-shadow .25s;
-            box-shadow: 0 8px 32px rgba(0,0,0,.12)
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .12)
         }
 
         .doctor-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 52px rgba(0,0,0,.18)
+            box-shadow: 0 20px 52px rgba(0, 0, 0, .18)
         }
 
         /* Foto circular que sobresale 52 px por encima del card */
         .doctor-photo-wrap {
             width: 140px;
             height: 140px;
-            margin-top: -52px;         /* sube la foto fuera del card */
+            margin-top: -52px;
+            /* sube la foto fuera del card */
             margin-bottom: 20px;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid #fff;
-            box-shadow: 0 8px 24px rgba(0,0,0,.14);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
             flex-shrink: 0;
             background: var(--g100)
         }
@@ -1014,7 +1072,7 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            border: 2px solid rgba(152,197,68,.25);
+            border: 2px solid rgba(152, 197, 68, .25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1042,11 +1100,21 @@
         }
 
         @media (max-width: 900px) {
-            .doctors-grid { grid-template-columns: 1fr 1fr }
+            .doctors-grid {
+                grid-template-columns: 1fr 1fr
+            }
         }
+
         @media (max-width: 580px) {
-            .doctors-grid { grid-template-columns: 1fr }
-            .doctor-photo-wrap { width: 110px; height: 110px; margin-top: -42px }
+            .doctors-grid {
+                grid-template-columns: 1fr
+            }
+
+            .doctor-photo-wrap {
+                width: 110px;
+                height: 110px;
+                margin-top: -42px
+            }
         }
 
         /* ARTÍCULOS */
@@ -1079,26 +1147,26 @@
             transition: all .25s;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 2px 12px rgba(0,0,0,.06)
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06)
         }
 
         .art-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(0,0,0,.13)
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .13)
         }
 
         .art-img {
             aspect-ratio: unset;
             overflow: hidden;
             background: var(--g300);
-            
+
         }
 
         .art-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform ;
+            transition: transform;
             border-radius: 50px 50px 30px 30px;
 
         }
@@ -1116,7 +1184,7 @@
 
         .art-cat {
             display: inline-block;
-            background: rgba(152,197,68,.12);
+            background: rgba(152, 197, 68, .12);
             color: var(--green-dk);
             font-size: 10px;
             font-weight: 700;
@@ -1177,7 +1245,7 @@
         .art-card.feat {
             grid-column: unset;
             display: grid;
-            grid-template-columns: repeat(1, 1fr) ;
+            grid-template-columns: repeat(1, 1fr);
             align-items: unset
         }
 
@@ -1214,7 +1282,7 @@
             font-size: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(10,137,57,.7);
+            color: rgba(10, 137, 57, .7);
             margin-bottom: 8px
         }
 
@@ -1256,7 +1324,7 @@
 
         .prod-card:hover {
             background: rgba(255, 255, 255, .09);
-            border-color: rgba(10,137,57,.28);
+            border-color: rgba(10, 137, 57, .28);
             transform: translateY(-4px)
         }
 
@@ -1439,36 +1507,213 @@
         }
 
         /* TESTIMONIOS — grilla 4 columnas con video-thumbnail */
-        #testimonios { padding: 96px 0; background: var(--g50, #f8fafc) }
-        .testim-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; margin-top: 48px }
+        #testimonios {
+            padding: 96px 0;
+            background: var(--g50, #f8fafc)
+        }
 
-                .testim-card { background:#fff; border-radius:18px; overflow:hidden; border:1px solid rgba(0,0,0,.07); box-shadow:0 2px 12px rgba(0,0,0,.06); display:flex; flex-direction:column; transition:transform .25s,box-shadow .25s }
-        .testim-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(0,0,0,.12) }
-        .testim-media { position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--navy,#0d1b2a); cursor:pointer }
-        .testim-media img,.testim-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s }
-        .testim-card:hover .testim-media img { transform:scale(1.04) }
-        .testim-media .tm-video { display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
-        .testim-media.playing .tm-thumb { display:none }
-        .testim-media.playing .tm-video  { display:block }
-        .testim-media.playing .tm-play-btn { display:none }
-        .tm-play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(13,27,42,.3); transition:background .2s }
-        .tm-play-btn:hover { background:rgba(13,27,42,.5) }
-        .tm-play-icon { width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--green,#98c544); box-shadow:0 6px 20px rgba(0,0,0,.25); transition:transform .2s }
-        .tm-play-btn:hover .tm-play-icon { transform:scale(1.12) }
-        .tm-video-badge { position:absolute; top:10px; right:10px; background:rgba(13,27,42,.75); backdrop-filter:blur(6px); color:#fff; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 9px; border-radius:4px; display:flex; align-items:center; gap:5px }
-        .tm-video-badge i { color:var(--green,#98c544) }
-        .testim-body { padding:18px; display:flex; flex-direction:column; flex:1 }
-        .testim-brand { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green,#98c544); margin-bottom:10px }
-        .testim-icon  { color:var(--green,#98c544); font-size:20px; margin-bottom:6px }
-        .testim-quote { font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--navy,#0d1b2a); line-height:1.4; margin-bottom:10px; flex:1 }
-        .testim-result { background:var(--green,#98c544); color:#fff; font-size:12px; font-weight:600; padding:6px 10px; border-radius:6px; display:inline-block; margin-bottom:12px }
-        .testim-name  { font-size:13px; color:var(--navy,#0d1b2a); font-weight:700 }
-        .testim-role  { font-size:11px; color:var(--g400,#94a3b8); margin-top:2px }
-        .testim-badge { display:inline-flex; align-items:center; gap:4px; background:rgba(152,197,68,.1); color:var(--green-dk,#7aad2e); font-size:10px; font-weight:700; padding:3px 8px; border-radius:50px; margin-top:10px; width:fit-content }
-        @media(max-width:1024px){ .testim-grid{ grid-template-columns:repeat(2,1fr) } }
-        @media(max-width:580px) { .testim-grid{ grid-template-columns:1fr } }
+        .testim-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin-top: 48px
+        }
 
-        /* FOOTER */        /* FOOTER */
+        .testim-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .testim-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .12)
+        }
+
+        .testim-media {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--navy, #0d1b2a);
+            cursor: pointer
+        }
+
+        .testim-media img,
+        .testim-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .4s
+        }
+
+        .testim-card:hover .testim-media img {
+            transform: scale(1.04)
+        }
+
+        .testim-media .tm-video {
+            display: none;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .testim-media.playing .tm-thumb {
+            display: none
+        }
+
+        .testim-media.playing .tm-video {
+            display: block
+        }
+
+        .testim-media.playing .tm-play-btn {
+            display: none
+        }
+
+        .tm-play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 27, 42, .3);
+            transition: background .2s
+        }
+
+        .tm-play-btn:hover {
+            background: rgba(13, 27, 42, .5)
+        }
+
+        .tm-play-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--green, #98c544);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+            transition: transform .2s
+        }
+
+        .tm-play-btn:hover .tm-play-icon {
+            transform: scale(1.12)
+        }
+
+        .tm-video-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(13, 27, 42, .75);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 9px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px
+        }
+
+        .tm-video-badge i {
+            color: var(--green, #98c544)
+        }
+
+        .testim-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+
+        .testim-brand {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green, #98c544);
+            margin-bottom: 10px
+        }
+
+        .testim-icon {
+            color: var(--green, #98c544);
+            font-size: 20px;
+            margin-bottom: 6px
+        }
+
+        .testim-quote {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--navy, #0d1b2a);
+            line-height: 1.4;
+            margin-bottom: 10px;
+            flex: 1
+        }
+
+        .testim-result {
+            background: var(--green, #98c544);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 12px
+        }
+
+        .testim-name {
+            font-size: 13px;
+            color: var(--navy, #0d1b2a);
+            font-weight: 700
+        }
+
+        .testim-role {
+            font-size: 11px;
+            color: var(--g400, #94a3b8);
+            margin-top: 2px
+        }
+
+        .testim-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(152, 197, 68, .1);
+            color: var(--green-dk, #7aad2e);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 50px;
+            margin-top: 10px;
+            width: fit-content
+        }
+
+        @media(max-width:1024px) {
+            .testim-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:580px) {
+            .testim-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* FOOTER */
+        /* FOOTER */
         footer {
             background: var(--navy);
             color: #fff;
@@ -1784,9 +2029,9 @@
                 grid-template-columns: repeat(4, 220px)
             }
         }
-    
+
         /* ── TIENDA ONLINE ── */
-/* ════════ TIENDA NUBE — Estilos integrados al index ════════ */
+        /* ════════ TIENDA NUBE — Estilos integrados al index ════════ */
 
         #tienda {
             background: var(--navy, #0d1b2a);
@@ -2050,28 +2295,27 @@
             <!-- <img class="nb-logo"
                 src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="TECNOMEDIC"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" /> -->
-            <img class="nb-logo" 
-            src="/static/img/tecno-logo.jpeg" alt="TECNOMEDIC"             
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <img class="nb-logo" src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="TECNOMEDIC"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
             <!-- <div class="nb-name">tecno<span>MEDIC</span></div> -->
         </div>
         <div class="nb-links">
             <a href="#servicios">Servicios</a>
             <a href="#novedades">Novedades</a>
             <a href="#equipo">Especialistas</a>
-            
+
         </div>
         <div style="display:flex;align-items:center;gap:12px;">
             <a href="/form" class="btn btn-dark" style="border-radius:10px;padding:11px 20px;">
                 <i class="fa-regular fa-calendar"></i> Reservar Turno
             </a>
-                  <!-- Login btn — -->
+            <!-- Login btn — -->
             <a href="/login" class="btn btn-dark" style="border-radius:10px;padding:11px 20px;">
-            <i class="fa-regular  "></i>    🔒 Acceso Admin
-            </a>            
+                <i class="fa-regular  "></i> 🔒 Acceso Admin
+            </a>
             <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         </div>
-                
+
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -2081,13 +2325,13 @@
         <span class="mobile-close-hint"><span></span>Cerrar</span>
         <a href="#servicios" onclick="closeMobile()">Servicios</a>
         <a href="#novedades" onclick="closeMobile()">Novedades</a>
-        <a href="#equipo"    onclick="closeMobile()">Especialistas</a>
-        
+        <a href="#equipo" onclick="closeMobile()">Especialistas</a>
+
         <a href="/form" class="btn btn-green" style="font-size:17px;margin-top:8px;">
             <i class="fa-regular fa-calendar-check"></i> Reservar Turno
         </a>
         <a href="/login" class="btn btn-green" style="font-size:17px;margin-top:8px;">
-            <i class="fa-regular "></i>    🔒 Acceso Admin
+            <i class="fa-regular "></i> 🔒 Acceso Admin
         </a>
 
         <div class="mobile-swipe-hint">
@@ -2181,187 +2425,188 @@
         </div>
 
         <div class="ncar-wrap">
-        <div class="ncar-track" id="ncarTrack">
+            <div class="ncar-track" id="ncarTrack">
 
-            <!-- SLIDE 1 · Video Facebook TECNOMEDIC (izq: texto, der: video FB) -->
-            <div class="ncar-slide">
-                <div class="ncar-text">
-                    <span class="ncar-tag"><i class="fa-brands fa-facebook"></i>&nbsp; Reel TECNOMEDIC</span>
-                    <h2 class="ncar-title">OXIGENOTERAPIA<br>HIPERBÁRICA</h2>
-                    <p class="ncar-excerpt">
-                        La Cámara Hiperbárica Revitalair 430 es la tecnología más avanzada para el tratamiento
-                        integral de heridas, pie diabético y recuperación deportiva.
-                        <br><br>
-                        Es un tratamiento no invasivo en el que la persona respira oxígeno al 100% dentro de 
-                        una cámara presurizada. Esto permite que el oxígeno llegue con mayor eficacia a
-                        tejidos dañados, ayudando a reducir inflamación, acelerar la cicatrización y mejorar 
-                        la recuperación de distintas lesiones y enfermedades. Según especialistas de , puede 
-                        disminuir hasta un 50% los tiempos de recuperación.
-                        <br><br>
-                        El tratamiento se utiliza como complemento médico en patologías como pie diabético,
-                        ulceras, lesiones musculares, problemas neurológicos, rehabilitación postquirúrgica
-                        y enfermedades inflamatorias. Entre sus beneficios se destacan la mejora del flujo 
-                        sanguíneo, la estimulación del colágeno y la reparación de tejidos. Las sesiones
-                        suelen durar entre 60 y 90 minutos y deben ser indicadas y supervisadas por un <strong>médico</strong>.
+                <!-- SLIDE 1 · Video Facebook TECNOMEDIC (izq: texto, der: video FB) -->
+                <div class="ncar-slide">
+                    <div class="ncar-text">
+                        <span class="ncar-tag"><i class="fa-brands fa-facebook"></i>&nbsp; Reel TECNOMEDIC</span>
+                        <h2 class="ncar-title">OXIGENOTERAPIA<br>HIPERBÁRICA</h2>
+                        <p class="ncar-excerpt">
+                            La Cámara Hiperbárica Revitalair 430 es la tecnología más avanzada para el tratamiento
+                            integral de heridas, pie diabético y recuperación deportiva.
+                            <br><br>
+                            Es un tratamiento no invasivo en el que la persona respira oxígeno al 100% dentro de
+                            una cámara presurizada. Esto permite que el oxígeno llegue con mayor eficacia a
+                            tejidos dañados, ayudando a reducir inflamación, acelerar la cicatrización y mejorar
+                            la recuperación de distintas lesiones y enfermedades. Según especialistas de , puede
+                            disminuir hasta un 50% los tiempos de recuperación.
+                            <br><br>
+                            El tratamiento se utiliza como complemento médico en patologías como pie diabético,
+                            ulceras, lesiones musculares, problemas neurológicos, rehabilitación postquirúrgica
+                            y enfermedades inflamatorias. Entre sus beneficios se destacan la mejora del flujo
+                            sanguíneo, la estimulación del colágeno y la reparación de tejidos. Las sesiones
+                            suelen durar entre 60 y 90 minutos y deben ser indicadas y supervisadas por un
+                            <strong>médico</strong>.
 
-                    </p>
-                    <ul class="ncar-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Tecnología FDA aprobada — Revitalair 430</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Sesiones de 60 a 90 min, sin dolor</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Resultados visibles desde las primeras sesiones
-                        </li>
-                    </ul>
-                    <a href="/form" class="btn btn-green" style="width:fit-content;">
-                        <i class="fa-regular fa-calendar-check"></i> Reservar sesión
-                    </a>
-                </div>
-            
-            
-                <div class="ncar-visual">
-                    <video controls autoplay muted loop autofullscreen
-                        src="/static/video/sede.mp4" title="Cámara Hiperbárica Revitalair 430 en TECNOMEDIC"
-                        scrolling="no" > </video>
-                    <div class="ncar-stat"> 
-                        <div class="ncar-stat-num">+500</div>
-                        <div class="ncar-stat-txt">Pacientes<br>tratados</div>
+                        </p>
+                        <ul class="ncar-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Tecnología FDA aprobada — Revitalair 430</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Sesiones de 60 a 90 min, sin dolor</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Resultados visibles desde las primeras sesiones
+                            </li>
+                        </ul>
+                        <a href="/form" class="btn btn-green" style="width:fit-content;">
+                            <i class="fa-regular fa-calendar-check"></i> Reservar sesión
+                        </a>
                     </div>
-                </div>
-            </div>
 
-            <!-- SLIDE 2 · Pie Diabético – imagen Unsplash -->
-            <div class="ncar-slide">
-                <div class="ncar-text">
-                    <span class="ncar-tag"><i class="fa-solid fa-star-of-life"></i>&nbsp; Tratamiento</span>
-                    <h2 class="ncar-title">PIE<br>DIABÉTICO</h2>
-                    <p class="ncar-excerpt">
-                        Las complicaciones del pie diabético son una de las principales causas de hospitalización
-                        en personas con diabetes. En TECNOMEDIC abordamos el tratamiento integral con
-                        oxigenoterapia hiperbárica, curación avanzada y seguimiento médico continuo.
-                    </p>
-                    <ul class="ncar-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Evaluación especializada de heridas y escaras</li>
-                        <li><i class="fa-solid fa-circle-check"></i> OHB para acelerar la cicatrización</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Equipo médico multidisciplinario</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Resultados comprobados en tejidos</li>
-                    </ul>
-                    <a href="/form" class="btn btn-green" style="width:fit-content;">
-                        <i class="fa-regular fa-calendar"></i> Agendar Consulta
-                    </a>
-                </div>
-                <div class="ncar-visual">
-                    <video src="/static/video/Las complicaciones del pie diabético.mp4" controls autoplay muted loop title="Tratamiento de pie diabético en TECNOMEDIC"></video>
-                    <div class="ncar-overlay-left"></div>
-                    <div class="ncar-badge">
-                        <div class="ncar-badge-logo">
-                            <img src="/static/img/tecno-logo.jpeg"
-                                alt="Logo" />
-                        </div>
-                        <div>
-                            <div class="ncar-badge-name">Tecnomedic Salud</div>
-                            <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+
+                    <div class="ncar-visual">
+                        <video controls autoplay muted loop autofullscreen
+                            src="{{ url_for('static/img', filename='sede.mp4') }}"
+                            title="Cámara Hiperbárica Revitalair 430 en TECNOMEDIC" scrolling="no"> </video>
+                        <div class="ncar-stat">
+                            <div class="ncar-stat-num">+500</div>
+                            <div class="ncar-stat-txt">Pacientes<br>tratados</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- SLIDE 3 · Video YouTube Biobarica – mecanismo en heridas -->
-            <div class="ncar-slide">
-                <div class="ncar-text">
-                    <span class="ncar-tag"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i>&nbsp; Video
-                        educativo</span>
-                    <h2 class="ncar-title">CICATRIZACIÓN<br>DE HERIDAS</h2>
-                    <p class="ncar-excerpt">
-                        El oxígeno hiperbárico genera beneficios fisiológicos comprobados: estimula la
-                        formación de vasos sanguíneos, la síntesis de colágeno y actúa sobre bacterias
-                        resistentes, siendo efectivo cuando otros tratamientos no alcanzan.
-                    </p>
-                    <ul class="ncar-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Escaras y úlceras por presión</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Heridas post-quirúrgicas y quemaduras</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Osteomielitis crónica</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Efectivo donde los tratamientos convencionales
-                            fallan</li>
-                    </ul>
-                    <a href="/form" class="btn btn-green" style="width:fit-content;">
-                        <i class="fa-regular fa-calendar"></i> Solicitar evaluación
-                    </a>
-                </div>
-                <div class="ncar-visual">
-                    <!-- Video Biobarica: Heridas – Mecanismo de acción -->
-                    <video src="/static/video/Heridas.mp4" controls autoplay muted loop 
-                        title="Heridas – Cámara Hiperbárica Biobarica"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen style="min-height:480px;"></video>
-                </div>
-            </div>
-
-            <!-- SLIDE 4 · Recuperación Deportiva – imagen -->
-            <div class="ncar-slide">
-                <div class="ncar-text">
-                    <span class="ncar-tag"><i class="fa-solid fa-dumbbell"></i>&nbsp; Deporte</span>
-                    <h2 class="ncar-title">RECUPERACIÓN<br>DEPORTIVA</h2>
-                    <p class="ncar-excerpt">
-                        La oxigenoterapia hiperbárica es el aliado de los deportistas de alto rendimiento.
-                        Reduce la inflamación, acelera la recuperación muscular y permite volver a la actividad
-                        física hasta 3 semanas antes que con métodos convencionales.
-                    </p>
-                    <ul class="ncar-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Reducción de inflamación y dolor post-esfuerzo</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Recuperación acelerada de desgarros y esguinces
-                        </li>
-                        <li><i class="fa-solid fa-circle-check"></i> Mejora del rendimiento y energía celular</li>
-                    </ul>
-                    <a href="https://wa.me/14155238886?text=Quiero+info+sobre+recuperaci%C3%B3n+deportiva"
-                        target="_blank" class="btn btn-green" style="width:fit-content;">
-                        <i class="fa-brands fa-whatsapp"></i> Consultar
-                    </a>
-                </div>
-                <div class="ncar-visual">
-                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=960&q=85"
-                        alt="Recuperación deportiva" loading="lazy" />
-                    <div class="ncar-overlay-left"></div>
-                    <div class="ncar-badge">
-                        <div class="ncar-badge-logo">
-                            <img src="/static/img/tecno-logo.jpeg"
-                                alt="Logo" />
-                        </div>
-                        <div>
-                            <div class="ncar-badge-name">Tecnomedic Salud</div>
-                            <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                <!-- SLIDE 2 · Pie Diabético – imagen Unsplash -->
+                <div class="ncar-slide">
+                    <div class="ncar-text">
+                        <span class="ncar-tag"><i class="fa-solid fa-star-of-life"></i>&nbsp; Tratamiento</span>
+                        <h2 class="ncar-title">PIE<br>DIABÉTICO</h2>
+                        <p class="ncar-excerpt">
+                            Las complicaciones del pie diabético son una de las principales causas de hospitalización
+                            en personas con diabetes. En TECNOMEDIC abordamos el tratamiento integral con
+                            oxigenoterapia hiperbárica, curación avanzada y seguimiento médico continuo.
+                        </p>
+                        <ul class="ncar-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Evaluación especializada de heridas y escaras
+                            </li>
+                            <li><i class="fa-solid fa-circle-check"></i> OHB para acelerar la cicatrización</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Equipo médico multidisciplinario</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Resultados comprobados en tejidos</li>
+                        </ul>
+                        <a href="/form" class="btn btn-green" style="width:fit-content;">
+                            <i class="fa-regular fa-calendar"></i> Agendar Consulta
+                        </a>
+                    </div>
+                    <div class="ncar-visual">
+                        <video src="{{ url_for('static/video', filename='las-complicaciones-del-pie-diabetico.mp4') }}"
+                            controls autoplay muted loop title="Tratamiento de pie diabético en TECNOMEDIC"></video>
+                        <div class="ncar-overlay-left"></div>
+                        <div class="ncar-badge">
+                            <div class="ncar-badge-logo">
+                                <img src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="Logo" />
+                            </div>
+                            <div>
+                                <div class="ncar-badge-name">Tecnomedic Salud</div>
+                                <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- SLIDE 5 · Video YouTube Biobarica – Sesión típica -->
-            <div class="ncar-slide">
-                <div class="ncar-text">
-                    <span class="ncar-tag"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i>&nbsp;
-                        Video</span>
-                    <h2 class="ncar-title">ASÍ ES UNA<br>SESIÓN EN<br>CÁMARA</h2>
-                    <p class="ncar-excerpt">
-                        Cada sesión dura entre 60 y 90 minutos. El paciente descansa dentro de la cámara
-                        respirando oxígeno puro al 100% a presión controlada. Es un tratamiento completamente
-                        seguro, no invasivo y sin dolor.
-                    </p>
-                    <ul class="ncar-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Ambiente cómodo y climatizado</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Monitoreo continuo del paciente</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Puede leer, escuchar música o descansar</li>
-                    </ul>
-                    <a href="/form" class="btn btn-green" style="width:fit-content;">
-                        <i class="fa-regular fa-calendar-check"></i> Empezar tratamiento
-                    </a>
+                <!-- SLIDE 3 · Video YouTube Biobarica – mecanismo en heridas -->
+                <div class="ncar-slide">
+                    <div class="ncar-text">
+                        <span class="ncar-tag"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i>&nbsp; Video
+                            educativo</span>
+                        <h2 class="ncar-title">CICATRIZACIÓN<br>DE HERIDAS</h2>
+                        <p class="ncar-excerpt">
+                            El oxígeno hiperbárico genera beneficios fisiológicos comprobados: estimula la
+                            formación de vasos sanguíneos, la síntesis de colágeno y actúa sobre bacterias
+                            resistentes, siendo efectivo cuando otros tratamientos no alcanzan.
+                        </p>
+                        <ul class="ncar-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Escaras y úlceras por presión</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Heridas post-quirúrgicas y quemaduras</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Osteomielitis crónica</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Efectivo donde los tratamientos convencionales
+                                fallan</li>
+                        </ul>
+                        <a href="/form" class="btn btn-green" style="width:fit-content;">
+                            <i class="fa-regular fa-calendar"></i> Solicitar evaluación
+                        </a>
+                    </div>
+                    <div class="ncar-visual">
+                        <!-- Video Biobarica: Heridas – Mecanismo de acción -->
+                        <video src="{{ url_for('static/video', filename='Heridas.mp4') }}" controls autoplay muted loop
+                            title="Heridas – Cámara Hiperbárica Biobarica"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="min-height:480px;"></video>
+                    </div>
                 </div>
-                <div class="ncar-visual">
-                    <!-- Video Biobarica: Sesión típica en un centro BioBarica -->
-                    <video src="/static/video/sesiones.mp4" controls autoplay muted loop
-                        title="Sesión típica BioBarica"
-                        allowfullscreen style="min-height:480px;"></video>
-                </div>
-            </div>
 
-        </div><!-- /ncar-track -->
+                <!-- SLIDE 4 · Recuperación Deportiva – imagen -->
+                <div class="ncar-slide">
+                    <div class="ncar-text">
+                        <span class="ncar-tag"><i class="fa-solid fa-dumbbell"></i>&nbsp; Deporte</span>
+                        <h2 class="ncar-title">RECUPERACIÓN<br>DEPORTIVA</h2>
+                        <p class="ncar-excerpt">
+                            La oxigenoterapia hiperbárica es el aliado de los deportistas de alto rendimiento.
+                            Reduce la inflamación, acelera la recuperación muscular y permite volver a la actividad
+                            física hasta 3 semanas antes que con métodos convencionales.
+                        </p>
+                        <ul class="ncar-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Reducción de inflamación y dolor post-esfuerzo
+                            </li>
+                            <li><i class="fa-solid fa-circle-check"></i> Recuperación acelerada de desgarros y esguinces
+                            </li>
+                            <li><i class="fa-solid fa-circle-check"></i> Mejora del rendimiento y energía celular</li>
+                        </ul>
+                        <a href="https://wa.me/14155238886?text=Quiero+info+sobre+recuperaci%C3%B3n+deportiva"
+                            target="_blank" class="btn btn-green" style="width:fit-content;">
+                            <i class="fa-brands fa-whatsapp"></i> Consultar
+                        </a>
+                    </div>
+                    <div class="ncar-visual">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=960&q=85"
+                            alt="Recuperación deportiva" loading="lazy" />
+                        <div class="ncar-overlay-left"></div>
+                        <div class="ncar-badge">
+                            <div class="ncar-badge-logo">
+                                <img src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="Logo" />
+                            </div>
+                            <div>
+                                <div class="ncar-badge-name">Tecnomedic Salud</div>
+                                <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5 · Video YouTube Biobarica – Sesión típica -->
+                <div class="ncar-slide">
+                    <div class="ncar-text">
+                        <span class="ncar-tag"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i>&nbsp;
+                            Video</span>
+                        <h2 class="ncar-title">ASÍ ES UNA<br>SESIÓN EN<br>CÁMARA</h2>
+                        <p class="ncar-excerpt">
+                            Cada sesión dura entre 60 y 90 minutos. El paciente descansa dentro de la cámara
+                            respirando oxígeno puro al 100% a presión controlada. Es un tratamiento completamente
+                            seguro, no invasivo y sin dolor.
+                        </p>
+                        <ul class="ncar-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Ambiente cómodo y climatizado</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Monitoreo continuo del paciente</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Puede leer, escuchar música o descansar</li>
+                        </ul>
+                        <a href="/form" class="btn btn-green" style="width:fit-content;">
+                            <i class="fa-regular fa-calendar-check"></i> Empezar tratamiento
+                        </a>
+                    </div>
+                    <div class="ncar-visual">
+                        <!-- Video Biobarica: Sesión típica en un centro BioBarica -->
+                        <video src="{{ url_for('static/video', filename='sesiones.mp4') }}" controls autoplay muted loop
+                            title="Sesión típica BioBarica" allowfullscreen style="min-height:480px;"></video>
+                    </div>
+                </div>
+
+            </div><!-- /ncar-track -->
         </div><!-- /ncar-wrap -->
 
         <div class="ncar-controls">
@@ -2412,7 +2657,9 @@
                 <div class="svc-card">
                     <div class="svc-icon si-r"><i class="fa-solid fa-headphones"></i></div>
                     <div class="svc-title">Audiologia</div>
-                    <p class="svc-desc">Realizamos  estudios auditivos ,  selección del dispositivo y el acompañamiento en la adaptación a los audífonos digitales, soluciones discretas, cómodas y adaptadas a cada entorno brindan una experiencia de sonido clara y natural .</p>
+                    <p class="svc-desc">Realizamos estudios auditivos , selección del dispositivo y el acompañamiento en
+                        la adaptación a los audífonos digitales, soluciones discretas, cómodas y adaptadas a cada
+                        entorno brindan una experiencia de sonido clara y natural .</p>
                     <span class="svc-badge">Audifonos</span>
                 </div>
             </div>
@@ -2421,104 +2668,233 @@
 
     <!-- ★ EQUIPO: estilos con alta especificidad para sobrevivir a CSS externos -->
     <style>
-      #equipo { padding: 96px 0 !important; background: #1aa5a5 !important; position: relative; overflow: hidden; }
-      #equipo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255,255,255,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 90%, rgba(0,0,0,.08) 0%, transparent 60%); pointer-events: none; }
-      #equipo .equipo-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
-      #equipo .equipo-header .section-label { color: rgba(255,255,255,.75) !important; }
-      #equipo .equipo-title { font-family: 'Poppins', sans-serif !important; font-weight: 900; text-transform: uppercase; font-size: clamp(38px, 5vw, 62px); color: #fff !important; line-height: .97; }
-      #equipo .doctors-grid-wrap { padding-top: 60px; position: relative; z-index: 1; }
-      #equipo .doctors-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 36px !important; }
-      #equipo .doctor-card { background: #fff !important; border-radius: 20px !important; padding: 0 28px 32px !important; display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,.12) !important; transition: transform .25s, box-shadow .25s; float: none !important; }
-      #equipo .doctor-card:hover { transform: translateY(-8px); box-shadow: 0 20px 52px rgba(0,0,0,.18) !important; }
-      #equipo .doctor-photo-wrap { width: 140px !important; height: 140px !important; margin-top: -52px !important; margin-bottom: 20px !important; border-radius: 50% !important; overflow: hidden !important; border: 5px solid #fff !important; box-shadow: 0 8px 24px rgba(0,0,0,.14); flex-shrink: 0; background: #f1f5f9; }
-      #equipo .doctor-photo-wrap img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top center; display: block; }
-      #equipo .doctor-name { font-family: 'Poppins', sans-serif !important; font-weight: 800; font-size: 22px; color: #0d1b2a !important; margin-bottom: 4px; line-height: 1.1; }
-      #equipo .doctor-specialty { font-size: 10px !important; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase !important; color: #94a3b8 !important; margin-bottom: 14px; }
-      #equipo .doctor-desc { font-size: 14px; color: #475569 !important; line-height: 1.7; flex: 1; }
-      #equipo .doctor-plus { width: 42px !important; height: 42px !important; border-radius: 50% !important; border: 2px solid rgba(152,197,68,.3) !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-top: 22px; color: #0a8939 !important; font-size: 18px; cursor: pointer; transition: all .22s; background: transparent !important; }
-      #equipo .doctor-plus:hover { background: #0a8939 !important; border-color: #0a8939 !important; color: #fff !important; transform: rotate(90deg); }
-      @media (max-width: 900px) { #equipo .doctors-grid { grid-template-columns: 1fr 1fr !important; } }
-      @media (max-width: 580px) { #equipo .doctors-grid { grid-template-columns: 1fr !important; } #equipo .doctor-photo-wrap { width: 110px !important; height: 110px !important; margin-top: -42px !important; } }
+        #equipo {
+            padding: 96px 0 !important;
+            background: #1aa5a5 !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #equipo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 255, 255, .12) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 90%, rgba(0, 0, 0, .08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #equipo .equipo-header {
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #equipo .equipo-header .section-label {
+            color: rgba(255, 255, 255, .75) !important;
+        }
+
+        #equipo .equipo-title {
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: clamp(38px, 5vw, 62px);
+            color: #fff !important;
+            line-height: .97;
+        }
+
+        #equipo .doctors-grid-wrap {
+            padding-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #equipo .doctors-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 36px !important;
+        }
+
+        #equipo .doctor-card {
+            background: #fff !important;
+            border-radius: 20px !important;
+            padding: 0 28px 32px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .12) !important;
+            transition: transform .25s, box-shadow .25s;
+            float: none !important;
+        }
+
+        #equipo .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 52px rgba(0, 0, 0, .18) !important;
+        }
+
+        #equipo .doctor-photo-wrap {
+            width: 140px !important;
+            height: 140px !important;
+            margin-top: -52px !important;
+            margin-bottom: 20px !important;
+            border-radius: 50% !important;
+            overflow: hidden !important;
+            border: 5px solid #fff !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
+            flex-shrink: 0;
+            background: #f1f5f9;
+        }
+
+        #equipo .doctor-photo-wrap img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: top center;
+            display: block;
+        }
+
+        #equipo .doctor-name {
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 800;
+            font-size: 22px;
+            color: #0d1b2a !important;
+            margin-bottom: 4px;
+            line-height: 1.1;
+        }
+
+        #equipo .doctor-specialty {
+            font-size: 10px !important;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase !important;
+            color: #94a3b8 !important;
+            margin-bottom: 14px;
+        }
+
+        #equipo .doctor-desc {
+            font-size: 14px;
+            color: #475569 !important;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        #equipo .doctor-plus {
+            width: 42px !important;
+            height: 42px !important;
+            border-radius: 50% !important;
+            border: 2px solid rgba(152, 197, 68, .3) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-top: 22px;
+            color: #0a8939 !important;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all .22s;
+            background: transparent !important;
+        }
+
+        #equipo .doctor-plus:hover {
+            background: #0a8939 !important;
+            border-color: #0a8939 !important;
+            color: #fff !important;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 900px) {
+            #equipo .doctors-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+
+        @media (max-width: 580px) {
+            #equipo .doctors-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            #equipo .doctor-photo-wrap {
+                width: 110px !important;
+                height: 110px !important;
+                margin-top: -42px !important;
+            }
+        }
     </style>
 
     <!-- EQUIPO -->
-<section id="equipo">
-  <div class="container">
- 
-    <div class="equipo-header">
-      <div class="section-label">Nuestro equipo médico</div>
-      <h2 class="equipo-title">CONOCÉ A NUESTROS<br>ESPECIALISTAS</h2>
-    </div>
- 
-    <!-- Las cards tienen foto que sobresale 52px arriba, por eso el padding-top del wrapper -->
-    <div class="doctors-grid-wrap">
-      <div class="doctors-grid">
- 
-        <!-- Card 1 -->
-        <div class="doctor-card">
-          <div class="doctor-photo-wrap">
-            <img
-              src="/static/img/dra unger.jpg"
-              alt="Dra. Carolina Unger"
-              loading="lazy"
-            />
-          </div>
-          <div class="doctor-name">Dra. Carolina Unger</div>
-          <div class="doctor-specialty">M.P 6637 · Médica Clínica-Diabetologa</div>
-          <p class="doctor-desc">
-            Especialista en cicatrización de heridas complejas, pie diabético y escaras.
-            Referente en oxigenoterapia hiperbárica y medicina regenerativa
-            en Corrientes.
-            Miembro de AIACH y SAD
-          </p>
-          
-          <button class="doctor-plus" title="Ver más"><i class="fa-solid fa-plus"></i></button>
+    <section id="equipo">
+        <div class="container">
+
+            <div class="equipo-header">
+                <div class="section-label">Nuestro equipo médico</div>
+                <h2 class="equipo-title">CONOCÉ A NUESTROS<br>ESPECIALISTAS</h2>
+            </div>
+
+            <!-- Las cards tienen foto que sobresale 52px arriba, por eso el padding-top del wrapper -->
+            <div class="doctors-grid-wrap">
+                <div class="doctors-grid">
+
+                    <!-- Card 1 -->
+                    <div class="doctor-card">
+                        <div class="doctor-photo-wrap">
+                            <img src="{{ url_for('static/img', filename='dra unger.jpg') }}" alt="Dra. Carolina Unger" loading="lazy" />
+                        </div>
+                        <div class="doctor-name">Dra. Carolina Unger</div>
+                        <div class="doctor-specialty">M.P 6637 · Médica Clínica-Diabetologa</div>
+                        <p class="doctor-desc">
+                            Especialista en cicatrización de heridas complejas, pie diabético y escaras.
+                            Referente en oxigenoterapia hiperbárica y medicina regenerativa
+                            en Corrientes.
+                            Miembro de AIACH y SAD
+                        </p>
+
+                        <button class="doctor-plus" title="Ver más"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="doctor-card">
+                        <div class="doctor-photo-wrap">
+                            <img src="{{ url_for('static/img', filename='dra repetto.JPG') }}" alt="Lic. Fonoaudiologa"
+                                loading="lazy" />
+                        </div>
+                        <div class="doctor-name">Lic. Valentina Repetto</div>
+                        <div class="doctor-specialty">Fonoaudiologa </div>
+                        <p class="doctor-desc">
+                            Especialista en fonoaudiologia , estudios auditivos , selección y acompañamiento en la
+                            adaptación a los audífonos digitales .
+                        </p>
+                        <button class="doctor-plus" title="Ver más"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <!-- Card 3 -->
+
+
+                </div>
+            </div><!-- /doctors-grid-wrap -->
+
+            <div style="text-align:center;margin-top:44px;position:relative;z-index:1;">
+                <a href="https://www.instagram.com/tecnomedicsalud_/" target="_blank" class="btn btn-dark"
+                    style="display:inline-flex;background:#fff;color:var(--navy);border-radius:12px;padding:14px 32px;font-size:15px;">
+                    <i class="fa-brands fa-instagram"></i> Seguinos en Instagram
+                </a>
+            </div>
+
         </div>
- 
-        <!-- Card 2 -->
-        <div class="doctor-card">
-          <div class="doctor-photo-wrap">
-            <img
-              src="/static//img/dra repetto.JPG"
-              alt="Lic. Fonoaudiologa"
-              loading="lazy"
-            />
-          </div>
-          <div class="doctor-name">Lic. Valentina Repetto</div>
-          <div class="doctor-specialty">Fonoaudiologa </div>
-          <p class="doctor-desc">
-            Especialista en fonoaudiologia , estudios auditivos , selección y acompañamiento en la adaptación a los audífonos digitales .
-          </p>
-          <button class="doctor-plus" title="Ver más"><i class="fa-solid fa-plus"></i></button>
-        </div>
- 
-        <!-- Card 3 -->
-       
-        
-      </div>
-    </div><!-- /doctors-grid-wrap -->
- 
-    <div style="text-align:center;margin-top:44px;position:relative;z-index:1;">
-      <a href="https://www.instagram.com/tecnomedicsalud_/" target="_blank"
-         class="btn btn-dark" style="display:inline-flex;background:#fff;color:var(--navy);border-radius:12px;padding:14px 32px;font-size:15px;">
-        <i class="fa-brands fa-instagram"></i> Seguinos en Instagram
-      </a>
-    </div>
- 
-  </div>
-</section>
- 
+    </section>
+
     <!-- ARTÍCULOS / ÚLTIMAS NOTICIAS -->
     <section id="articulos">
         <div class="container">
             <div class="art-header">
                 <div>
                     <div class="section-label">Publicaciones &amp; Novedades</div>
-                    <h2 style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,44px);color:var(--navy);">
+                    <h2
+                        style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,44px);color:var(--navy);">
                         ÚLTIMAS NOTICIAS</h2>
                 </div>
-                <a href="https://www.instagram.com/tecnomedicsalud_/" target="_blank"
-                   class="btn btn-green" style="padding:10px 20px;font-size:14px;">
+                <a href="https://www.instagram.com/tecnomedicsalud_/" target="_blank" class="btn btn-green"
+                    style="padding:10px 20px;font-size:14px;">
                     <i class="fa-brands fa-instagram"></i> Ver en Instagram
                 </a>
             </div>
@@ -2528,8 +2904,8 @@
                 <!-- ── DESTACADO: Beneficios Cámara Hiperbárica ── -->
                 <div class="art-card ">
                     <div class="art-img">
-                        <img src="/static/img/notice/tec2.png"
-                             alt="Cámara Hiperbárica Revitalair" loading="lazy" />
+                        <img src="{{ url_for('static/img/notice', filename='tec2.png') }}"
+                            alt="Cámara Hiperbárica Revitalair" loading="lazy" />
                     </div>
                     <div class="art-body">
                         <span class="art-cat">Cámara Hiperbárica</span>
@@ -2541,7 +2917,8 @@
                             y la oxigenación celular. Sus beneficios incluyen:
                         </p>
                         <!-- Lista de beneficios — fiel al carrusel del PDF -->
-                        <ul style="margin:10px 0 16px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;">
+                        <ul
+                            style="margin:10px 0 16px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;">
                             <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g600);">
                                 <i class="fa-solid fa-circle-check" style="color:var(--green);"></i>
                                 Acelera la <strong>cicatrización</strong>
@@ -2562,7 +2939,7 @@
                         <div class="art-foot">
                             <span class="art-date"><i class="fa-regular fa-calendar"></i> 17 Feb 2025</span>
                             <a href="https://wa.me/543794775341?text=Quiero+info+sobre+la+cámara+hiperbárica"
-                               target="_blank" class="art-more">
+                                target="_blank" class="art-more">
                                 Consultar <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -2572,8 +2949,8 @@
                 <!-- ── Cicatrices – más oxígeno ── -->
                 <div class=" art-card ">
                     <div class="art-img">
-                        <img src="/static/img/notice/tec1.png"
-                             alt="Cicatrización hiperbárica" loading="lazy" />
+                        <img src="{{ url_for('static/img/notice', filename='tec1.png') }}"
+                            alt="Cicatrización hiperbárica" loading="lazy" />
                     </div>
                     <div class="art-body">
                         <span class="art-cat">Heridas</span>
@@ -2586,8 +2963,8 @@
                         </p>
                         <div class="art-foot">
                             <span class="art-date"><i class="fa-regular fa-calendar"></i> 20 Feb 2025</span>
-                            <a href="https://wa.me/543794775341?text=Consulta+sobre+cicatrización"
-                               target="_blank" class="art-more">
+                            <a href="https://wa.me/543794775341?text=Consulta+sobre+cicatrización" target="_blank"
+                                class="art-more">
                                 Consultar <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -2597,8 +2974,8 @@
                 <!-- ── Quemaduras graves ── -->
                 <div class=" art-card ">
                     <div class="art-img">
-                        <img src="/static/img/notice/tec7.png"
-                             alt="Tratamiento de quemaduras" loading="lazy" />
+                        <img src="{{ url_for('static/img/notice', filename='tec7.png') }}"
+                            alt="Tratamiento de quemaduras" loading="lazy" />
                     </div>
                     <div class="art-body">
                         <span class="art-cat">Tratamientos</span>
@@ -2610,8 +2987,8 @@
                         </p>
                         <div class="art-foot">
                             <span class="art-date"><i class="fa-regular fa-calendar"></i> 22 Feb 2025</span>
-                            <a href="https://wa.me/543794775341?text=Consulta+sobre+quemaduras"
-                               target="_blank" class="art-more">
+                            <a href="https://wa.me/543794775341?text=Consulta+sobre+quemaduras" target="_blank"
+                                class="art-more">
                                 Consultar <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -2621,8 +2998,8 @@
                 <!-- ── Pérdida de audición ── -->
                 <div class="art-card ">
                     <div class="art-img">
-                        <img src="/static/img/notice/tec9.png"
-                             alt="Audífonos digitales" loading="lazy" />
+                        <img src="{{ url_for('static/img/notice', filename='tec9.png') }}" alt="Audífonos digitales"
+                            loading="lazy" />
                     </div>
                     <div class="art-body">
                         <span class="art-cat">Audiología</span>
@@ -2634,8 +3011,8 @@
                         </p>
                         <div class="art-foot">
                             <span class="art-date"><i class="fa-regular fa-calendar"></i> 24 Feb 2025</span>
-                            <a href="https://wa.me/543794775341?text=Consulta+sobre+audífonos"
-                               target="_blank" class="art-more">
+                            <a href="https://wa.me/543794775341?text=Consulta+sobre+audífonos" target="_blank"
+                                class="art-more">
                                 Consultar <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -2655,9 +3032,9 @@
 
 
     <!-- TIENDA ONLINE -->
-<section id="tienda">
-            {% include 'tienda_section.html' %}
-</section>
+    <section id="tienda">
+        {% include 'tienda_section.html' %}
+    </section>
 
     <!-- TURNOS -->
     <section id="turnos">
@@ -2668,22 +3045,23 @@
                 <p class="turnos-sub">Sistema de turnos online disponible 24/7 · Confirmación inmediata por WhatsApp</p>
                 <div class="turnos-card">
                     <form action="/form" method="get">
-                        
-                            <div class="btn-full"><button href="/form"  class="t-submit"><i
-                                        class="fa-regular fa-calendar-check"></i> RESERVAR TURNO AHORA &nbsp;→</button>
-                            </div>
+
+                        <div class="btn-full"><button href="/form" class="t-submit"><i
+                                    class="fa-regular fa-calendar-check"></i> RESERVAR TURNO AHORA &nbsp;→</button>
                         </div>
-                    </form>
                 </div>
+                </form>
             </div>
+        </div>
         </div>
     </section>
 
-        <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios">
         <div class="container">
             <div class="section-label">Lo que dicen nuestros pacientes</div>
-            <h2 style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,44px);color:var(--navy);">
+            <h2
+                style="font-family:'Poppins',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,44px);color:var(--navy);">
                 TESTIMONIOS REALES</h2>
 
             <!-- Grilla 4 columnas -->
@@ -2693,8 +3071,8 @@
                 <div class="testim-card">
                     <div class="testim-media">
                         <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80"
-                             alt="Susana M." loading="lazy" />
+                            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80"
+                            alt="Susana M." loading="lazy" />
                     </div>
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
@@ -2711,12 +3089,11 @@
                 <div class="testim-card">
                     <div class="testim-media" id="tmMedia1">
                         <!-- Thumbnail: reemplazá src por un frame del video -->
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80"
-                             alt="Video testimonio" loading="lazy" />
+                        <img class="tm-thumb" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80"
+                            alt="Video testimonio" loading="lazy" />
                         <!-- Video: reemplazá src por tu video real -->
                         <video class="tm-video" id="tmVideo1" controls preload="none">
-                            <source src="/static/video/deporte2.mp4" type="video/mp4" />
+                            <source src="{{ url_for('static/video', filename='deporte2.mp4') }}" type="video/mp4" />
                         </video>
                         <!-- Botón play -->
                         <div class="tm-play-btn" onclick="playTestimVideo('tmMedia1','tmVideo1')">
@@ -2740,9 +3117,8 @@
                 <!-- CARD 3 — Imagen simple -->
                 <div class="testim-card">
                     <div class="testim-media">
-                        <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1553867745-6e651a6b5b1f?w=500&q=80"
-                             alt="Lucía P." loading="lazy" />
+                        <img class="tm-thumb" src="https://images.unsplash.com/photo-1553867745-6e651a6b5b1f?w=500&q=80"
+                            alt="Lucía P." loading="lazy" />
                     </div>
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
@@ -2760,11 +3136,11 @@
                     <div class="testim-media" id="tmMedia2">
                         <!-- Thumbnail del video: capturá un frame o usá una imagen representativa -->
                         <img class="tm-thumb"
-                             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
-                             alt="Video testimonio deportista" loading="lazy" />
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
+                            alt="Video testimonio deportista" loading="lazy" />
                         <!-- Video: reemplazá src por tu segundo video -->
                         <video class="tm-video" id="tmVideo2" controls preload="none">
-                            <source src="/static/video/deporte2.mp4" type="video/mp4" />
+                            <source src="{{ url_for('static/video', filename='deporte2.mp4') }}" type="video/mp4" />
                         </video>
                         <div class="tm-play-btn" onclick="playTestimVideo('tmMedia2','tmVideo2')">
                             <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
@@ -2805,8 +3181,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="ftr-logo-row">
-                        <img class="ftr-logo"
-                            src="/static/img/tecno-logo.jpeg"
+                        <img class="ftr-logo" src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}"
                             alt="TECNOMEDIC" onerror="this.style.display='none';" />
                         <div class="ftr-name">TECNOMEDIC</div>
                     </div>
@@ -2911,7 +3286,7 @@
         /* Cerrar con swipe-down en móvil */
         let _swipeY = 0;
         mMenu.addEventListener('touchstart', e => { _swipeY = e.touches[0].clientY; }, { passive: true });
-        mMenu.addEventListener('touchend',   e => {
+        mMenu.addEventListener('touchend', e => {
             if (e.changedTouches[0].clientY - _swipeY > 60) closeMobile();
         }, { passive: true });
 
@@ -2989,14 +3364,14 @@
         const tt = document.getElementById('testimTrack');
         document.getElementById('tNext').onclick = () => tt.scrollBy({ left: 490, behavior: 'smooth' });
         document.getElementById('tPrev').onclick = () => tt.scrollBy({ left: -490, behavior: 'smooth' });
-    
+
         /* Testimonios: reproducir video al click del thumbnail */
         function playTestimVideo(mediaId, videoId) {
             const media = document.getElementById(mediaId);
             const video = document.getElementById(videoId);
             if (!media || !video) return;
             media.classList.add('playing');
-            video.play().catch(() => {});
+            video.play().catch(() => { });
             // Si el usuario pausa el video, mostrar thumbnail de nuevo
             video.addEventListener('pause', function onPause() {
                 media.classList.remove('playing');
