@@ -2293,9 +2293,9 @@
     <nav class="navbar" id="navbar">
         <div class="nb-brand">
             <!-- <img class="nb-logo"
-                src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="TECNOMEDIC"
+                src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="TECNOMEDIC"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" /> -->
-            <img class="nb-logo" src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="TECNOMEDIC"
+            <img class="nb-logo" src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="TECNOMEDIC"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
             <!-- <div class="nb-name">tecno<span>MEDIC</span></div> -->
         </div>
@@ -2464,7 +2464,7 @@
 
                     <div class="ncar-visual">
                         <video controls autoplay muted loop autofullscreen
-                            src="{{ url_for('static/img', filename='sede.mp4') }}"
+                            src="{{ url_for('static', filename='img/sede.mp4') }}"
                             title="Cámara Hiperbárica Revitalair 430 en TECNOMEDIC" scrolling="no"> </video>
                         <div class="ncar-stat">
                             <div class="ncar-stat-num">+500</div>
@@ -2495,12 +2495,12 @@
                         </a>
                     </div>
                     <div class="ncar-visual">
-                        <video src="{{ url_for('static/video', filename='las-complicaciones-del-pie-diabetico.mp4') }}"
+                        <video src="{{ url_for('static', filename='video/las-complicaciones-del-pie-diabetico.mp4') }}"
                             controls autoplay muted loop title="Tratamiento de pie diabético en TECNOMEDIC"></video>
                         <div class="ncar-overlay-left"></div>
                         <div class="ncar-badge">
                             <div class="ncar-badge-logo">
-                                <img src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="Logo" />
+                                <img src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="Logo" />
                             </div>
                             <div>
                                 <div class="ncar-badge-name">Tecnomedic Salud</div>
@@ -2534,7 +2534,7 @@
                     </div>
                     <div class="ncar-visual">
                         <!-- Video Biobarica: Heridas – Mecanismo de acción -->
-                        <video src="{{ url_for('static/video', filename='Heridas.mp4') }}" controls autoplay muted loop
+                        <video src="{{ url_for('static', filename='video/Heridas.mp4') }}" controls autoplay muted loop
                             title="Heridas – Cámara Hiperbárica Biobarica"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen style="min-height:480px;"></video>
@@ -2569,7 +2569,7 @@
                         <div class="ncar-overlay-left"></div>
                         <div class="ncar-badge">
                             <div class="ncar-badge-logo">
-                                <img src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}" alt="Logo" />
+                                <img src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="Logo" />
                             </div>
                             <div>
                                 <div class="ncar-badge-name">Tecnomedic Salud</div>
@@ -2601,7 +2601,7 @@
                     </div>
                     <div class="ncar-visual">
                         <!-- Video Biobarica: Sesión típica en un centro BioBarica -->
-                        <video src="{{ url_for('static/video', filename='sesiones.mp4') }}" controls autoplay muted loop
+                        <video src="{{ url_for('static', filename='video/sesiones.mp4') }}" controls autoplay muted loop
                             title="Sesión típica BioBarica" allowfullscreen style="min-height:480px;"></video>
                     </div>
                 </div>
@@ -2838,7 +2838,7 @@
                     <!-- Card 1 -->
                     <div class="doctor-card">
                         <div class="doctor-photo-wrap">
-                            <img src="{{ url_for('static/img', filename='dra unger.jpg') }}" alt="Dra. Carolina Unger" loading="lazy" />
+                            <img src="{{ url_for('static', filename='img/dra unger.jpg') }}" alt="Dra. Carolina Unger" loading="lazy" />
                         </div>
                         <div class="doctor-name">Dra. Carolina Unger</div>
                         <div class="doctor-specialty">M.P 6637 · Médica Clínica-Diabetologa</div>
@@ -2855,7 +2855,7 @@
                     <!-- Card 2 -->
                     <div class="doctor-card">
                         <div class="doctor-photo-wrap">
-                            <img src="{{ url_for('static/img', filename='dra repetto.JPG') }}" alt="Lic. Fonoaudiologa"
+                            <img src="{{ url_for('static', filename='img/dra repetto.JPG') }}" alt="Lic. Fonoaudiologa"
                                 loading="lazy" />
                         </div>
                         <div class="doctor-name">Lic. Valentina Repetto</div>
@@ -2904,7 +2904,7 @@
                 <!-- ── DESTACADO: Beneficios Cámara Hiperbárica ── -->
                 <div class="art-card ">
                     <div class="art-img">
-                        <img src="{{ url_for('static/img/notice', filename='tec2.png') }}"
+                        <img src="{{ url_for('static', filename='img/notice/tec2.png') }}"
                             alt="Cámara Hiperbárica Revitalair" loading="lazy" />
                     </div>
                     <div class="art-body">
@@ -2949,7 +2949,7 @@
                 <!-- ── Cicatrices – más oxígeno ── -->
                 <div class=" art-card ">
                     <div class="art-img">
-                        <img src="{{ url_for('static/img/notice', filename='tec1.png') }}"
+                        <img src="{{ url_for('static', filename='img/notice/tec1.png') }}"
                             alt="Cicatrización hiperbárica" loading="lazy" />
                     </div>
                     <div class="art-body">
@@ -2974,7 +2974,7 @@
                 <!-- ── Quemaduras graves ── -->
                 <div class=" art-card ">
                     <div class="art-img">
-                        <img src="{{ url_for('static/img/notice', filename='tec7.png') }}"
+                        <img src="{{ url_for('static', filename='img/notice/tec7.png') }}"
                             alt="Tratamiento de quemaduras" loading="lazy" />
                     </div>
                     <div class="art-body">
@@ -2998,7 +2998,7 @@
                 <!-- ── Pérdida de audición ── -->
                 <div class="art-card ">
                     <div class="art-img">
-                        <img src="{{ url_for('static/img/notice', filename='tec9.png') }}" alt="Audífonos digitales"
+                        <img src="{{ url_for('static', filename='img/notice/tec9.png') }}" alt="Audífonos digitales"
                             loading="lazy" />
                     </div>
                     <div class="art-body">
@@ -3093,7 +3093,7 @@
                             alt="Video testimonio" loading="lazy" />
                         <!-- Video: reemplazá src por tu video real -->
                         <video class="tm-video" id="tmVideo1" controls preload="none">
-                            <source src="{{ url_for('static/video', filename='deporte2.mp4') }}" type="video/mp4" />
+                            <source src="{{ url_for('static', filename='video/deporte2.mp4') }}" type="video/mp4" />
                         </video>
                         <!-- Botón play -->
                         <div class="tm-play-btn" onclick="playTestimVideo('tmMedia1','tmVideo1')">
@@ -3140,7 +3140,7 @@
                             alt="Video testimonio deportista" loading="lazy" />
                         <!-- Video: reemplazá src por tu segundo video -->
                         <video class="tm-video" id="tmVideo2" controls preload="none">
-                            <source src="{{ url_for('static/video', filename='deporte2.mp4') }}" type="video/mp4" />
+                            <source src="{{ url_for('static', filename='video/deporte2.mp4') }}" type="video/mp4" />
                         </video>
                         <div class="tm-play-btn" onclick="playTestimVideo('tmMedia2','tmVideo2')">
                             <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
@@ -3181,7 +3181,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="ftr-logo-row">
-                        <img class="ftr-logo" src="{{ url_for('static/img', filename='tecno-logo.jpeg') }}"
+                        <img class="ftr-logo" src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}"
                             alt="TECNOMEDIC" onerror="this.style.display='none';" />
                         <div class="ftr-name">TECNOMEDIC</div>
                     </div>
