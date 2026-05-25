@@ -542,7 +542,7 @@
             position: relative;
             background: #fff;
             overflow: hidden;
-            padding: 0
+            padding: 0;
         }
 
         .ncar-progress {
@@ -576,11 +576,15 @@
         /* ── Slide: fondo blanco, dos columnas, padding generoso ── */
         .ncar-slide {
             min-width: 100%;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             background: #fff;
-            padding: 72px 8%
+            padding: 50px 8%;
+            zoom: 1;
+            transform-origin: top center;
+            transition: padding .2s ease, zoom .2s ease, grid-template-columns .2s ease;
         }
 
         /* ── Columna TEXTO (izquierda) ── */
@@ -605,7 +609,7 @@
             font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 2px;
             width: fit-content;
             background: none;
             border: none;
@@ -616,17 +620,17 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: clamp(28px, 3.5vw, 46px);
+            font-size: clamp(15px, 5.5vw, 35px);
             color: var(--navy);
             line-height: 1.0;
-            margin-bottom: 16px
+            margin-bottom: 5%
         }
 
         .ncar-excerpt {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--g600);
-            line-height: 1.75;
-            margin-bottom: 20px;
+            line-height: 1.65;
+            margin-bottom: 3%;
             text-align: justify;
         }
 
@@ -634,14 +638,14 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 28px
+            margin-bottom: 5%
         }
 
         .ncar-list li {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--g600)
         }
 
@@ -673,6 +677,12 @@
 
         .ncar-slide:hover .ncar-visual img {
             transform: scale(1.04)
+        }
+
+        .ncar-visual video,
+        .ncar-visual iframe {
+            min-height: 0 !important;
+            max-height: 520px;
         }
 
         /* iframes de video también contenidos */
@@ -768,8 +778,9 @@
             align-items: center;
             justify-content: center;
             gap: 0;
-            padding: 20px 0 28px;
-            background: #fff;
+            padding: 10px 0 14px;
+            margin-top: 0;
+            background: var(--g400);
             border-top: 1px solid var(--g100)
         }
 
@@ -826,13 +837,41 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .ncar-slide {
+                padding: 60px 6%;
+                zoom: .98;
+            }
+            .ncar-controls {
+                margin-top: -4px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .ncar-slide {
+                padding: 54px 5.5%;
+                zoom: .96;
+            }
+            .ncar-controls {
+                margin-top: -8px;
+            }
+        }
+
         @media (max-width: 900px) {
             .ncar-slide {
-                padding: 48px 5%
+                padding: 48px 5%;
+                grid-template-columns: 1fr;
+                gap: 26px;
+                zoom: .94;
             }
 
             .ncar-text {
                 padding-right: 28px
+            }
+
+            .ncar-controls {
+                padding: 12px 0 18px;
+                margin-top: -16px;
             }
         }
 
@@ -2374,7 +2413,7 @@
                 </p>
                 <div class="hero-btns">
                     <a href="/form" class="btn btn-green">
-                        <i class="fa-regular fa-calendar-check"></i> Reservar Consulta
+                        <i class="fa-regular fa-calendar-check"></i>  Consultar 
                     </a>
                     <a href="https://wa.me/14155238886" target="_blank" class="btn btn-outline">
                         <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
@@ -2457,14 +2496,12 @@
                             </li>
                         </ul>
                         <a href="/form" class="btn btn-green" style="width:fit-content;">
-                            <i class="fa-regular fa-calendar-check"></i> Reservar sesión
+                            <i class="fa-regular fa-calendar-check"></i> Contactar
                         </a>
                     </div>
-
-
                     <div class="ncar-visual">
                         <video controls autoplay muted loop autofullscreen
-                            src="{{ url_for('static', filename='img/sede.mp4') }}"
+                            src="{{ url_for('static', filename='video/sede.mp4') }}"
                             title="Cámara Hiperbárica Revitalair 430 en TECNOMEDIC" scrolling="no"> </video>
                         <div class="ncar-stat">
                             <div class="ncar-stat-num">+500</div>
@@ -2491,7 +2528,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Resultados comprobados en tejidos</li>
                         </ul>
                         <a href="/form" class="btn btn-green" style="width:fit-content;">
-                            <i class="fa-regular fa-calendar"></i> Agendar Consulta
+                            <i class="fa-regular fa-calendar"></i>  Contactar
                         </a>
                     </div>
                     <div class="ncar-visual">
@@ -2529,7 +2566,7 @@
                                 fallan</li>
                         </ul>
                         <a href="/form" class="btn btn-green" style="width:fit-content;">
-                            <i class="fa-regular fa-calendar"></i> Solicitar evaluación
+                            <i class="fa-regular fa-calendar"></i> Contactar
                         </a>
                     </div>
                     <div class="ncar-visual">
@@ -2564,7 +2601,7 @@
                         </a>
                     </div>
                     <div class="ncar-visual">
-                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=960&q=85"
+                        <img src="https://unsplash.com/es/fotos/un-hombre-con-un-traje-verde-esta-corriendo-WXcPH3g5Qug"
                             alt="Recuperación deportiva" loading="lazy" />
                         <div class="ncar-overlay-left"></div>
                         <div class="ncar-badge">
