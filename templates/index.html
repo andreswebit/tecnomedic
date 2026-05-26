@@ -755,9 +755,9 @@
         }
 
         .ncar-badge-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover
+            width: fit-content;
+            height: fit-content;
+            object-fit: contain
         }
 
         .ncar-badge-name {
@@ -2481,11 +2481,7 @@
                             la recuperación de distintas lesiones y enfermedades. Según especialistas de , puede
                             disminuir hasta un 50% los tiempos de recuperación.
                             <br><br>
-                            El tratamiento se utiliza como complemento médico en patologías como pie diabético,
-                            ulceras, lesiones musculares, problemas neurológicos, rehabilitación postquirúrgica
-                            y enfermedades inflamatorias. Entre sus beneficios se destacan la mejora del flujo
-                            sanguíneo, la estimulación del colágeno y la reparación de tejidos. Las sesiones
-                            suelen durar entre 60 y 90 minutos y deben ser indicadas y supervisadas por un
+                            Las sesiones duran entre 60 y 90 minutos y deben ser indicadas y supervisadas por un
                             <strong>médico</strong>.
 
                         </p>
@@ -2503,9 +2499,15 @@
                         <video controls autoplay muted loop autofullscreen
                             src="{{ url_for('static', filename='video/sede.mp4') }}"
                             title="Cámara Hiperbárica Revitalair 430 en TECNOMEDIC" scrolling="no"> </video>
-                        <div class="ncar-stat">
-                            <div class="ncar-stat-num">+500</div>
-                            <div class="ncar-stat-txt">Pacientes<br>tratados</div>
+                        <div class="ncar-overlay-left"></div>
+                        <div class="ncar-badge">
+                            <div class="ncar-badge-logo">
+                                <img src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="Logo" />
+                            </div>
+                            <div>
+                                <div class="ncar-badge-name">Tecnomedic Salud</div>
+                                <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2532,8 +2534,9 @@
                         </a>
                     </div>
                     <div class="ncar-visual">
-                        <video src="{{ url_for('static', filename='video/PieDiabetico.mp4') }}"
-                            controls autoplay muted loop title="Tratamiento de pie diabético en TECNOMEDIC"></video>
+                        <video controls autoplay muted loop autofullscreen
+                            src="{{ url_for('static', filename='video/PieDiabetico.mp4') }}"
+                            title="Tratamiento de pie diabético en TECNOMEDIC"></video>
                         <div class="ncar-overlay-left"></div>
                         <div class="ncar-badge">
                             <div class="ncar-badge-logo">
@@ -2571,10 +2574,22 @@
                     </div>
                     <div class="ncar-visual">
                         <!-- Video Biobarica: Heridas – Mecanismo de acción -->
-                        <video src="{{ url_for('static', filename='video/Heridas.mp4') }}" controls autoplay muted loop
+                        <video controls autoplay muted loop autofullscreen
+                            src="{{ url_for('static', filename='video/Heridas.mp4') }}" 
                             title="Heridas – Cámara Hiperbárica Biobarica"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen style="min-height:480px;"></video>
+                        <div class="ncar-overlay-left"></div>
+                        <div class="ncar-badge">
+                            <div class="ncar-badge-logo">
+                                <img src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="Logo" />
+                            </div>
+                            <div>
+                                <div class="ncar-badge-name">Tecnomedic Salud</div>
+                                <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                            </div>
+                        </div>
+                    
                     </div>
                 </div>
 
@@ -2601,7 +2616,7 @@
                         </a>
                     </div>
                     <div class="ncar-visual">
-                        <img src="https://unsplash.com/es/fotos/un-hombre-con-un-traje-verde-esta-corriendo-WXcPH3g5Qug"
+                        <img src="https://plus.unsplash.com/premium_photo-1664304770925-6f9a1386d7b9?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Recuperación deportiva" loading="lazy" />
                         <div class="ncar-overlay-left"></div>
                         <div class="ncar-badge">
@@ -2638,8 +2653,19 @@
                     </div>
                     <div class="ncar-visual">
                         <!-- Video Biobarica: Sesión típica en un centro BioBarica -->
-                        <video src="{{ url_for('static', filename='video/sesiones.mp4') }}" controls autoplay muted loop
+                        <video
+                            src="{{ url_for('static', filename='video/sesiones.mp4') }}" controls autoplay muted loop
                             title="Sesión típica BioBarica" allowfullscreen style="min-height:480px;"></video>
+                        <div class="ncar-overlay-left"></div>
+                        <div class="ncar-badge">
+                            <div class="ncar-badge-logo">
+                                <img src="{{ url_for('static', filename='img/tecno-logo.jpeg') }}" alt="Logo" />
+                        </div>
+                            <div>
+                                <div class="ncar-badge-name">Tecnomedic Salud</div>
+                                <div class="ncar-badge-sub">Centro Hiperbárico · Corrientes</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -3034,9 +3060,21 @@
 
                 <!-- ── Pérdida de audición ── -->
                 <div class="art-card ">
-                    <div class="art-img">
-                        <img src="{{ url_for('static', filename='img/notice/tec9.png') }}" alt="Audífonos digitales"
-                            loading="lazy" />
+                    <div class="testim-media" id="tmMedia1">
+                        <!-- Thumbnail: reemplazá src por un frame del video -->
+                        <img class="tm-thumb" src="{{ url_for('static', filename='img/notice/tec9.png') }}" alt="Audífonos digitales"
+                            alt="Video " loading="lazy" />
+                        <!-- Video: reemplazá src por tu video real -->
+                        <video class="tm-video" id="tmVideo1" controls preload="none">
+                            <source src="{{ url_for('static', filename='video/Escuchar.mp4') }}" type="video/mp4" />
+                        </video>
+                        <!-- Botón play -->
+                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia1','tmVideo1')">
+                            <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="tm-video-badge">
+                            <i class="fa-solid fa-video"></i> Video
+                        </div>
                     </div>
                     <div class="art-body">
                         <span class="art-cat">Audiología</span>
@@ -3053,8 +3091,8 @@
                                 Consultar <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
-                    </div>
                 </div>
+                
 
                 <!--
                   ★ PARA AGREGAR MÁS PUBLICACIONES: copiar un bloque <div class="art-card">
@@ -3062,7 +3100,7 @@
                   ★ Para artículo DESTACADO (ancho doble): agregar clase "feat" al art-card.
                 -->
 
-            </div>
+            
         </div>
     </section>
 
@@ -3108,16 +3146,16 @@
                 <div class="testim-card">
                     <div class="testim-media">
                         <img class="tm-thumb"
-                            src="https://unsplash.com/es/fotos/una-persona-con-un-yeso-en-el-brazo-V_NrHFezdFk"
+                            src="https://plus.unsplash.com/premium_photo-1675808575868-8547c37c047c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Susana M." loading="lazy" />
                     </div>
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
                         <div class="testim-quote">"Mi herida no cerraba hace 2 años."</div>
-                        <div class="testim-result">En 8 sesiones, cicatrizó.</div>
-                        <div class="testim-name">Susana M.</div>
-                        <div class="testim-role">Paciente de heridas complejas</div>
+                        <div class="testim-result">Con el asesoramiento adecuado y tratamiento , cicatrizó.</div>
+                        <div class="testim-name">Susana .</div>
+                        <div class="testim-role">Paciente de heridas complejas-pie diabetico</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
                 </div>
@@ -3126,7 +3164,7 @@
                 <div class="testim-card">
                     <div class="testim-media" id="tmMedia1">
                         <!-- Thumbnail: reemplazá src por un frame del video -->
-                        <img class="tm-thumb" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80"
+                        <img class="tm-thumb" src=""
                             alt="Video testimonio" loading="lazy" />
                         <!-- Video: reemplazá src por tu video real -->
                         <video class="tm-video" id="tmVideo1" controls preload="none">
@@ -3143,43 +3181,26 @@
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="testim-quote">"Tenía pie diabético y me dijeron que iban a amputar."</div>
-                        <div class="testim-result">Con el tratamiento, conservé mi pie.</div>
-                        <div class="testim-name">Roberto C.</div>
-                        <div class="testim-role">Paciente de pie diabético</div>
+                        <div class="testim-quote">"Tenía dolores en la espalda , vine a recuperacion muscular"</div>
+                        <div class="testim-result">Con el tratamiento, senti cambios en la segunda sesion.</div>
+                        <div class="testim-name">Luciano</div>
+                        <div class="testim-role">Paciente deportista</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
                 </div>
 
                 <!-- CARD 3 — Imagen simple -->
                 <div class="testim-card">
-                    <div class="testim-media">
-                        <img class="tm-thumb" src="https://images.unsplash.com/photo-1553867745-6e651a6b5b1f?w=500&q=80"
-                            alt="Lucía P." loading="lazy" />
-                    </div>
-                    <div class="testim-body">
-                        <div class="testim-brand">TECNOMEDIC SALUD</div>
-                        <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="testim-quote">"Volví al deporte 3 semanas antes de lo esperado."</div>
-                        <div class="testim-result">La OHB aceleró mi recuperación.</div>
-                        <div class="testim-name">Lucía P.</div>
-                        <div class="testim-role">Deportista amateur</div>
-                        <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
-                    </div>
-                </div>
-
-                <!-- CARD 4 — Video con thumbnail (click para reproducir) -->
-                <div class="testim-card">
-                    <div class="testim-media" id="tmMedia2">
-                        <!-- Thumbnail del video: capturá un frame o usá una imagen representativa -->
-                        <img class="tm-thumb"
-                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
-                            alt="Video testimonio deportista" loading="lazy" />
-                        <!-- Video: reemplazá src por tu segundo video -->
-                        <video class="tm-video" id="tmVideo2" controls preload="none">
-                            <source src="{{ url_for('static', filename='video/deporte2.mp4') }}" type="video/mp4" />
+                    <div class="testim-media" id="tmMedia1">
+                        <!-- Thumbnail: reemplazá src por un frame del video -->
+                        <img class="tm-thumb" src=""
+                            alt="Video testimonio" loading="lazy" />
+                        <!-- Video: reemplazá src por tu video real -->
+                        <video class="tm-video" id="tmVideo1" controls preload="none">
+                            <source src="{{ url_for('static', filename='video/deporte1.mp4') }}" type="video/mp4" />
                         </video>
-                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia2','tmVideo2')">
+                    <!-- Botón play -->
+                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia1','tmVideo1')">
                             <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="tm-video-badge">
@@ -3189,10 +3210,39 @@
                     <div class="testim-body">
                         <div class="testim-brand">TECNOMEDIC SALUD</div>
                         <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="testim-quote">"Sentía el cuerpo agotado después de cada entreno."</div>
-                        <div class="testim-result">Mejora notoria desde la 3ª sesión.</div>
-                        <div class="testim-name">Martín R.</div>
-                        <div class="testim-role">Deportista de alto rendimiento</div>
+                        <div class="testim-quote">"Me ayudaron en la recuperacion y oxigenación"</div>
+                        <div class="testim-result">La OHB aceleró la recuperación de mis atletas.</div>
+                        <div class="testim-name">Marilyn -Luciana -Alejandro</div>
+                        <div class="testim-role">Deportistas</div>
+                        <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
+                    </div>
+                </div>
+
+                <!-- CARD 4 — Video con thumbnail (click para reproducir) -->
+                <div class="testim-card">
+                    <div class="testim-media" id="tmMedia2">
+                        <!-- Thumbnail del video: capturá un frame o usá una imagen representativa -->
+                        <img class="tm-thumb"
+                            src="https://plus.unsplash.com/premium_photo-1726797723292-b2dc29e3dff2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="audifonos" loading="lazy" />
+                        <!-- Video: reemplazá src por tu segundo video -->
+                        <!-- <video class="tm-video" id="tmVideo2" controls preload="none">
+                            <source src="{{ url_for('static', filename='video/') }}" type="video/mp4" />
+                        </video>
+                        <div class="tm-play-btn" onclick="playTestimVideo('tmMedia2','tmVideo2')">
+                            <div class="tm-play-icon"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="tm-video-badge">
+                            <i class="fa-solid fa-video"></i> Video
+                        </div> -->
+                    </div>
+                    <div class="testim-body">
+                        <div class="testim-brand">TECNOMEDIC SALUD</div>
+                        <div class="testim-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <div class="testim-quote">"Ahora puedo escuchar a mis nietos jugar."</div>
+                        <div class="testim-result">volvi a sentirme parte de la conversación.</div>
+                        <div class="testim-name">Marta</div>
+                        <div class="testim-role">Paciente hipoacusico</div>
                         <div class="testim-badge"><i class="fa-solid fa-circle-check"></i> Verificado</div>
                     </div>
                 </div>
