@@ -8,7 +8,13 @@ import json, time
 from google.oauth2.service_account import Credentials
 import requests as http_req
 import os, re, logging
+from datetime import datetime, timedelta, date
 from dotenv import load_dotenv
+
+# ── Scheduler ──────────────────────────────────────────────────────
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
+import pytz
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -108,35 +114,6 @@ except Exception as e:
 # Registro gratis en brevo.com → 300 emails/dia sin costo
 # ══════════════════════════════════════════════════════════════════
 
-# def enviar_email(destinatario: str, asunto: str, cuerpo: str) -> bool:
-#     if not BREVO_API_KEY:
-#         log.warning("EMAIL NO CONFIGURADO: agregar BREVO_API_KEY en Render -> Environment")
-#         return False
-#     try:
-#         log.info(f"Enviando email via Brevo -> {destinatario}")
-#         r = http_req.post(
-#             "https://api.brevo.com/v3/smtp/email",
-#             headers={
-#                 "api-key":      BREVO_API_KEY,
-#                 "Content-Type": "application/json"
-#             },
-#             json={
-#                 "sender":      {"name": "TECNOMEDIC Turnos", "email": GMAIL_USER or "noreply@tecnomedic.com.ar"},
-#                 "to":          [{"email": destinatario}],
-#                 "subject":     asunto,
-#                 "textContent": cuerpo
-#             },
-#             timeout=15
-#         )
-#         if r.status_code in (200, 201):
-#             log.info(f"Email enviado OK a {destinatario}")
-#             return True
-#         log.error(f"Brevo error {r.status_code}: {r.text}")
-#         return False
-#     except Exception as e:
-#         log.error(f"Error email Brevo [{type(e).__name__}]: {e}")
-        # return False
-
 def enviar_email(destinatario: str, asunto: str, cuerpo_txt: str, cuerpo_html: str = "") -> bool:
     if not BREVO_API_KEY:
         log.warning("EMAIL NO CONFIGURADO: agregar BREVO_API_KEY en Render -> Environment")
@@ -175,52 +152,52 @@ def _html_email(titulo: str, nombre: str, cuerpo: str, color_titulo: str = "#00b
 <table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 20px;">
 <tr><td align="center">
 <table width="560" cellpadding="0" cellspacing="0"
-       style="background:#ffffff;border-radius:16px;overflow:hidden;
-              box-shadow:0 4px 24px rgba(0,0,0,.10);">
+        style="background:#ffffff;border-radius:16px;overflow:hidden;
+                box-shadow:0 4px 24px rgba(0,0,0,.10);">
 
-  <!-- Cabecera -->
-  <tr><td style="background:linear-gradient(135deg,#0a2540,#023e6e);
-                 padding:32px 40px;text-align:center;">
+    <!-- Cabecera -->
+    <tr><td style="background:linear-gradient(135deg,#0a2540,#023e6e);
+                    padding:32px 40px;text-align:center;">
     <div style="color:#00b4d8;font-size:11px;font-weight:700;
                 letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">
-      TECNOMEDIC
+        TECNOMEDIC
     </div>
     <div style="color:#ffffff;font-size:22px;font-weight:700;">{titulo}</div>
     <div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:6px;">
-      Centro de Salud · Cámara Hiperbárica
+        Centro de Salud · Cámara Hiperbárica
     </div>
-  </td></tr>
+    </td></tr>
 
-  <!-- Cuerpo -->
-  <tr><td style="padding:36px 40px;">
+    <!-- Cuerpo -->
+    <tr><td style="padding:36px 40px;">
     <p style="margin:0 0 20px;color:#1e3a5f;font-size:16px;">
-      Hola <strong>{nombre}</strong>,
+        Hola <strong>{nombre}</strong>,
     </p>
     {cuerpo}
     <hr style="border:none;border-top:1px solid #e8edf2;margin:28px 0;">
     <table width="100%" cellpadding="0" cellspacing="0">
-      <tr>
+        <tr>
         <td style="color:#64748b;font-size:12px;">
-          <strong style="color:#0a2540;">TECNOMEDIC</strong><br>
-          📍 C. Pellegrini 799, Corrientes<br>
-          📞 (3794) 34-9278
+            <strong style="color:#0a2540;">TECNOMEDIC</strong><br>
+            📍 C. Pellegrini 799, Corrientes<br>
+            📞 (3794) 34-9278
         </td>
         <td align="right">
-          <div style="width:40px;height:40px;background:linear-gradient(135deg,#0a2540,#023e6e);
-                      border-radius:10px;display:inline-flex;align-items:center;
-                      justify-content:center;font-size:20px;line-height:40px;text-align:center;">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#0a2540,#023e6e);
+                        border-radius:10px;display:inline-flex;align-items:center;
+                        justify-content:center;font-size:20px;line-height:40px;text-align:center;">
             🏥
-          </div>
+            </div>
         </td>
-      </tr>
+        </tr>
     </table>
-  </td></tr>
+    </td></tr>
 
-  <!-- Pie -->
-  <tr><td style="background:#f8fafc;padding:16px 40px;text-align:center;
-                 color:#94a3b8;font-size:11px;">
+    <!-- Pie -->
+    <tr><td style="background:#f8fafc;padding:16px 40px;text-align:center;
+                    color:#94a3b8;font-size:11px;">
     Este es un mensaje automático. No respondas este email.
-  </td></tr>
+    </td></tr>
 
 </table>
 </td></tr>
@@ -232,13 +209,13 @@ def _bloque_turno(fecha: str, hora: str, extra: str = "") -> str:
     return f"""
     <div style="background:#f0f9ff;border-left:4px solid #00b4d8;
                 border-radius:0 12px 12px 0;padding:20px 24px;margin:20px 0;">
-      <div style="color:#0a2540;font-size:15px;margin-bottom:8px;">
+        <div style="color:#0a2540;font-size:15px;margin-bottom:8px;">
         📅 <strong>Fecha:</strong> {fecha}
-      </div>
-      <div style="color:#0a2540;font-size:15px;">
+        </div>
+        <div style="color:#0a2540;font-size:15px;">
         ⏰ <strong>Hora:</strong> {hora}hs
-      </div>
-      {('<div style="color:#0a2540;font-size:15px;margin-top:8px;">'+extra+'</div>') if extra else ''}
+        </div>
+        {('<div style="color:#0a2540;font-size:15px;margin-top:8px;">'+extra+'</div>') if extra else ''}
     </div>"""
 
 
@@ -626,6 +603,170 @@ def whatsapp_bot():
 @app.route('/tienda')
 def tienda():
     return render_template('tienda_section.html')
+
+
+# ══════════════════════════════════════════════════════════════════
+# CRON — Recordatorio automático día anterior
+# Corre todos los días a las 09:00 hora Argentina (UTC-3)
+# Busca turnos de mañana con estado Confirmado o Pendiente
+# y envía email + WhatsApp a cada paciente
+# ══════════════════════════════════════════════════════════════════
+
+def email_recordatorio(nombre: str, email: str, fecha: str, hora: str):
+    """Email de recordatorio 24hs antes del turno."""
+    cuerpo_txt = (
+        f"Hola {nombre},\n\n"
+        f"Te recordamos que mañana tenés turno en TECNOMEDIC.\n\n"
+        f"Fecha: {fecha}\nHora: {hora}hs\n\n"
+        f"Dirección: C. Pellegrini 799, Corrientes\n"
+        f"Tel: (3794) 34-9278\n\n"
+        f"Si necesitás cancelar o reprogramar, avisanos con anticipación.\n\n"
+        f"¡Te esperamos! — TECNOMEDIC"
+    )
+    cuerpo_html = _html_email(
+        "🔔 Recordatorio de turno", nombre,
+        "<p style='color:#475569;font-size:14px;line-height:1.7;'>"
+        "Te recordamos que <strong>mañana tenés turno</strong> "
+        "en TECNOMEDIC Cámara Hiperbárica.</p>"
+        + _bloque_turno(fecha, hora)
+        + "<p style='color:#64748b;font-size:13px;margin-top:16px;'>"
+        "📍 C. Pellegrini 799, Corrientes &nbsp;·&nbsp; 📞 (3794) 34-9278</p>"
+        + "<p style='color:#94a3b8;font-size:12px;margin-top:12px;'>"
+        "Si necesitás cancelar o reprogramar, contactanos con anticipación.</p>",
+        color_titulo="#1aa5a5"
+    )
+    return enviar_email(
+        email,
+        "🔔 Recordatorio: tu turno en TECNOMEDIC es mañana",
+        cuerpo_txt,
+        cuerpo_html
+    )
+
+
+def recordatorio_manana():
+    """
+    Tarea programada: envía recordatorios a todos los pacientes
+    con turno mañana (Confirmado o Pendiente).
+    Se ejecuta diariamente a las 09:00 hora Argentina.
+    """
+    tz_arg  = pytz.timezone("America/Argentina/Buenos_Aires")
+    hoy     = datetime.now(tz_arg).date()
+    manana  = hoy + timedelta(days=1)
+    # Formato que usa Google Sheets en este proyecto: DD/MM/YYYY
+    fecha_str = manana.strftime("%d/%m/%Y")
+
+    log.info(f"[CRON] Buscando turnos para mañana: {fecha_str}")
+
+    try:
+        rows = sheets_get_all()
+    except Exception as e:
+        log.error(f"[CRON] Error leyendo Sheets: {e}")
+        return
+
+    if len(rows) < 2:
+        log.info("[CRON] Sin filas en la hoja, nada que hacer.")
+        return
+
+    enviados = 0
+    errores  = 0
+
+    for row in rows[1:]:
+        # Rellenar columnas faltantes para no romper con índices
+        r = list(row) + [""] * max(0, len(COLS_CANON) - len(row))
+
+        fecha_turno = r[IDX["fecha"]].strip()
+        estado      = r[IDX["estado"]].strip().lower()
+
+        # Solo turnos de mañana, no cancelados
+        if fecha_turno != fecha_str:
+            continue
+        if estado == "cancelado":
+            continue
+
+        nombre   = f"{r[IDX['nombre']].strip()} {r[IDX['apellido']].strip()}".strip()
+        telefono = r[IDX["telefono"]].strip()
+        email    = r[IDX["email"]].strip()
+        hora     = r[IDX["hora"]].strip()
+
+        log.info(f"[CRON] Enviando recordatorio a {nombre} | {fecha_str} {hora}hs")
+
+        # ── Email ──────────────────────────────────────────────────
+        if email:
+            try:
+                ok = email_recordatorio(nombre, email, fecha_str, hora)
+                if ok:
+                    log.info(f"[CRON] Email OK → {email}")
+                else:
+                    log.warning(f"[CRON] Email falló → {email}")
+            except Exception as e:
+                log.error(f"[CRON] Error email {email}: {e}")
+                errores += 1
+
+        # ── WhatsApp ───────────────────────────────────────────────
+        if telefono:
+            try:
+                msg = (
+                    f"🔔 *TECNOMEDIC - Recordatorio de turno*\n\n"
+                    f"Hola {r[IDX['nombre']].strip()}! 👋\n"
+                    f"Te recordamos que *mañana* tenés turno.\n\n"
+                    f"📅 Fecha: {fecha_str}\n"
+                    f"⏰ Hora: {hora}hs\n\n"
+                    f"📍 C. Pellegrini 799, Corrientes\n"
+                    f"📞 (3794) 34-9278\n\n"
+                    f"Si necesitás cancelar, avisanos con anticipación. ¡Te esperamos!"
+                )
+                ok = enviar_whatsapp(telefono, msg)
+                if ok:
+                    log.info(f"[CRON] WA OK → {telefono}")
+                else:
+                    log.warning(f"[CRON] WA falló → {telefono}")
+            except Exception as e:
+                log.error(f"[CRON] Error WA {telefono}: {e}")
+                errores += 1
+
+        enviados += 1
+
+    log.info(
+        f"[CRON] Recordatorios finalizados: "
+        f"{enviados} paciente(s) notificados, {errores} error(es)."
+    )
+
+
+# ── Ruta manual para disparar el cron desde el admin (opcional) ───
+
+@app.route("/admin/recordatorio-manana", methods=["POST"])
+@login_required
+def disparar_recordatorio():
+    """Permite ejecutar el recordatorio manualmente desde el panel admin."""
+    try:
+        recordatorio_manana()
+        return redirect(url_for("admin") + "?recordatorio=1")
+    except Exception as e:
+        log.error(f"Error disparando recordatorio manual: {e}")
+        return redirect(url_for("admin") + "?recordatorio_error=1")
+
+
+# ── Iniciar el scheduler ──────────────────────────────────────────
+
+def iniciar_scheduler():
+    tz_arg    = pytz.timezone("America/Argentina/Buenos_Aires")
+    scheduler = BackgroundScheduler(timezone=tz_arg)
+    scheduler.add_job(
+        func    = recordatorio_manana,
+        trigger = CronTrigger(hour=9, minute=0, timezone=tz_arg),
+        id      = "recordatorio_diario",
+        name    = "Recordatorio turnos día siguiente",
+        replace_existing = True,
+        misfire_grace_time = 3600   # si Render tarda en despertar, tolera 1h de desfase
+    )
+    scheduler.start()
+    log.info("[CRON] Scheduler iniciado — recordatorio diario a las 09:00 ARG")
+    return scheduler
+
+# Arrancar el scheduler al cargar el módulo
+# (gunicorn lo importa una sola vez por worker, no hay duplicados)
+_scheduler = iniciar_scheduler()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

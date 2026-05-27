@@ -1,163 +1,291 @@
 # TECNOMEDIC – Sistema de Turnos
-Automatización de Turnos · Cámara Hiperbárica · Corrientes, Argentina
+
+Automatización de turnos para Cámara Hiperbárica. Este proyecto contiene el frontend web, el backend en Flask y la integración con Google Sheets, email Brevo y opcionalmente WhatsApp.
 
 ---
 
-## Estructura del proyecto
+## Manual de uso del proyecto
+
+Este README es una guía práctica para usar, ejecutar y desplegar el proyecto.
+
+### Qué hace esta app
+
+- muestra una página principal desde `templates/index.html`
+- permite solicitar turnos en `/turnos`
+- guarda los turnos en una planilla de Google Sheets
+- notifica por email usando Brevo
+- notifica por WhatsApp si está configurado
+- ofrece panel de administración protegido en `/admin`
+- permite confirmar, modificar y eliminar turnos
+- tiene un endpoint público para consultar horarios libres
+
+---
+
+## Estructura actual del proyecto
 
 ```
 tecnomedic/
-├── app.py                  # Aplicación Flask principal
-├── gunicorn.conf.py        # Config servidor de producción
-├── Procfile                # Comando de inicio (Render/Railway)
-├── render.yaml             # Config despliegue en Render
-├── requirements.txt        # Dependencias Python
-├── .env                    # Variables de entorno (NO subir a Git)
-├── env.example             # Plantilla del .env
+├── app.py
+├── bot_wa.py
+├── credenciales.json
+├── gunicorn.conf.py
+├── Procfile
+├── render.yaml
+├── requirements.txt
+├── runtime.txt
+├── tecnomedic.conf
+├── tecnomedic.service
+├── update.sh
+├── guia_dns_nicar.md
+├── guia_donweb.md
+├── guia_github_render.md
+├── README.md
 ├── .gitignore
-├── credenciales.json       # Service account Google (NO subir a Git)
+├── .python-version
 ├── static/
+│   ├── all.min.css
+│   ├── CLAUDE.md
+│   ├── tecnomedic - copia.css
 │   ├── tecnomedic.css
-│   ├── tecno_logo.png
-│   ├── fondo1.JPG
-│   ├── fondo2.jfif
-│   └── fondo3.webp
+│   ├── img/
+│   │   ├── dra repetto.JPG
+│   │   ├── dra unger.jpg
+│   │   ├── fondo1.JPG
+│   │   ├── fondo2.jfif
+│   │   ├── fondo3.webp
+│   │   ├── tecno-logo.jpeg
+│   │   ├── tecno_logo.png
+│   │   ├── Tecnomedic- Logotipo.ps
+│   │   └── notice/
+│   └── video/
+│       ├── deporte1.mp4
+│       ├── deporte2.mp4
+│       ├── Escuchar.mp4
+│       ├── Heridas.mp4
+│       ├── PieDiabetico.mp4
+│       ├── sede.mp4
+│       └── sesiones.mp4
 ├── templates/
-│   ├── form.html           # Formulario de turnos (público)
-│   ├── confirmacion.html   # Pantalla post-solicitud
-│   ├── admin.html          # Dashboard admin (requiere login)
-│   └── login.html          # Login admin
+│   ├── admin.html
+│   ├── CLAUDE.md
+│   ├── confirmacion.html
+│   ├── form.html
+│   ├── index.html
+│   ├── login.html
+│   ├── ooo index copia previa.html
+│   └── tienda_section.html
 └── n8n/
-    ├── solicitur_turno_tecnomedic.json
+    ├── CLAUDE.md
     ├── confirmar_turno_Tecnomedic.json
-    └── cron.json
+    ├── cron.json
+    └── solicitur_turno_tecnomedic.json
 ```
+
+> Nota: la lista incluye los archivos que forman parte del proyecto actual. La carpeta `.venv/` local y `.env` no deben subirse al repositorio.
 
 ---
 
-## Desarrollo local
+## Requisitos
+
+- Python 3.10+ (o 3.11)
+- Flask
+- gspread
+- google-auth
+- requests
+- python-dotenv
+- apscheduler
+- pytz
+- Brevo API key
+- Google Service Account JSON
+- Twilio opcional para WhatsApp
+
+Instala todo con:
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/tecnomedic-turnos.git
-cd tecnomedic-turnos
-
-# 2. Crear entorno virtual
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
-
-# 3. Instalar dependencias
 pip install -r requirements.txt
+```
 
-# 4. Configurar variables de entorno
-cp env.example .env
-# Editar .env con tus valores reales
+---
 
-# 5. Agregar credenciales de Google
-# Copiar credenciales.json en la raíz del proyecto
+## Variables de entorno necesarias
 
-# 6. Correr la app
+El proyecto carga configuraciones desde variables de entorno.
+
+Agrega estas variables en tu `.env` o en el servicio donde despliegues:
+
+- `SECRET_KEY` – clave secreta de Flask
+- `ADMIN_USER` – usuario admin
+- `ADMIN_PASSWORD` – contraseña admin
+- `GMAIL_USER` – email remitente
+- `BREVO_API_KEY` – clave Brevo para enviar emails
+- `TWILIO_ACCOUNT_SID` – SID de Twilio (opcional)
+- `TWILIO_AUTH_TOKEN` – token Twilio (opcional)
+- `TWILIO_WHATSAPP_FROM` – número remitente WhatsApp, por ejemplo `whatsapp:+549XXXXXXXXXX`
+- `GOOGLE_CREDS_JSON` – JSON completo de la Service Account de Google en una sola línea
+
+> Importante: la app actual espera `GOOGLE_CREDS_JSON` en lugar de leer directamente `credenciales.json`.
+
+---
+
+## Configuración local
+
+1. Clona el repositorio.
+2. Crea el entorno virtual:
+
+```bash
+python -m venv venv
+```
+
+3. Activa el entorno:
+
+- Linux/Mac:
+  ```bash
+  source venv/bin/activate
+  ```
+- Windows:
+  ```powershell
+  .\venv\Scripts\activate
+  ```
+
+4. Instala dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Crea un archivo `.env` con las variables necesarias.
+6. Ejecuta la app:
+
+```bash
 python app.py
-# → http://localhost:5000
 ```
+
+7. Abre en el navegador:
+
+- `http://localhost:5000`
+- `http://localhost:5000/turnos`
+- `http://localhost:5000/login`
 
 ---
 
-## Despliegue en Render (producción)
+## Cómo usar la app
 
-### Paso 1 — Subir a GitHub
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/tu-usuario/tecnomedic-turnos.git
-git push -u origin main
-```
+### Páginas públicas
 
-### Paso 2 — Crear servicio en Render
-1. Entrar a [render.com](https://render.com) → **New** → **Web Service**
-2. Conectar el repositorio de GitHub
-3. Render detecta `render.yaml` automáticamente
+- `/` → Página principal del sitio (`templates/index.html`)
+- `/turnos` → Formulario para solicitar turno (`templates/form.html`)
+- `/tienda` → Sección de tienda (`templates/tienda_section.html`)
 
-### Paso 3 — Variables de entorno en Render
-En el dashboard del servicio → **Environment** → agregar:
+### Flujo de turnos
 
-| Variable | Valor |
-|---|---|
-| `SECRET_KEY` | (generada automática) |
-| `ADMIN_USER` | tu_usuario |
-| `ADMIN_PASSWORD` | tu_clave_segura |
-| `N8N_WEBHOOK_URL` | https://tu-n8n.com/webhook/turnos-tecnomedic |
+1. El paciente completa el formulario en `/turnos`.
+2. El POST se envía a `/guardar`.
+3. El turno se guarda en Google Sheets con estado `Pendiente`.
+4. El paciente recibe un email de recepción.
+5. Si está configurado, se intenta enviar un mensaje WhatsApp.
 
-### Paso 4 — Credenciales Google
-En Render → **Environment** → **Secret Files** → subir `credenciales.json`
+### Panel administrativo
 
-### Paso 5 — Deploy
-Render hace el deploy automáticamente. La app queda en:
-`https://tecnomedic-turnos.onrender.com`
+- `/login` → acceder con `ADMIN_USER` y `ADMIN_PASSWORD`
+- `/admin` → ver la lista de turnos, confirmar, modificar o eliminar
+- `/actualizar` → cambiar estado de un turno
+- `/modificar` → editar datos del turno
+- `/eliminar` → borrar el turno
 
----
+### API interna
 
-## Etapas del proyecto
+- `/api/horarios?fecha=YYYY-MM-DD` → devuelve disponibilidad de horarios para la fecha seleccionada.
 
-- [x] Etapa 1 — Seguridad (login admin, .gitignore, claves en .env)
-- [x] Etapa 2 — Producción (Gunicorn, Render, variables de entorno)
-- [x] Etapa 3 — Dominio propio y HTTPS
-- [ ] Etapa 4 — WhatsApp (Twilio) — código comentado, listo para activar
-- [ ] Etapa 5 — n8n en producción
+### Webhook WhatsApp
+
+- `/whatsapp/bot` → recibe mensajes POST desde Twilio/WhatsApp si el bot está habilitado.
 
 ---
 
-## Etapa 3 — Dominio y HTTPS
+## Cómo funciona Google Sheets
 
-**Dominio:** `turnos.tecnomedic.com.ar`
-**Registrador:** NIC.ar
-**Estrategia:** agregar subdominio `turnos` al dominio existente,
-sin tocar el sitio principal `www.tecnomedic.com.ar`.
+La app usa Google Sheets como base de datos principal.
 
-### URLs finales
-| URL | Qué es |
-|---|---|
-| `https://turnos.tecnomedic.com.ar` | Formulario público de turnos |
-| `https://turnos.tecnomedic.com.ar/admin` | Panel admin (requiere login) |
-| `https://www.tecnomedic.com.ar` | Sitio actual del cliente (sin cambios) |
-
-### Registro DNS a agregar en NIC.ar
-```
-Tipo:   CNAME  (Render)  o  A  (VPS)
-Nombre: turnos
-Valor:  tecnomedic-turnos.onrender.com  o  IP_DEL_VPS
-TTL:    3600
-```
-Ver guía completa: `guia_dns_nicar.md`
-
-### Opción A — Render (recomendado)
-1. Subir código a GitHub
-2. Conectar repo en [render.com](https://render.com) → New Web Service
-3. Dashboard → Settings → Custom Domains → `turnos.tecnomedic.com.ar`
-4. Agregar registro CNAME en NIC.ar con el valor que da Render
-5. HTTPS se activa automático ✅
-
-### Opción B — VPS propio
-```bash
-# 1. Agregar registro A en NIC.ar apuntando a la IP del VPS
-# 2. Esperar propagación DNS (15min - 24hs)
-# 3. Correr en el servidor:
-chmod +x deploy.sh && sudo ./deploy.sh
-# Instala Nginx + Certbot + SSL + systemd automáticamente
-```
+- la hoja se abre con `gspread`
+- el nombre esperado es `Turnos TECNOMEDIC`
+- las columnas son:
+  - Nombre
+  - Apellido
+  - DNI
+  - ObraSocial
+  - Telefono
+  - Email
+  - Fecha
+  - Hora
+  - Estado
 
 ---
 
-## Activar WhatsApp (cuando estés listo)
+## Despliegue
 
-1. Descomentar en `requirements.txt`: `twilio>=8.0.0`
-2. Descomentar en `app.py`: imports, funciones y llamadas marcadas con `◀ WhatsApp`
-3. Agregar en `.env` y en Render:
-   ```
-   TWILIO_ACCOUNT_SID=ACxxxxxxxx
-   TWILIO_AUTH_TOKEN=xxxxxxxx
-   TWILIO_WHATSAPP_FROM=whatsapp:+549XXXXXXXXXX
-   ```
-4. Descomentar en `render.yaml` las variables de Twilio
+### Render
+
+Si usas Render, el archivo `render.yaml` ya está preparado.
+
+- sube el repositorio a GitHub
+- crea un Web Service en Render
+- agrega las variables de entorno
+- sube el `credenciales.json` o configura `GOOGLE_CREDS_JSON`
+- despliega y usa un dominio personalizado
+
+> Para más detalles, consulta `guia_github_render.md`.
+
+### DonWeb
+
+Si estás usando hosting compartido DonWeb, recuerda que ese plan no es ideal para ejecutar Flask directamente.
+
+- puedes alojar el frontend estático en DonWeb
+- la app Python/Flask debe ir a un servicio compatible
+- puedes usar `turnos.tecnomedic.com.ar` como subdominio para el backend
+
+> Para instrucciones específicas, consulta `guia_donweb.md`.
+
+---
+
+## Mantenimiento y actualización
+
+### Actualizar código
+
+- actualiza el repositorio
+- reinicia el servicio o vuelve a desplegar
+
+### Si usas Render
+
+- haz push a GitHub
+- Render deployará automáticamente
+
+### Si usas VPS propio
+
+- reinicia Gunicorn y Nginx
+- revisa los logs si hay errores
+
+---
+
+## Consejos de seguridad
+
+- nunca subas `.env` ni `credenciales.json` al repositorio público
+- usa contraseñas seguras para `ADMIN_PASSWORD`
+- no expongas la clave de Brevo ni Twilio en Git
+
+---
+
+## Qué archivos editar cuando querés cambiar el sitio
+
+- `templates/index.html` → página principal
+- `templates/form.html` → formulario de turnos
+- `templates/admin.html` → panel de administración
+- `static/tecnomedic.css` → estilos del sitio
+- `static/js/` (si existe) → scripts del cliente
+
+---
+
+## Recursos adicionales
+
+- `guia_donweb.md` → Guía para DonWeb
+- `guia_github_render.md` → Guía para Render
+- `guia_dns_nicar.md` → DNS en NIC.ar

@@ -19,6 +19,7 @@ credenciales.json
 # ─── IDE ────────────────────────────────
 .vscode/
 .idea/
+.cluade/
 
 # ─── Sistema ────────────────────────────
 .DS_Store
@@ -29,6 +30,6 @@ Thumbs.db
 logs/
 # ─── Archivos de documentación ─────────────────────NO SUBIR──────────
 guia_donweb.md
-
 CLAUDE.md
-tecnomedic - copia.css
+guia_dns_nicar.md
+guia_github_render.md
