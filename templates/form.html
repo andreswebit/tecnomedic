@@ -9,100 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
-    <style>
-        /* ── Grilla de horarios ─────────────────────────────── */
-        .slots-section { margin-top: 24px; }
-        .slots-label {
-            font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-            color: var(--muted); margin-bottom: 6px;
-        }
-        .slots-note {
-            font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 12px;
-        }
-        .slots-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-        .slot-btn {
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; gap: 4px; padding: 14px 8px;
-            border-radius: 12px; border: 2px solid transparent;
-            cursor: pointer; font-family: 'DM Sans', sans-serif;
-            transition: all .2s; background: none;
-        }
-        .slot-time  { font-size: 15px; font-weight: 600; }
-        .slot-badge { font-size: 10px; letter-spacing: .05em; padding: 2px 7px; border-radius: 20px; }
 
-        .slot-btn.disponible {
-            background: rgba(0,180,216,.08); border-color: var(--teal); color: var(--white);
-        }
-        .slot-btn.disponible .slot-badge { background: rgba(0,180,216,.2); color: var(--teal); }
-        .slot-btn.disponible:hover {
-            background: rgba(0,180,216,.2); transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0,180,216,.25);
-        }
-        .slot-btn.seleccionado {
-            background: linear-gradient(135deg, var(--teal), #0096c7);
-            border-color: var(--teal); color: #fff;
-        }
-        .slot-btn.seleccionado .slot-badge { background: rgba(255,255,255,.3); color: #fff; }
-        .slot-btn.lleno {
-            background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08);
-            color: rgba(255,255,255,.3); cursor: not-allowed;
-        }
-        .slot-btn.lleno .slot-badge { color: rgba(255,255,255,.3); }
-        .slots-period {
-            font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-            color: var(--muted); margin: 14px 0 6px; grid-column: 1/-1;
-        }
-        .slots-loading { text-align:center; padding:20px; color:var(--muted); font-size:13px; }
-
-        /* ── Select obra social ─────────────────────────────── */
-        .obra-select {
-            width: 100%;
-            background: #0a2540;          /* azul oscuro */
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 14px 12px 42px; /* espacio para el ícono */
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            color: #ffffff;               /* texto blanco */
-            outline: none;
-            appearance: none;
-            -webkit-appearance: none;
-            cursor: pointer;
-            transition: border-color .2s, box-shadow .2s;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300b4d8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-        }
-        .obra-select:focus {
-            border-color: var(--teal);
-            box-shadow: 0 0 0 3px rgba(0,180,216,.12);
-        }
-        .obra-select option {
-            background: #0a2540;
-            color: #ffffff;
-        }
-        /* Ícono delante del select */
-        .select-icon-wrap { position: relative; }
-        .select-icon-wrap .input-icon {
-            position: absolute; left: 13px; top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px; pointer-events: none;
-            z-index: 1;
-        }
-
-        /* ── Errores ─────────────────────────────────────────── */
-        .form-error {
-            background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.3);
-            border-radius: 10px; padding: 12px 14px; font-size: 13px;
-            color: #f87171; margin-bottom: 16px; text-align: center;
-        }
-        .submit-btn:disabled { opacity: .4; cursor: not-allowed; }
-    </style>
 </head>
 <body class="page-form">
 
-<div class="bg-circles">
-    <div class="circle"></div><div class="circle"></div><div class="circle"></div>
+<div class="bg-squares">
+    <div class="square"></div><div class="square"></div><div class="square"></div>
 </div>
 
 <div style="display:flex;min-height:100vh;position:relative;z-index:1;">
