@@ -19,28 +19,21 @@
 
 <div style="display:flex;min-height:100vh;position:relative;z-index:1;">
 
-    <!-- Carousel lateral -->
-    <aside class="sidebar-form">
-        <div class="sidebar-carousel-form" id="formCarousel">
-            <div class="carousel-slide active">
-                <img src="{{ url_for('static', filename='fondo1.JPG') }}" alt="TECNOMEDIC">
-            </div>
-            <div class="carousel-slide">
-                <img src="{{ url_for('static', filename='fondo2.JFIF') }}" alt="TECNOMEDIC">
-            </div>
-            <div class="carousel-slide">
-                <img src="{{ url_for('static', filename='fondo3.webp') }}" alt="TECNOMEDIC">
-            </div>
-        </div>
-    </aside>
+    
 
     <div class="wrapper-form" style="flex:1;">
         <header class="site-header">
             <div class="logo">
                 <a href="/">
-                    <img src="{{ url_for('static', filename='tecno_logo.png') }}"
-                         alt="TECNOMEDIC" class="logo-img">
+                    <!-- <img src="{{ url_for('static', filename='tecno_logo.png') }}" -->
+                    <img src="/static/img/tecno-logo.jpeg"
+                        alt="TECNOMEDIC" class="logo-img">
                 </a>
+            </div>
+            <div >
+                <p style="color: transparent;">...................
+
+                </p>
             </div>
             <div class="header-badge">
                 <div class="badge-dot"></div>
@@ -56,9 +49,9 @@
                     Elegí fecha y horario. Te confirmamos a la brevedad.
                 </p>
 
-                {% if error %}
+                <!-- {% if error %}
                 <div class="form-error">⚠️ {{ error }}</div>
-                {% endif %}
+                {% endif %} -->
 
                 <div class="form-card">
                     <form action="/guardar" method="post" id="turnoForm">

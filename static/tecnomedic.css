@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 /* ============================================================
    TECNOMEDIC – Hoja de estilos unificada
@@ -7,35 +7,43 @@
 
 /* ─── 1. VARIABLES ─────────────────────────────────────────── */
 :root {
-  /* ══ Paleta IDÉNTICA al index.html ══════════════════════════════ */
-  --green:      #98c544;      /* Lima – "MEDIC" del logo            */
-  --green-dk:   #7aad2e;      /* Lima oscuro                        */
-  --teal:       #1aa5a5;      /* Teal – color secundario de marca   */
-  --teal-dk:    #148080;      /* Teal oscuro                        */
-  --navy:       #0d1b2a;      /* Dark background                    */
-  --navy-mid:   #1a3354;
-  --text:       #454545;      /* Texto oscuro de marca              */
-  --bg-light:   #edf1f0;      /* Fondo claro de marca               */
-  --amber:      #f59e0b;
-  --amber-dk:   #d97706;
-  --white:      #ffffff;
-  --g50:        #edf1f0;
-  --g100:       #e2e8e6;
-  --g300:       #b0bfbc;
-  --g400:       #8a9e9b;
-  --g600:       #555f5e;
-  --g800:       #333a39;
-  --r:          12px;
-  --sh:         0 8px 24px rgba(0, 0, 0, .10);
-  --shl:        0 20px 60px rgba(0, 0, 0, .16);
+  /* ── Paleta de marca TECNOMEDIC ── */
+  --green: #98c544;
+  /* Lima – color "MEDIC" del logo */
+  --green-dk: #7aad2e;
+  /* Lima oscuro */
+  --teal: #1aa5a5;
+  /* Teal – color secundario de marca */
+  --teal-dk: #148080;
+  /* Teal oscuro */
+  --navy: #0d1b2a;
+  /* Dark background */
+  --navy-mid: #1a3354;
+  --text: #454545;
+  /* Texto oscuro de marca */
+  --bg-light: #edf1f0;
+  /* Fondo claro de marca */
+  --amber: #f59e0b;
+  --amber-dk: #d97706;
+  --white: #ffffff;
+  --g50: #edf1f0;
+  /* usa el bg-light de marca */
+  --g100: #e2e8e6;
+  --g300: #b0bfbc;
+  --g400: #8a9e9b;
+  --g600: #555f5e;
+  --g800: #333a39;
+  --r: 12px;
+  --sh: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shl: 0 20px 60px rgba(0, 0, 0, 0.16);
 
-  /* ── Aliases usados en form / login / admin / confirm ──────────── */
-  --teal-bright:  #30c5c5;
-  --teal-glow:    rgba(26, 165, 165, 0.12);
-  --green-glow:   rgba(152, 197, 68, 0.12);
-  --border:       rgba(26, 165, 165, 0.20);
-  --card-bg:      rgba(13, 26, 52, 0.72);
-  --muted:        var(--g400);
+  /* ── Alias de compatibilidad (usados en form/login/admin) ── */
+  --teal-bright: #30c5c5;
+  --teal-glow: rgba(26, 165, 165, 0.12);
+  --green-glow: rgba(152, 197, 68, 0.12);
+  --border: rgba(26, 165, 165, 0.22);
+  --card-bg: rgba(13, 26, 52, 0.72);
+  --muted: #8aada9;
 }
 
 /* ─── 2. RESET & BASE ───────────────────────────────────────── */
@@ -52,24 +60,7 @@ body {
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 70% 50% at 5% 10%,
-      rgba(26, 165, 165, 0.07) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 50% 70% at 95% 90%,
-      rgba(152, 197, 68, 0.06) 0%,
-      transparent 60%
-    );
-  z-index: 0;
-  pointer-events: none;
-}
+
 
 /* ─── 3. ANIMACIONES COMPARTIDAS ───────────────────────────── */
 @keyframes blink {
@@ -160,12 +151,12 @@ body::before {
 
 /* ─── 4. LOGO / ÍCONO (compartido) ─────────────────────────── */
 .logo-icon {
-  background: linear-gradient(135deg, var(--teal), var(--green-dk));
+  background: linear-gradient(135deg, var(--amber), var(--green-dk));
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(var(--green), 0.28);
+  box-shadow: 0 0 10px rgba(var(--green), 0.28);
 }
 
 /* Imagen de logo real — filter invert la hace blanca sobre fondo oscuro */
@@ -177,7 +168,7 @@ body::before {
 
 /* Header (form.html) */
 .site-header .logo-img {
-  height: 12rem;
+  height: 80px;
   width: auto;
   max-width: 20rem;
 }
@@ -259,7 +250,7 @@ body::before {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--teal), var(--green-dk));
+  background: linear-gradient(135deg, var(--amber), var(--green-dk));
   color: #fff;
   box-shadow: 0 6px 20px rgba(26, 165, 165, 0.28);
 }
@@ -269,12 +260,12 @@ body::before {
 }
 
 .btn-outline {
-  background: transparent;
+  background: var(--teal-dk);
   color: var(--white);
   border: 1px solid var(--border);
 }
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.103);
 }
 
 .btn-ghost {
@@ -292,74 +283,50 @@ body::before {
 
 /* Fondo animado específico de la página de formulario */
 body.page-form {
-  background: var(--green-dk);
+  background: var(--g400);
+  
+}
+/* Cuadrados inferiores izquierda */
+body::before{
+    content:"";
+    position:fixed;
+    width:72px;
+    height:72px;
+    left:15px;
+    bottom:20px;
+    z-index:1;
+    pointer-events:none;
+
+    background:rgba(152,197,68,.9);
+
+    box-shadow:
+      85px 0 rgba(245, 245, 245, 0.9),
+      170px 0 rgba(26,165,165,.9),
+
+      0 -85px rgba(69,69,69,.9),
+      85px -85px rgba(26,165,165,.9),
+
+      0 -170px rgba(152,197,68,.9);
 }
 
-body.page-form::before {
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(26, 165, 165, 0.09) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(152, 197, 68, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(13, 27, 42, 1) 0%, transparent 100%);
-  animation: bgPulse 8s ease-in-out infinite alternate;
-}
+/* Cuadrados superiores derecha */
+body::after{
+    content:"";
+    position:fixed;
+    width:72px;
+    height:72px;
+    right:105px;
+    top:15px;
+    z-index:1;
+    pointer-events:none;
 
-/* ─── Cuadrados flotantes decorativos ───────────────────── */
-.bg-squares {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
+    background:rgba(152,197,68,.9);
 
-.square {
-  position: absolute;
-  border-radius: 28px;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: floatSquare linear infinite;
+    box-shadow:
+      85px 0 rgba(26,165,165,.9),
+      85px 85px rgba(152,197,68,.9);
 }
-
-.square:nth-child(1) {
-  width: 260px;
-  height: 260px;
-  top: -60px;
-  left: -60px;
-  background: rgba(26, 165, 165, 0.08);
-  animation-duration: 26s;
-  transform: rotate(18deg);
-}
-
-.square:nth-child(2) {
-  width: 420px;
-  height: 420px;
-  bottom: -180px;
-  right: -120px;
-  background: rgba(152, 197, 68, 0.08);
-  animation-duration: 34s;
-  transform: rotate(22deg);
-}
-
-.square:nth-child(3) {
-  width: 180px;
-  height: 180px;
-  top: 45%;
-  left: 68%;
-  background: rgba(13, 27, 42, 0.05);
-  animation-duration: 20s;
-  transform: rotate(12deg);
-}
-
-.square:nth-child(4) {
-  width: 120px;
-  height: 120px;
-  top: 20%;
-  right: 18%;
-  background: rgba(255, 255, 255, 0.04);
-  animation-duration: 18s;
-  transform: rotate(10deg);
-}
-
+/* //////////////////////////////////////////////// */
 @keyframes floatSquare {
   0% {
     transform: translateY(0px) rotate(12deg);
@@ -384,18 +351,20 @@ body.page-form::before {
 
 /* Header */
 .site-header {
-  padding: 28px 40px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
-  background: var(--teal);
+  background: var(--g50 , 0.12);
+  border-radius: 5px;
+  box-shadow: 0 3px 3px  3px rgba(167, 221, 105, 0.351);
 }
 .site-header .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 55px;
 }
 .site-header .logo-icon {
   width: 44px;
@@ -416,24 +385,25 @@ body.page-form::before {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-top: 1px;
+  gap: 10px;
 }
 
 .header-badge {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: var(--green-dk);
   border: 1px solid var(--border);
   padding: 7px 14px;
-  border-radius: 30px;
+  border-radius: 20px;
   font-size: 14px;
-  color: var(--white);
+  color: var(--g600);
   letter-spacing: 0.05em;
 }
 .badge-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--teal);
+  width: 10px;
+  height: 10px;
+  background: var(--amber-dk);
   border-radius: 50%;
   animation: blink 2s ease-in-out infinite;
 }
@@ -444,19 +414,23 @@ body.page-form::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 20px;
+  padding: 40px 0px 0px 0px;
+  border-radius: 5px;
+  /* box-shadow: 0 3px 10px rgba(167, 221, 105, 0.651); */
+
 }
 
 .form-content {
-  width: 100%;
-  max-width: 520px;
+  width: 40rem;
   animation: fadeUp 0.8s ease both;
-  background-color: var(--white);
-  
+  background-color: var(--g50);
+  color: var(--g600);
+  font-weight: 800;
+
 }
 
 .hero-label {
-  font-size:  11px;
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--green);
@@ -464,12 +438,13 @@ body.page-form::before {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-top: 10px;
 }
 .hero-label::before {
   content: "";
   width: 28px;
   height: 1px;
-  background: var(--navy-mid);
+  background: var(--navy-dk);
 }
 
 .form-content h1 {
@@ -478,6 +453,8 @@ body.page-form::before {
   line-height: 1.2;
   font-weight: 600;
   margin-bottom: 10px;
+  padding-left: 10px;
+  text-align: none;
 }
 .form-content h1 span {
   color: var(--green-dk);
@@ -490,13 +467,14 @@ body.page-form::before {
   line-height: 1.6;
   margin-bottom: 36px;
   font-weight: 300;
+  padding-left: 10px;
 }
 
 /* Card form */
 .form-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 36px 36px 32px;
   backdrop-filter: blur(20px);
   box-shadow:
@@ -546,13 +524,13 @@ input[type="email"],
 input[type="date"],
 input[type="time"] {
   width: 100%;
-  background: var(--navy, 0.945);
+  background: var(--g300, 0.15);
   border: 1px solid var(--green);
   border-radius: 10px;
   padding: 12px 14px 12px 42px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat bold", sans-serif;
   font-size: 14px;
-  color: var(--white);
+  color: var(--g800);
   outline: none;
   transition:
     border-color 0.25s,
@@ -562,28 +540,25 @@ input[type="time"] {
 }
 input:focus {
   border-color: var(--green-dk);
-  background: var(--green-dk, 1.18);
-  box-shadow: 0 0 0 3px rgba(26, 165, 165, 0.15);
+  background: var(--green-dk);
+  box-shadow: 0 0 1px 1px rgba(--green-dk, 0.973);
 }
 
 input#dateInput:focus,
 input.flatpickr-input:focus {
   background: var(--green-dk);
   border-color: var(--green-dk);
-  
 }
 
 .flatpickr-calendar {
   background: var(--g600);
   border: 1px solid var(--green-dk);
-  
 }
 
 .flatpickr-calendar .flatpickr-months,
 .flatpickr-calendar .flatpickr-weekdays,
 .flatpickr-calendar .flatpickr-days {
-  background: var(--teal-dk);
-  
+  background: var(--g300);
 }
 
 .flatpickr-calendar .flatpickr-day.selected,
@@ -602,7 +577,6 @@ input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
   filter: invert(0.9) sepia(1) saturate(2) hue-rotate(170deg);
   cursor: pointer;
-  
 }
 
 .form-divider {
@@ -634,13 +608,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(135deg, rgba(94, 91, 91, 0.158), transparent);
   opacity: 0;
   transition: opacity 0.2s;
 }
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(26, 165, 165, 0.42);
+  box-shadow: 0 12px 32px rgba(26, 165, 165, 0.144);
   filter: brightness(1.08);
 }
 .submit-btn:hover::after {
@@ -661,22 +635,24 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .features {
   display: flex;
   margin-top: 24px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border: 2px solid var(--g300);
+  border-radius: 5px;
   overflow: hidden;
+  background-color: var(--green-dk);
 }
 .feature {
   flex: 1;
   padding: 16px 14px;
   text-align: center;
-  border-right: 1px solid var(--border);
+  border-right: 2px solid var(--g300);
   transition: background 0.2s;
 }
 .feature:last-child {
   border-right: none;
 }
 .feature:hover {
-  background: var(--teal-glow);
+  background: var(--g300);
+  
 }
 .feature-icon {
   font-size: 20px;
@@ -684,16 +660,17 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 .feature-text {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--g50);
   line-height: 1.4;
 }
+
 
 /* Footer */
 .site-footer {
   text-align: center;
   padding: 20px;
   font-size: 11px;
-  color: var(--g600);
+  color: var(--white);
   letter-spacing: 0.05em;
   position: relative;
   z-index: 1;
@@ -708,7 +685,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     font-size: 28px;
   }
   .form-card {
-    padding: 24px 20px;
+    /* padding: 24px 20px; */
+    position:relative;
+    z-index:2;
   }
   .form-grid {
     grid-template-columns: 1fr;
@@ -825,35 +804,39 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 /* ── Select obra social ─────────────────────────────── */
 .obra-select {
   width: 100%;
-  background: var(--navy); /* azul oscuro */
+  background: var(--g300); /* color obra social */
   border: 1px solid var(--green-dk);
   border-radius: 10px;
   padding: 12px 14px 12px 42px; /* espacio para el ícono */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat bold", sans-serif;
   font-size: 14px;
-  color: #ffffff; /* texto blanco */
+  color: var(--g800); /* texto  */
   outline: none;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
   transition:
     border-color 0.2s,
-    box-shadow 0.2s;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300b4d8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    box-shadow 0.2s,
+    background-color 0.2s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237aad2e' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
 }
+.obra-select:hover,
 .obra-select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(31, 165, 26, 0.151);
+  background: var(--green-dk);
+  color: #fff;
 }
 .obra-select option {
-  background: var(--navy);
-  color: #ffffff;
+  background: var(--g300);
+  color:var(--g800);
 }
+
 /* Ícono delante del select */
 .select-icon-wrap {
   position: relative;
+    
 }
 .select-icon-wrap .input-icon {
   position: absolute;
@@ -863,6 +846,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   font-size: 16px;
   pointer-events: none;
   z-index: 1;
+  
+  
+  
+  
 }
 
 /* ── Errores ─────────────────────────────────────────── */
@@ -896,8 +883,16 @@ body.page-confirm {
 
 body.page-confirm::before {
   background:
-    radial-gradient(ellipse 70% 60% at 20% 30%, rgba(152, 197, 68, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 70% at 80% 80%, rgba(26, 165, 165, 0.08) 0%, transparent 60%);
+    radial-gradient(
+      ellipse 70% 60% at 20% 30%,
+      rgba(152, 197, 68, 0.07) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 70% at 80% 80%,
+      rgba(26, 165, 165, 0.08) 0%,
+      transparent 60%
+    );
 }
 
 .confirm-page {
@@ -1180,13 +1175,13 @@ body {
   border-radius: 11px;
   font-family: "Montserrat", sans-serif;
   font-size: 14.5px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   cursor: pointer;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
-  box-shadow: 0 6px 20px rgba(26, 165, 165, 0.32);
+  box-shadow: 0 6px 20px rgba(26, 165, 165, 0.3);
 }
 
 .login-btn:hover {
@@ -2469,62 +2464,7 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   transition: all 0.3s;
 }
 
-/* ── Carousel dentro de la sidebar ── */
-.sidebar-carousel {
-  margin: 16px 12px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-  height: 160px;
-  position: relative;
-  border: 1px solid var(--border);
-}
-.sidebar-carousel .carousel-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-.sidebar-carousel .carousel-slide.active {
-  opacity: 1;
-}
-.sidebar-carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* ── Carousel en form (sidebar lateral) ── */
-.sidebar-form {
-  width: 340px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0 20px 20px 0;
-}
-.sidebar-carousel-form {
-  position: relative;
-  flex: 1;
-  overflow: hidden;
-}
-.sidebar-carousel-form .carousel-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-.sidebar-carousel-form .carousel-slide.active {
-  opacity: 1;
-}
-.sidebar-carousel-form img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 /* ── Botón volver/home en admin ── */
 .btn-home {
