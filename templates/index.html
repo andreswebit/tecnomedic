@@ -13,8 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="/static/all.min.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> -->
+    <!-- <link rel="stylesheet" href="/static/all.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
 
     <style>
         :root {
@@ -1035,7 +1035,7 @@
 
         .doctors-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 36px
         }
 
@@ -1140,7 +1140,7 @@
 
         @media (max-width: 900px) {
             .doctors-grid {
-                grid-template-columns: 1fr 1fr
+                grid-template-columns: 2fr 1fr
             }
         }
 
@@ -2774,12 +2774,12 @@
 
         #equipo .doctors-grid {
             display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(3, 1fr) !important;
             gap: 36px !important;
         }
 
         #equipo .doctor-card {
-            background: #fff !important;
+            background: rgba(207, 235, 235, 0.986)!important;
             border-radius: 20px !important;
             padding: 0 28px 32px !important;
             display: flex !important;
@@ -2822,7 +2822,7 @@
             font-family: 'Poppins', sans-serif !important;
             font-weight: 800;
             font-size: 22px;
-            color: #0d1b2a !important;
+            color: var(--g600) !important;
             margin-bottom: 4px;
             line-height: 1.1;
         }
@@ -2832,7 +2832,7 @@
             font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase !important;
-            color: #94a3b8 !important;
+            color: var(--amber-dk) !important;
             margin-bottom: 14px;
         }
 
@@ -2931,6 +2931,19 @@
                     </div>
 
                     <!-- Card 3 -->
+                    
+                    <div class="doctor-card">
+                        <div class="doctor-photo-wrap">
+                            <img src="{{ url_for('static', filename='img/dra repettoL.jpg') }}" alt="Dra. Luciana Repetto" loading="lazy" />
+                        </div>
+                        <div class="doctor-name">Lic. Luciana Repetto</div>
+                        <div class="doctor-specialty"> Lincenciada en Nutricion</div>
+                        <p class="doctor-desc">
+                            Especialista en nutricion deportiva y clinica , planes personalizados de nutrición , suplementación especializada y seguimiento continuo para optimizar tu recuperación y bienestar.
+                        </p>
+
+                        <button class="doctor-plus" title="Ver más"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
 
                 </div>
