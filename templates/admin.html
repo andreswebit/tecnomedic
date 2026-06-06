@@ -12,7 +12,7 @@
     
 </head>
 
-<body>
+<body class="page-admin">
 
     <!-- Cabecera de impresión -->
     <div class="print-header">
@@ -27,10 +27,13 @@
         <!-- ── SIDEBAR ─────────────────────────────────────────── -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-logo">
-                <a href="/"><img src="{{ url_for('static', filename='tecno_logo.png') }}" alt="TECNOMEDIC"
-                        class="logo-img"></a>
-                <div class="sidebar-sub">Panel Admin</div>
-            </div>
+                <a href="/">
+                    <!-- <img src="{{ url_for('static', filename='tecno_logo.png') }}" alt="TECNOMEDIC" class="logo-img"> -->
+                    <img src="/static/img/tecno_logo.png " alt="TECNOMEDIC" class="logo-img">
+                </a>
+                </div>
+            <div class="sidebar-sub">Panel de Control</div>
+            
             <div class="nav-label">Menú</div>
             <a href="/" class="nav-item"><span>🏠</span><span>Inicio</span></a>
             <a href="/admin" class="nav-item active"><span>📋</span><span>Turnos</span></a>
@@ -52,8 +55,8 @@
                     <span class="status-text">Sistema activo</span>
                 </div>
                 <a href="/logout"
-                    style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;"
-                    onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='var(--muted)'">
+                    style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--g100);text-decoration:none;transition:color .2s;"
+                    onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--g100)'">
                     <span>🚪</span><span>Cerrar sesión</span>
                 </a>
             </div>
@@ -323,7 +326,7 @@
                     <div class="edit-group">
                         <div class="edit-label">Obra social</div>
                         <select class="edit-input" name="obra_social" id="edit-os"
-                            style="padding:12px 14px;cursor:pointer;background:#0a2540;color:#fff;">
+                            style="padding:12px 14px;cursor:pointer;background:var(--green);color:#fff;">
                             <option value="">-- Seleccioná --</option>
                             <option value="Particular">Particular</option>
                             <option value="PAMI">PAMI</option>

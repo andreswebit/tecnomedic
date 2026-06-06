@@ -2366,7 +2366,7 @@
         <a href="#novedades" onclick="closeMobile()">Novedades</a>
         <a href="#equipo" onclick="closeMobile()">Especialistas</a>
 
-        <a href="/form" class="btn btn-green" style="font-size:17px;margin-top:8px;">
+        <a href="/turnos" class="btn btn-green" style="font-size:17px;margin-top:8px;">
             <i class="fa-regular fa-calendar-check"></i> Reservar Turno
         </a>
         <a href="/login" class="btn btn-green" style="font-size:17px;margin-top:8px;">
@@ -2901,7 +2901,8 @@
                     <!-- Card 1 -->
                     <div class="doctor-card">
                         <div class="doctor-photo-wrap">
-                            <img src="{{ url_for('static', filename='img/dra unger.jpg') }}" alt="Dra. Carolina Unger" loading="lazy" />
+                            <!-- <img src="{{ url_for('static', filename='img/dra unger.jpg') }}" alt="Dra. Carolina Unger" loading="lazy" /> -->
+                            <img src="/static/img/dra unger.jpg" alt="Dra. Carolina Unger" loading="lazy" />
                         </div>
                         <div class="doctor-name">Dra. Carolina Unger</div>
                         <div class="doctor-specialty">M.P 6637 · Médica Clínica-Diabetologa</div>
@@ -2918,8 +2919,9 @@
                     <!-- Card 2 -->
                     <div class="doctor-card">
                         <div class="doctor-photo-wrap">
-                            <img src="{{ url_for('static', filename='img/dra repetto.JPG') }}" alt="Lic. Fonoaudiologa"
-                                loading="lazy" />
+                            <!-- <img src="{{ url_for('static', filename='img/dra repetto.JPG') }}" alt="Lic. Fonoaudiologa" 
+                                loading="lazy" />-->
+                        <img src="/static/img/dra repetto.JPG" alt="Lic. Fonoaudiologa" loading="lazy" />        
                         </div>
                         <div class="doctor-name">Lic. Valentina Repetto</div>
                         <div class="doctor-specialty">Fonoaudiologa </div>
@@ -2934,7 +2936,8 @@
                     
                     <div class="doctor-card">
                         <div class="doctor-photo-wrap">
-                            <img src="{{ url_for('static', filename='img/dra repettoL.jpg') }}" alt="Dra. Luciana Repetto" loading="lazy" />
+                            <!-- <img src="{{ url_for('static', filename='img/dra repettoL.jpg') }}" alt="Dra. Luciana Repetto" loading="lazy" /> -->
+                            <img src="/static/img/dra repettoL.jpg" alt="Dra. Luciana Repetto" loading="lazy" />
                         </div>
                         <div class="doctor-name">Lic. Luciana Repetto</div>
                         <div class="doctor-specialty"> Lincenciada en Nutricion</div>
@@ -3132,9 +3135,9 @@
                 <h2 class="turnos-title">AGENDA TU CONSULTA<br><span class="accent">HOY</span></h2>
                 <p class="turnos-sub">Sistema de turnos online disponible 24/7 · Confirmación inmediata por WhatsApp</p>
                 <div class="turnos-card">
-                    <form action="/form" method="get">
+                    <form action="/templates/form.html" method="get">
 
-                        <div class="btn-full"><button href="/form" class="t-submit"><i
+                        <div class="btn-full"><button href="/turnos" class="t-submit"><i
                                     class="fa-regular fa-calendar-check"></i> RESERVAR TURNO AHORA &nbsp;→</button>
                         </div>
                 </div>
@@ -3317,7 +3320,7 @@
                     <div style="margin-top:22px;">
                         <div class="ftr-col-ttl">Turnos</div>
                         <div class="ftr-links">
-                            <a href="/form">Reservar turno</a>
+                            <a href="/turnos">Reservar turno</a>
                             <a href="/admin">Panel admin</a>
                         </div>
                     </div>
