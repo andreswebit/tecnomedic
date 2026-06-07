@@ -33,6 +33,10 @@ TWILIO_SID     = os.environ.get("TWILIO_ACCOUNT_SID", "")
 TWILIO_TOKEN   = os.environ.get("TWILIO_AUTH_TOKEN", "")
 TWILIO_WA_FROM = os.environ.get("TWILIO_WHATSAPP_FROM", "whatsapp:+14155238886")
 
+
+# URL pública para el ping keepalive (configurar en Render -> Environment)
+PING_URL = os.environ.get("PING_URL", "https://tecnomedic.onrender.com")
+
 HORARIOS        = ["08:30", "09:45", "11:00", "16:30", "17:45", "19:00"]
 MAX_POR_HORARIO = 2
 
@@ -581,7 +585,11 @@ def eliminar():
     log.info(f"Turno fila {row} eliminado")
     return redirect(url_for("admin") + "?guardado=1")
 
-
+# --- TU RUTA DE PING  ---
+@app.route('/ping', methods=['GET'])
+def ping():
+    # Devuelve un texto plano y un código 200 OK sin cargar HTML pesado
+    return "OK", 200
 # ══════════════════════════════════════════════════════════════════
 # BOT WHATSAPP
 # ══════════════════════════════════════════════════════════════════
@@ -758,6 +766,31 @@ def iniciar_scheduler():
         name    = "Recordatorio turnos día siguiente",
         replace_existing = True,
         misfire_grace_time = 3600   # si Render tarda en despertar, tolera 1h de desfase
+    )
+    # Job keepalive: ping cada 10 minutos excepto entre las 02:00 y 03:59
+    def ping_keepalive():
+        if not PING_URL:
+            log.warning("PING_URL no configurada; saltando ping keepalive")
+            return False
+        try:
+            log.info(f"[PING] Enviando keepalive a {PING_URL}")
+            r = http_req.get(PING_URL, timeout=10)
+            if r.status_code < 400:
+                log.info(f"[PING] OK {r.status_code}")
+                return True
+            log.warning(f"[PING] Respuesta no OK: {r.status_code}")
+            return False
+        except Exception as e:
+            log.error(f"[PING] Error ping_keepalive: {e}")
+            return False
+
+    scheduler.add_job(
+        func = ping_keepalive,
+        trigger = CronTrigger(minute="*/10", hour="0-1,4-23", timezone=tz_arg),
+        id = "keepalive_ping",
+        name = "Keepalive ping cada 10 minutos (excluye 02:00-04:00)",
+        replace_existing = True,
+        misfire_grace_time = 120
     )
     scheduler.start()
     log.info("[CRON] Scheduler iniciado — recordatorio diario a las 09:00 ARG")

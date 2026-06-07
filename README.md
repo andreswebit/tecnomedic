@@ -125,6 +125,25 @@ Agrega estas variables en tu `.env` o en el servicio donde despliegues:
 
 > Importante: la app actual espera `GOOGLE_CREDS_JSON` en lugar de leer directamente `credenciales.json`.
 
+### Keepalive / Ping automático
+
+- `PING_URL` – (opcional) URL pública que la app usará para recibir un ping keepalive. Configura esta variable en tu servicio (por ejemplo Render → Environment) con la URL pública de tu app, por ejemplo `https://test.tecnomedic.com.ar` o la URL de Render `https://tecnomedic.ondender.com`.
+- Comportamiento: la aplicación envía una petición HTTP `GET` a `PING_URL` cada 10 minutos para mantener la instancia activa. El job está activo 24/7 excepto entre las 02:00 y 03:59 (hora Argentina) para reducir uso; si no se configura `PING_URL` el job se salta automáticamente.
+- Probar localmente: desde una terminal puedes ejecutar:
+
+```bash
+curl -I "https://test.tecnomedic.com.ar"
+```
+
+o probar desde Python:
+
+```python
+import requests
+requests.get('https://test.tecnomedic.com.ar', timeout=10)
+```
+
+Coloca la URL que prefieras en `PING_URL` (dominio personalizado o la URL que te provea Render).
+
 ---
 
 ## Configuración local
