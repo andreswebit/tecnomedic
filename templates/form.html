@@ -326,18 +326,7 @@ document.getElementById('turnoForm').addEventListener('submit', function(e) {
     document.getElementById('submitBtn').textContent = '⏳ Enviando…';
 });
 
-// ── Carousel ─────────────────────────────────────────────────
-(function(){
-    var slides = document.querySelectorAll('#formCarousel .carousel-slide');
-    var idx = 0;
-    if (slides.length > 1) {
-        setInterval(function() {
-            slides[idx].classList.remove('active');
-            idx = (idx + 1) % slides.length;
-            slides[idx].classList.add('active');
-        }, 3000);
-    }
-})();
+
 
 // ── Animación entrada ─────────────────────────────────────────
 document.querySelectorAll('.form-group').forEach(function(el, i) {

@@ -38,15 +38,19 @@
             <a href="/" class="nav-item"><span>🏠</span><span>Inicio</span></a>
             <a href="/admin" class="nav-item active"><span>📋</span><span>Turnos</span></a>
             <a href="/turnos" class="nav-item"><span>➕</span><span>Nuevo Turno</span></a>
-            <div class="sidebar-carousel" id="sidebarCarousel">
+            
+			<div class="sidebar-carousel" id="sidebarCarousel">
                 <div class="carousel-slide active">
-                    <img src="{{ url_for('static', filename='fondo1.JPG') }}" alt="">
+                    <!-- <img src="{{ url_for('static', filename='fondo1.JPG') }}" alt=""> -->
+					<img src="/static/img/fondo1.JPG" alt="">
                 </div>
                 <div class="carousel-slide">
-                    <img src="{{ url_for('static', filename='fondo2.JFIF') }}" alt="">
-                </div>
+                    <!-- <img src="{{ url_for('static', filename='fondo2.JFIF') }}" alt=""> -->
+                    <img src="/static/img/fondo2.jfif" alt="">
+				</div>
                 <div class="carousel-slide">
-                    <img src="{{ url_for('static', filename='fondo3.webp') }}" alt="">
+                    <!-- <img src="{{ url_for('static', filename='fondo3.webp') }}" alt=""> -->
+					<img src="/static/img/fondo3.webp" alt="">
                 </div>
             </div>
             <div class="sidebar-footer">
@@ -403,17 +407,22 @@
     <div id="toast-ok">✅ &nbsp;Guardado exitosamente</div>
 
     <script>
-        // ── Datos para el calendario ──────────────────────────────────
-        const TURNOS = [
-            {% for t in turnos %}{
-            nombre: "{{ (t.get('Nombre','')+' '+t.get('Apellido',''))|e }}",
-                telefono: "{{ t.get('Telefono','')|e }}",
-                    email: "{{ t.get('Email','')|e }}",
-                        fecha: "{{ t.get('Fecha','')|e }}",
-                            hora: "{{ t.get('Hora','')|e }}",
-                                estado: "{{ t.get('Estado','')|e }}"
-        } {% if not loop.last %}, {% endif %} {% endfor %}
-];
+    // ── Datos para el calendario ──────────────────────────────────
+    		var TURNOS = [
+					{% for t in turnos %}{
+					nombre: {{ (t.get('Nombre','') ~ ' ' ~ t.get('Apellido',''))|tojson }},
+					telefono: {{ t.get('Telefono','')|tojson }},
+					email: {{ t.get('Email','')|tojson }},
+					fecha: {{ t.get('Fecha','')|tojson }},
+					hora: {{ t.get('Hora','')|tojson }},
+					estado: {{ t.get('Estado','')|tojson }}
+					}{% if not loop.last %}, {% endif %}
+        			{% endfor %}
+    				];
+
+    
+        
+  
 
         // ── Sidebar ───────────────────────────────────────────────────
         function toggleSidebar() {
@@ -676,7 +685,9 @@
                 history.replaceState({}, '', window.location.pathname);
             }
         })();
-    </script>
+    
+	
+	</script>
 
 </body>
 

@@ -1270,7 +1270,7 @@ body.login-box {
 
 .page-admin{
   font-family: "Montserrat", "Montserrat", sans-serif;
-  background: var(--g300);
+  background: var(--navy-mid);
   color: var(--white);
   min-height: 100vh;
 };
@@ -1415,14 +1415,16 @@ body.login-box {
 }
 
 .chip {
-  background: var(--green-dk, 0.1);
-  border: 1px solid var(--g100);
-  box-shadow: var(--teal-dk) 0 1px 2px;
-  padding: 7.5px 14px;
-  border-radius: 10px;
-  font-size: 12px;
-  color: var(--g100);
-  /* text-shadow: var(--g600) 0 1px 2px; */
+  
+  font-family: "Montserrat", sans-serif;
+  padding-top: 10px;
+  font-size: 12px ;
+  color:  rgb(129, 125, 125) ;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center ;
+  /* text-shadow: var(--g100) 0 1px 2px; */
 }
 
 .view-toggle {
@@ -2553,6 +2555,38 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   transition: all 0.3s;
 }
 
+/* ── Carousel dentro de la sidebar ── */
+
+.sidebar-carousel {
+    margin: 16px 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 300px;
+    width: 200px;
+    position: relative;
+    border: 1px solid var(--amber-dk);
+    
+}
+
+
+.sidebar-carousel .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.sidebar-carousel .carousel-slide.active {
+  opacity: 1;
+  
+}
+.sidebar-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 
 /* ── Botón volver/home en admin ── */
@@ -2703,15 +2737,7 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   }
 }
 
-/* ── Responsive form con carousel lateral ── */
-@media (max-width: 900px) {
-  .sidebar-form {
-    display: none;
-  }
-  .wrapper-form .form-main {
-    padding: 0;
-  }
-}
+
 
 /* ════════════════════════════════════════════════════════════
    SECCIÓN F — TABLA RESPONSIVA PARA MÓVIL
