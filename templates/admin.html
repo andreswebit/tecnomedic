@@ -76,7 +76,9 @@
                         <span></span><span></span><span></span>
                     </button>
                     <div class="page-title">Gestión de <span>Turnos</span></div>
+					<div class="chip">Camara Hiperbarica</div>
                 </div>
+				
                 <div class="topbar-right">
                     <button class="btn-refresh" id="btnRefresh" onclick="refreshTable()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -86,7 +88,7 @@
                         </svg>
                         Actualizar
                     </button>
-                    <div class="chip">Cámara Hiperbárica</div>
+                    
                     <div class="view-toggle">
                         <button class="toggle-btn active" id="btnTable" onclick="switchView('table')">📋 Lista</button>
                         <button class="toggle-btn" id="btnCal" onclick="switchView('calendar')">📅 Calendario</button>
@@ -99,17 +101,17 @@
             <div class="stats">
                 <div class="stat-card blue">
                     <div class="stat-label">Total Turnos</div>
-                    <div class="stat-value">{{ total }}</div>
+                    <div class="stat-value" style="text-align: end;">{{ total }}</div>
                     <div class="stat-sub">registrados</div>
                 </div>
                 <div class="stat-card green">
                     <div class="stat-label">Confirmados</div>
-                    <div class="stat-value">{{ confirmados }}</div>
+                    <div class="stat-value"style="text-align: end;">{{ confirmados }}</div>
                     <div class="stat-sub">listos</div>
                 </div>
                 <div class="stat-card amber">
                     <div class="stat-label">Pendientes</div>
-                    <div class="stat-value">{{ pendientes }}</div>
+                    <div class="stat-value"style="text-align: end;">{{ pendientes }}</div>
                     <div class="stat-sub">por confirmar</div>
                 </div>
             </div>
@@ -203,7 +205,7 @@
                                                     '{{ t.get('Fecha','')|e }}',
                                                     '{{ t.get('Hora','')|e }}',
                                                     '{{ t.get('Estado','')|e }}'
-                                                )">✏ Editar</button>
+                                                )">✎ Editar</button>
 
                                             <!-- Imprimir -->
                                             <button class="btn-action btn-print-turn"
@@ -214,7 +216,7 @@
                                                     '{{ t.get('Fecha','')|e }}',
                                                     '{{ t.get('Hora','')|e }}',
                                                     '{{ t.get('Estado','')|e }}'
-                                                )">🖨</button>
+                                                )">🖨️ Imprimir</button>
 
                                             <!-- Eliminar -->
                                             <form action="/eliminar" method="post" style="flex:1;"

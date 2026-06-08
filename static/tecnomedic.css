@@ -41,7 +41,7 @@
   --teal-bright: #30c5c5;
   --teal-glow: rgba(26, 165, 165, 0.12);
   --green-glow: rgba(152, 197, 68, 0.12);
-  --border: rgba(26, 165, 165, 0.22);
+  --border: hsla(84, 58%, 43%, 0.733);
   --card-bg: rgba(13, 26, 52, 0.72);
   --muted: #8aada9;
 }
@@ -1270,7 +1270,7 @@ body.login-box {
 
 .page-admin{
   font-family: "Montserrat", "Montserrat", sans-serif;
-  background: var(--navy-mid);
+  background: var(--g100);
   color: var(--white);
   min-height: 100vh;
 };
@@ -1343,7 +1343,7 @@ body.login-box {
   gap: 10px;
   padding: 10px 24px;
   font-size: 13.5px;
-  color: var(--g100);
+  color: var(--g00);
   cursor: pointer;
   transition:
     color 0.2s,
@@ -1416,23 +1416,23 @@ body.login-box {
 
 .chip {
   
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding-top: 10px;
-  font-size: 12px ;
-  color:  rgb(129, 125, 125) ;
-  font-weight: 900;
+  font-size: 16px ;
+  color:  var(--g400)  ;
+  font-weight: 900 ;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
   text-align: center ;
-  /* text-shadow: var(--g100) 0 1px 2px; */
+  
 }
 
 .view-toggle {
   display: flex;
-  background: rgba(18, 112, 136, 0.818);
-  border: 1px solid rgb(223, 235, 203);
+  background: rgb(204, 100, 79);
+  border: 1px solid var(--muted);
   border-radius: 10px;
   overflow: hidden;
+  
 }
 .toggle-btn {
   padding: 7px 14px;
@@ -1450,8 +1450,8 @@ body.login-box {
   gap: 6px;
 }
 .toggle-btn:hover {
-  background: rgba(77, 196, 226, 0.418);
-  color: var(--g50);
+  background: rgba(213, 233, 238, 0.362);
+  color: var(--g100);
   transform: translateY(-1px);
 }
 .toggle-btn.active {
@@ -1512,21 +1512,25 @@ body.login-box {
 .stat-card::after {
   content: "";
   position: absolute;
-  right: -15px;
-  top: -15px;
-  width: 80px;
+  right: 12px;
+  top: 12px;
+  width: 130px;
   height: 80px;
-  border-radius: 50%;
-  background: var(--teal-glow);
+  border-radius: 25px;
+  background: rgba(5, 126, 207, 0.12);
 }
 .stat-card.green .stat-value {
   color: var(--green);
+  font-size: 24px;
+  
 }
 .stat-card.amber .stat-value {
   color: var(--amber);
+  font-size: 24px;
 }
 .stat-card.blue .stat-value {
   color: var(--teal);
+  font-size: 24px;
 }
 
 /* ── Views ── */
@@ -1541,22 +1545,31 @@ body.login-box {
 
 /* ── Table ── */
 .table-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 18px;
+  background: var(--g600);
+  border: 1px solid var(--g800);
+  border-radius: 12px;
   backdrop-filter: blur(16px);
   overflow: hidden;
 }
 .table-header {
   padding: 22px 28px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1.5px solid var(--green-dk);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .table-title {
+  text-align: right;
+
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--green-dk);
+  /* border: 1px solid; */
+  /* border-radius: 10px; */
+  padding: 5px 25px;
+  /* background-color: rgba(57, 85, 6, 0.185); */
+  text-shadow: var(--text)  1px 2px;
 }
 
 .search-wrap {
@@ -1580,8 +1593,8 @@ body.login-box {
   color: var(--muted);
 }
 #searchInput:focus {
-  border-color: var(--teal);
-  background: rgba(26, 165, 165, 0.07);
+  border-color: var(--border);
+  background: rgba(122, 173, 46, 0.123);
 }
 .search-icon {
   position: absolute;
@@ -1610,19 +1623,19 @@ thead th {
   white-space: nowrap;
 }
 tbody tr {
-  border-bottom: 1px solid rgba(26, 165, 165, 0.08);
+  border-bottom: 1px solid rgba(122, 174, 26, 0.12);
   transition: background 0.15s;
 }
 tbody tr:last-child {
   border-bottom: none;
 }
 tbody tr:hover {
-  background: rgba(26, 165, 165, 0.04);
+  background: rgba(116, 148, 57, 0.12);
 }
 tbody td {
   padding: 14px 20px;
   font-size: 13.5px;
-  color: var(--white);
+  color: var(--g50);
   white-space: nowrap;
 }
 .name-cell {
@@ -1630,11 +1643,11 @@ tbody td {
 }
 .phone-cell,
 .email-cell {
-  color: var(--muted);
+  color: var(--navy-mid);
   font-size: 13px;
 }
 .date-cell {
-  color: var(--teal-bright);
+  color: var(--teal);
 }
 
 /* ── Action buttons ── */
@@ -1665,7 +1678,7 @@ tbody td {
 }
 
 .btn-update {
-  background: linear-gradient(135deg, var(--teal), var(--green-dk));
+  background: var(--green-dk);
   border: none;
   border-radius: 8px;
   padding: 7px 14px;
@@ -1681,11 +1694,11 @@ tbody td {
 }
 .btn-update:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(26, 165, 165, 0.38);
+  box-shadow: 0 4px 14px rgba(58, 165, 26, 0.38);
 }
-
+ /* ver si afectan algo  .btn-update .btn-modify */
 .btn-modify {
-  background: linear-gradient(135deg, #148080, #0d6060);
+  background: linear-gradient(135deg, #801414, #60120d);
   border: none;
   border-radius: 8px;
   padding: 7px 14px;
