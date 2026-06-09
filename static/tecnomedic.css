@@ -1968,7 +1968,7 @@ tbody td {
   align-items: center;
 }
 
-/* ── Edit modal (violeta) ── */
+/* ── Edit modal  ── */
 .edit-modal-overlay {
   display: none;
   position: fixed;
@@ -2030,7 +2030,7 @@ tbody td {
 .edit-select {
   width: 100%;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(26, 165, 165, 0.25);
+  border: 1px solid rgba(82, 165, 26, 0.25);
   border-radius: 10px;
   padding: 11px 13px;
   font-family: "Montserrat", "Montserrat", sans-serif;
@@ -2041,7 +2041,7 @@ tbody td {
   transition: border-color 0.2s;
 }
 .edit-select:focus {
-  border-color: var(--teal);
+  border-color: var(--green);
 }
 .edit-select option {
   background: var(--navy-mid);
@@ -2060,11 +2060,11 @@ tbody td {
   transition:
     transform 0.15s,
     box-shadow 0.15s;
-  box-shadow: 0 6px 20px rgba(77, 165, 26, 0.32);
+  box-shadow: 0 6px 8px rgba(77, 165, 26, 0.32);
 }
 .btn-edit-save:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(77, 165, 26, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 12px rgba(77, 165, 26, 0.45);
 }
 
 /* ── Ticket de impresión individual ── */
@@ -2091,7 +2091,7 @@ tbody td {
   text-transform: uppercase;
   margin-bottom: 28px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--green);
 }
 #turnTicket .ticket-title {
   font-size: 14px;
@@ -2229,7 +2229,7 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 
 .select-estado:focus {
   outline: none;
-  border-color: var(--green);
+  border-color: var(--green-dk);
 }
 
 /* ── Botones de acción ─────────────────────────────── */
@@ -2246,11 +2246,11 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 
 .btn-action {
   flex: 1;
-  padding: 7px 4px;
+  padding: 6px 4px;
   border-radius: 8px;
   border: none;
-  font-size: 12px;
-  font-family: "Montserrat", sans-serif;
+  font-size: 10.5px;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
@@ -2259,7 +2259,8 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 
 .btn-action.btn-save {
   background: linear-gradient(3deg, var(--green-dk), var(--green-dk));
-  color: #fff;
+  color: #fafafacb;
+  text-decoration: solid;
 }
 
 .btn-action.btn-save:hover {
@@ -2299,6 +2300,34 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 .btn-action.btn-del:hover {
   opacity: 0.85;
   transform: translateY(-1px);
+}
+
+/* burbuja de ayuda */
+
+.btn-action::after{
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #222;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.btn-action:hover::after{
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ── Botón actualizar tabla ────────────────────────── */
@@ -2344,35 +2373,38 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 }
 
 .paciente-cell .pac-nombre {
-  font-weight: 500;
+  font-weight: 800;
   font-size: 14px;
+  color: var(--g800);
 }
 
 .paciente-cell .pac-dni {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 12px;
+  color: var(--g600);
+  font-weight: 600;
 }
 
 .paciente-cell .pac-os {
   font-size: 11px;
-  color: var(--teal);
+  font-weight: 600;
+  color: var(--green-dk);
   margin-top: 2px;
 }
 
 /* ── Color dinámico del select Estado ─────────────────── */
-.select-estado.estado-pendiente {
+.select-estado.estado-pendiente .edit-select {
   background: rgba(251, 191, 36, 0.15);
   border-color: #f59e0b;
   color: #fbbf24;
 }
 
-.select-estado.estado-confirmado {
+.select-estado.estado-confirmado .edit-select {
   background: rgba(34, 197, 94, 0.12);
   border-color: #22c55e;
   color: #4ade80;
 }
 
-.select-estado.estado-cancelado {
+.select-estado.estado-cancelado .edit-select{
   background: rgba(248, 113, 113, 0.13);
   border-color: #f87171;
   color: #f87171;
