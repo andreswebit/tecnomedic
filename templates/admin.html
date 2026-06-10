@@ -160,17 +160,19 @@
                                     <td class="phone-cell">{{ t.get('Telefono','') }}</td>
                                     <td class="email-cell">{{ t.get('Email','') }}</td>
                                     <td class="date-cell">{{ t.get('Fecha','') }}</td>
-                                    <td>{{ t.get('Hora','') }}</td>
+                                    <td class="date-cell">{{ t.get('Hora','') }}</td>
 
                                     <!-- Estado -->
                                     <td class="estado-col">
                                         <select name="estado" class="select-estado" id="estado-{{ t.row }}"
                                             title="Cambiá el estado y presioná Guardar">
-                                            <option {% if t.get('Estado')=='Pendiente' %} selected{% endif %}>Pendiente
+                                            <option {% if t.get('Estado')=='Pendiente' %} selected{% endif %}>
+												Pendiente
                                             </option>
                                             <option {% if t.get('Estado')=='Confirmado' %} selected{% endif %}>
                                                 Confirmado</option>
-                                            <option {% if t.get('Estado')=='Cancelado' %} selected{% endif %}>Cancelado
+                                            <option {% if t.get('Estado')=='Cancelado' %} selected{% endif %}>
+												Cancelado
                                             </option>
                                         </select>
                                     </td>

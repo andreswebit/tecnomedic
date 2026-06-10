@@ -1619,9 +1619,10 @@ thead th {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--g600);
+  color: var(--g400);
   border-bottom: 1.5px solid var(--border);
   white-space: nowrap;
+  font-weight: 800;
 }
 tbody tr {
   border-bottom: 1px solid rgba(122, 174, 26, 0.12);
@@ -1644,11 +1645,11 @@ tbody td {
 }
 .phone-cell,
 .email-cell {
-  color: var(--navy-mid);
+  color: var(--g800);
   font-size: 13px;
 }
 .date-cell {
-  color: var(--teal);
+  color: var(--teal-dk);
 }
 
 /* ── Action buttons ── */
@@ -1664,7 +1665,7 @@ tbody td {
 }
 
 .select-estado {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--g300);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 7px 10px;
@@ -1675,7 +1676,7 @@ tbody td {
   cursor: pointer;
 }
 .select-estado option {
-  background: var(--green-glow);
+  background: var(--g300);
 }
 
 .btn-update {
@@ -2180,15 +2181,18 @@ th.sortable {
 }
 
 th.sortable:hover {
-  color: var(--teal);
+  color: var(--green);
+  transform: translateY(-1px);
+  
 }
 
 th.sortable .sort-icon {
   display: inline-block;
   margin-left: 5px;
-  font-size: 10px;
-  opacity: 0.4;
+  font-size: 12px;
+  opacity: 0.9;
   transition: opacity 0.2s;
+  color: var(--green);
 }
 
 th.sortable.asc .sort-icon,
@@ -2215,8 +2219,8 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 }
 
 .select-estado {
-  background: rgba(160, 157, 157, 0.11);
-  border: 1px solid var(--border);
+  background: var(--g300);
+  border: 1.5px solid var(--border);
   border-radius: 8px;
   color: var(--g600);
   font-family: "Montserrat", sans-serif;
@@ -2225,11 +2229,12 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   width: 100%;
   cursor: pointer;
   transition: border-color 0.2s;
+  font-weight: 600;
 }
 
 .select-estado:focus {
   outline: none;
-  border-color: var(--green-dk);
+  
 }
 
 /* ── Botones de acción ─────────────────────────────── */
@@ -2393,19 +2398,19 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 
 /* ── Color dinámico del select Estado ─────────────────── */
 .select-estado.estado-pendiente  {
-  background: rgba(251, 191, 36, 0.15);
+  /* background: rgba(251, 191, 36, 0.15); */
   border-color: #f59e0b;
   color: #fbbf24;
 }
 
 .select-estado.estado-confirmado  {
-  background: rgba(34, 197, 94, 0.12);
+  /* background: rgba(34, 197, 94, 0.12); */
   border-color: #22c55e;
   color: #4ade80;
 }
 
 .select-estado.estado-cancelado {
-  background: rgba(248, 113, 113, 0.13);
+  /* background: rgba(248, 113, 113, 0.13); */
   border-color: #f87171;
   color: #f87171;
 }
