@@ -1664,20 +1664,6 @@ tbody td {
   margin-top: 6px;
 }
 
-.select-estado {
-  background: var(--g300);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 7px 10px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  color: var(--white);
-  outline: none;
-  cursor: pointer;
-}
-.select-estado option {
-  background: var(--g300);
-}
 
 .btn-update {
   background: var(--green-dk);
@@ -2214,12 +2200,20 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
 }
 
 /* ── Columna Estado ────────────────────────────────── */
+
+
 .estado-col {
   min-width: 130px;
 }
+/* color de la columna estado y fondo panel de seleccion*/
+
+/* .select-estado option {
+  background: var(--g00);   
+} */
+
 
 .select-estado {
-  background: var(--g300);
+  background: var(--g50);
   border: 1.5px solid var(--border);
   border-radius: 8px;
   color: var(--g600);
@@ -2230,11 +2224,38 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   cursor: pointer;
   transition: border-color 0.2s;
   font-weight: 600;
+  outline: none;
+  
 }
 
 .select-estado:focus {
   outline: none;
+  background: var(--g50);
+  color: var(--g600);
+  font-weight: 600;
   
+}
+
+/* ── Color dinámico del select Estado ─────────────────── */
+.select-estado.estado-pendiente  {
+  background: rgba(251, 191, 36, 0.15);
+  /* border-color: var(--amber); */
+  color: var(--amber);
+  /* -webkit-text-stroke: #333; */
+}
+
+.select-estado.estado-confirmado  {
+  background: rgba(34, 197, 94, 0.12);
+  /* border-color: var(--green); */
+  color: var(--green);
+  /* -webkit-text-stroke: #333; */
+}
+
+.select-estado.estado-cancelado {
+  background: rgba(248, 113, 113, 0.13);
+  /* border-color: #f87171; */
+  color: #f87171;
+  /* -webkit-text-stroke: #333; */
 }
 
 /* ── Botones de acción ─────────────────────────────── */
@@ -2396,27 +2417,6 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
   margin-top: 2px;
 }
 
-/* ── Color dinámico del select Estado ─────────────────── */
-.select-estado.estado-pendiente  {
-  /* background: rgba(251, 191, 36, 0.15); */
-  border-color: var(--amber);
-  color: var(--amber);
-  -webkit-text-stroke: #333;
-}
-
-.select-estado.estado-confirmado  {
-  /* background: rgba(34, 197, 94, 0.12); */
-  border-color: var(--green);
-  color: var(--green);
-  -webkit-text-stroke: #333;
-}
-
-.select-estado.estado-cancelado {
-  /* background: rgba(248, 113, 113, 0.13); */
-  border-color: #f87171;
-  color: #f87171;
-  -webkit-text-stroke: #333;
-}
 
 /* ── Toast "Guardado exitosamente" ─────────────────────── */
 
