@@ -177,9 +177,13 @@ body {
 .sidebar .logo-img {
   height: 12rem;
   width: auto;
-  max-width: 150px;
+  max-width: 250px;
   margin-bottom: 10px;
   display: block;
+  border-radius: 10px;
+  border: var(--g100) solid 3px;
+  box-shadow: var(--green) 1px 2px 5px;
+  
 }
 
 /* Confirmación */
@@ -2622,7 +2626,8 @@ th.sortable:not(.asc):not(.desc) .sort-icon::after {
     height: 300px;
     width: 200px;
     position: relative;
-    border: 1px solid var(--amber-dk);
+    border: var(--g100) solid 3px;
+    box-shadow: var(--green) 1px 2px 5px;
     
 }
 
