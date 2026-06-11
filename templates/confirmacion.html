@@ -10,26 +10,24 @@
 <body class="page-confirm">
 
 <div class="confirm-page">
-
+    <aside class="sidebar" style="width: 16rem;">
     <!-- Logo clickeable → Home -->
     <div class="confirm-logo">
         <a href="/">
-            <img src="{{ url_for('static', filename='tecno_logo.png') }}"
-                alt="TECNOMEDIC" class="logo-icon" style="width:8rem;height:auto;">
+            <!-- <img src="{{ url_for('static', filename='tecno_logo.png') }}" -->
+            <img src="/static/img/tecno_logo.png" alt="TECNOMEDIC" class="logo-icon" style="width:15rem;height:15rem;">
         </a>
     </div>
-
+    </aside> 
     <div class="success-ring">
         <span class="checkmark">✓</span>
     </div>
 
     <div class="confirm-heading">
         <div class="label-tag">✦ Solicitud enviada</div>
+        <br>
         <h1>¡Turno agendado!</h1>
-        <p class="confirm-subtitle">
-            Tu solicitud fue recibida correctamente.<br>
-            Te notificamos a <strong>{{ turno.email }}</strong> con los detalles.
-        </p>
+        <br>
     </div>
 
     <!-- Card con datos del turno -->
@@ -45,7 +43,7 @@
                 <div class="data-label">Paciente</div>
                 <div class="data-value">
                     {{ turno.nombre }} {{ turno.apellido }}
-                    {% if turno.dni %}<span style="font-size:12px;color:var(--muted)"> · DNI {{ turno.dni }}</span>{% endif %}
+                    {% if turno.dni %}<span style="font-size:12px;color:var(--green)"> · DNI {{ turno.dni }}</span>{% endif %}
                 </div>
             </div>
 
@@ -90,7 +88,7 @@
         <div class="highlight-box">
             <span class="highlight-icon">📧</span>
             <span>
-                Se envió un correo a <strong>{{ turno.email }}</strong>.
+                Se envió un correo a <span style="color:var(--green-dk)"><strong >{{ turno.email }}</strong> </span>.
                 Recibirás un aviso cuando el turno sea confirmado por nuestro equipo.
             </span>
         </div>
@@ -99,11 +97,11 @@
     <!-- Botones: solo Imprimir y Volver -->
     
     <div class="btn-group">
-        <button onclick="window.print()" class="btn btn-outline">🖨 Imprimir turno</button>
+        <button onclick="window.print()" class="btn btn-outline">🖨 Imprimir </button>
         {% if session.get('logged_in') %}
-        <a href="/templates/admin.html" class="btn btn-primary">← Volver al Panel</a>
+        <a href="/templates/admin.html" class="btn btn-outpanel">← Volver </a>
         {% else %}
-        <a href="/" class="btn btn-primary">← Volver </a>
+        <a href="/" class="btn btn-primary"> Inicio </a>
         {% endif %}
     </div>
 
