@@ -921,6 +921,50 @@ body.page-confirm::before {
     );
 }
 
+/* Cuadrados inferiores izquierda */
+.confirm-square::before{
+    content:"";
+    position:fixed;
+    width:72px;
+    height:72px;
+    left:15px;
+    bottom:20px;
+    z-index:1;
+    pointer-events:none;
+
+    background:rgba(152,197,68,.9);
+
+    box-shadow:
+      85px 0 rgba(245, 245, 245, 0.9),
+      170px 0 rgba(26,165,165,.9),
+
+      0 -85px rgba(69,69,69,.9),
+      85px -85px rgba(26,165,165,.9),
+
+      0 -170px rgba(152,197,68,.9);
+}
+/* Cuadrados superiores derecha */
+.confirm-square::after{
+    content:"";
+    position:fixed;
+    width:72px;
+    height:72px;
+    right:105px;
+    top:15px;
+    z-index:1;
+    pointer-events:none;
+
+    background:rgba(152,197,68,.9);
+
+    box-shadow:
+      85px 0 rgba(26,165,165,.9),
+      85px 85px rgba(152,197,68,.9);
+}
+@media (max-width: 900px) {
+  .confirm-square {
+    display: none;
+  }}
+
 .confirm-page {
   position: sticky;
   z-index: 1;
@@ -1152,6 +1196,9 @@ body.login-box {
 
 .login-input-wrap {
   position: relative;
+  color: var(--g600);
+  font-weight: 600;
+  letter-spacing: 0.05rem;
 }
 
 .login-input-icon {
@@ -1172,18 +1219,22 @@ body.login-box {
   padding: 12px 14px 12px 42px;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  color: var(--white);
+  color: var(--g600);
   outline: none;
   transition:
     border-color 0.2s,
     background 0.2s,
     box-shadow 0.2s;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
 }
 
 .login-input:focus {
-  border-color: var(--teal);
-  background: rgba(26, 165, 165, 0.07);
-  box-shadow: 0 0 0 3px rgba(26, 165, 165, 0.12);
+  border-color: var(--border);
+  background: rgb(186, 205, 206);
+  box-shadow: 0 0 1px 1px var(--border);
+  font-weight: 700;
+  
 }
 
 .login-divider {
@@ -1195,7 +1246,7 @@ body.login-box {
 .login-btn {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, var(--green), var(--green-dk));
+  background: linear-gradient(135deg, var(--green-dk), var(--green-dk));
   border: none;
   border-radius: 11px;
   font-family: "Montserrat", sans-serif;
@@ -1230,7 +1281,8 @@ body.login-box {
   text-align: center;
   margin-top: 20px;
   font-size: 11px;
-  color: rgba(138, 173, 169, 0.5);
+  color: var(--bg-light);
+  letter-spacing: 0.05rem;
 }
 
 /* Fondo animado específico de la página de login */
@@ -1241,7 +1293,7 @@ body.login-box {
 /* Cuadrados inferiores izquierda */
 .login-square ::before{
     content:"";
-    position:fixed;
+    position: fixed;
     width:72px;
     height:72px;
     left:15px;
