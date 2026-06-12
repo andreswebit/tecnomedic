@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboavvvvvvrd – TECNOMEDIC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/tecnomedic.css">
+    
+</head>
+
+<body class="page-admin">
+    <div class="main">
+    <!-- Modal edición -->
+    
+        <div class="edit-modal-overlay open">
+            <div class="edit-modal">
+            <div class="edit-modal-header">
+                <div class="edit-modal-title">✏️ <span>Modificar</span> turno</div>
+                <button class="edit-modal-close">❌</button>
+            </div>
+            <form action="/modificar" method="post">
+                <input type="hidden" name="row" id="edit-row">
+                <div class="edit-grid">
+                    <div class="edit-group">
+                        <div class="edit-label">👤 Nombre</div>
+                        <div class="edit-input-wrap">
+                            
+                            <input class="edit-input" type="text" name="nombre" id="edit-nombre" required>
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">Apellido</div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">👤</span> -->
+                            <input class="edit-input" type="text" name="apellido" id="edit-apellido" required>
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">DNI <span style="font-size:11px;color:var(--muted)">(opcional)</span>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">🪪</span> -->
+                            <input class="edit-input" type="text" name="dni" id="edit-dni">
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">Obra social</div>
+                        <select class="edit-input" name="obra_social" id="edit-os"
+                            style="padding:12px 14px;cursor:pointer;background:var(--green-dk);color:#fff; font-weight:500; ">
+                            <option value="">-- Seleccioná --</option>
+                            <option value="Particular">Particular</option>
+                            <option value="PAMI">PAMI</option>
+                            <option value="IOSCOR">IOSCOR</option>
+                            <option value="OSDE">OSDE</option>
+                            <option value="Swiss Medical">Swiss Medical</option>
+                            <option value="Galeno">Galeno</option>
+                            <option value="Medifé">Medifé</option>
+                            <option value="OSECAC">OSECAC</option>
+                            <option value="OSPAT">OSPAT</option>
+                            <option value="IOMA">IOMA</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">📱 Teléfono</div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">📱</span> -->
+                            <input class="edit-input" type="tel" name="telefono" id="edit-telefono" required>
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">✉ Email</div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">✉</span> -->
+                            <input class="edit-input" type="email" name="email" id="edit-email" required>
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">📅 Fecha</div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">📅</span> -->
+                            <input class="edit-input" type="date" name="fecha" id="edit-fecha" required>
+                        </div>
+                    </div>
+                    <div class="edit-group">
+                        <div class="edit-label">🕐 Hora</div>
+                        <div class="edit-input-wrap">
+                            <!-- <span class="edit-input-icon">🕐</span> -->
+                            <input class="edit-input" type="time" name="hora" id="edit-hora" required>
+                        </div>
+                    </div>
+                    <div class="edit-group full">
+                        <div class="edit-label">Estado</div>
+                        <select class="select-estado" name="estado" id="edit-estado">
+                            <option value="Pendiente" >Pendiente</option>
+                            <option value="Confirmado">Confirmado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="edit-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeEdit()">Cancelar</button>
+                    <button type="submit" class="btn-edit-save">💾 &nbsp;Guardar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    // ── Modal edición ─────────────────────────────────────────────
+        // Recibe: row, nombre, apellido, dni, obraSocial, telefono, email, fecha, hora, estado
+        function openEdit(row, nombre, apellido, dni, obraSocial, telefono, email, fecha, hora, estado) {
+            document.getElementById('edit-row').value = row;
+            document.getElementById('edit-nombre').value = nombre;
+            document.getElementById('edit-apellido').value = apellido;
+            document.getElementById('edit-dni').value = dni;
+            document.getElementById('edit-telefono').value = telefono;
+            document.getElementById('edit-email').value = email;
+            document.getElementById('edit-hora').value = hora;
+            document.getElementById('edit-estado').value = estado;}
+</script>
+</html>

@@ -2029,10 +2029,10 @@ tbody td {
 
 /* ── Edit modal  ── */
 .edit-modal-overlay {
-  display: none;
+  display: none;  
   position: fixed;
   inset: 0;
-  background: rgba(13, 27, 42, 0.88);
+  background: var(--g300);
   z-index: 300;
   align-items: center;
   justify-content: center;
@@ -2040,15 +2040,17 @@ tbody td {
 }
 .edit-modal-overlay.open {
   display: flex;
+  
+  
 }
 .edit-modal {
-  background: var(--navy-mid);
-  border: 1px solid rgba(26, 165, 165, 0.35);
+  background: #4B5669;
+  border: 1px solid var(--border);
   border-radius: 22px;
-  padding: 32px;
+  padding: 40px;
   width: 100%;
   max-width: 500px;
-  max-height: 90vh;
+  max-height: 99vh;
   overflow-y: auto;
   animation: modalIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow:
@@ -2056,20 +2058,29 @@ tbody td {
     0 0 0 1px rgba(26, 165, 165, 0.1);
 }
 .edit-modal-header {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(26, 165, 165, 0.2);
+  border-bottom: 1.5px solid var(--green-dk);
 }
 .edit-modal-title span {
-  color: var(--teal-bright);
+  color: var(--green-dk);
+  font-weight: 800;
+  font-size: larger;
 }
+.edit-modal-title  {
+  color: var(--g100);
+  font-weight: 800;
+  font-size: larger;
+}
+
+
 .edit-input {
   width: 100%;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(26, 165, 165, 0.25);
+  border: 1px solid rgba(--border);
   border-radius: 10px;
   padding: 11px 13px 11px 40px;
   font-family: "Montserrat", "Montserrat", sans-serif;
@@ -2082,9 +2093,9 @@ tbody td {
     box-shadow 0.2s;
 }
 .edit-input:focus {
-  border-color: var(--teal);
-  background: rgba(26, 165, 165, 0.08);
-  box-shadow: 0 0 0 3px rgba(26, 165, 165, 0.15);
+  border-color: var(--border);
+  background: rgb(rgba(122, 173, 46, 0.295));
+  box-shadow: 0 0 1px 1px rgba(246, 248, 248, 0.5);
 }
 .edit-select {
   width: 100%;
@@ -2124,6 +2135,10 @@ tbody td {
 .btn-edit-save:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 12px rgba(77, 165, 26, 0.45);
+}
+.edit-grid{
+  padding-bottom: 25px;
+  
 }
 
 /* ── Ticket de impresión individual ── */

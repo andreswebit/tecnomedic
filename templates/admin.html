@@ -320,37 +320,37 @@
         <div class="edit-modal">
             <div class="edit-modal-header">
                 <div class="edit-modal-title">✏️ <span>Modificar</span> turno</div>
-                <button class="edit-modal-close" onclick="closeEdit()">✕</button>
+                <button class="edit-modal-close" onclick="closeEdit()">❌</button>
             </div>
             <form action="/modificar" method="post">
                 <input type="hidden" name="row" id="edit-row">
                 <div class="edit-grid">
                     <div class="edit-group">
-                        <div class="edit-label">Nombre</div>
+                        <div class="edit-label">👤 Nombre</div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">👤</span>
+                            
                             <input class="edit-input" type="text" name="nombre" id="edit-nombre" required>
                         </div>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">Apellido</div>
+                        <div class="edit-label"> 👤 Apellido</div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">👤</span>
+                            
                             <input class="edit-input" type="text" name="apellido" id="edit-apellido" required>
                         </div>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">DNI <span style="font-size:10px;color:var(--muted)">(opcional)</span>
+                        <div class="edit-label">🪪 DNI <span style="font-size:10px;color:var(--muted)">(opcional)</span>
                         </div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">🪪</span>
+                            
                             <input class="edit-input" type="text" name="dni" id="edit-dni">
                         </div>
                     </div>
                     <div class="edit-group">
                         <div class="edit-label">Obra social</div>
                         <select class="edit-input" name="obra_social" id="edit-os"
-                            style="padding:12px 14px;cursor:pointer;background:var(--green);color:#fff;">
+                            style="padding:12px 14px;cursor:pointer;background:var(--green-dk);color:#fff; font-weight:600; letter-spacing: 1px">
                             <option value="">-- Seleccioná --</option>
                             <option value="Particular">Particular</option>
                             <option value="PAMI">PAMI</option>
@@ -366,36 +366,33 @@
                         </select>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">Teléfono</div>
+                        <div class="edit-label"> 📱 Teléfono</div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">📱</span>
+                            
                             <input class="edit-input" type="tel" name="telefono" id="edit-telefono" required>
                         </div>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">Email</div>
+                        <div class="edit-label">✉ Email</div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">✉</span>
                             <input class="edit-input" type="email" name="email" id="edit-email" required>
                         </div>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">Fecha</div>
-                        <div class="edit-input-wrap">
-                            <span class="edit-input-icon">📅</span>
+                        <div class="edit-label"> 📅 Fecha</div>
+                        <div class="edit-input-wrap">                            
                             <input class="edit-input" type="date" name="fecha" id="edit-fecha" required>
                         </div>
                     </div>
                     <div class="edit-group">
-                        <div class="edit-label">Hora</div>
+                        <div class="edit-label">🕐 Hora</div>
                         <div class="edit-input-wrap">
-                            <span class="edit-input-icon">🕐</span>
                             <input class="edit-input" type="time" name="hora" id="edit-hora" required>
                         </div>
                     </div>
                     <div class="edit-group full">
                         <div class="edit-label">Estado</div>
-                        <select class="edit-select" name="estado" id="edit-estado">
+                        <select class="select-estado" name="estado" id="edit-estado">
                             <option value="Pendiente">Pendiente</option>
                             <option value="Confirmado">Confirmado</option>
                             <option value="Cancelado">Cancelado</option>
@@ -403,7 +400,7 @@
                     </div>
                 </div>
                 <div class="edit-footer">
-                    <button type="button" class="btn-edit-cancel" onclick="closeEdit()">Cancelar</button>
+                    <button type="button" class="btn btn-outline" onclick="closeEdit()">Cancelar</button>
                     <button type="submit" class="btn-edit-save">💾 &nbsp;Guardar </button>
                 </div>
             </form>
