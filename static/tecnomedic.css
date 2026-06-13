@@ -2042,6 +2042,7 @@ tbody td {
   display: flex;
   
   
+  
 }
 .edit-modal {
   background: #4B5669;
@@ -2058,11 +2059,11 @@ tbody td {
     0 0 0 1px rgba(26, 165, 165, 0.1);
 }
 .edit-modal-header {
-  display: grid;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 18px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   border-bottom: 1.5px solid var(--green-dk);
 }
 .edit-modal-title span {
@@ -2079,13 +2080,13 @@ tbody td {
 
 .edit-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(--border);
+  background:var(--green-dk);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 11px 13px 11px 40px;
+  padding: 11px 10px 10px 10px;
   font-family: "Montserrat", "Montserrat", sans-serif;
-  font-size: 13.5px;
-  color: var(--white);
+  font-size: 14px;
+  color: var(--g100);
   outline: none;
   transition:
     border-color 0.2s,
@@ -2096,25 +2097,28 @@ tbody td {
   border-color: var(--border);
   background: rgb(rgba(122, 173, 46, 0.295));
   box-shadow: 0 0 1px 1px rgba(246, 248, 248, 0.5);
+  color: var(--g100);
+  font-weight: 500;
+  letter-spacing: 1px;
+  
+
 }
-.edit-select {
+/* .edit-input {
   width: 100%;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(82, 165, 26, 0.25);
   border-radius: 10px;
-  padding: 11px 13px;
+  padding: 10px 10px;
   font-family: "Montserrat", "Montserrat", sans-serif;
-  font-size: 13.5px;
+  font-size: 12px;
   color: var(--white);
   outline: none;
   cursor: pointer;
-  transition: border-color 0.2s;
-}
-.edit-select:focus {
-  border-color: var(--green);
-}
-.edit-select option {
-  background: var(--navy-mid);
+  transition: border-color 0.2s; */
+/* } */
+
+.edit-input option {
+  background: var(--border);
 }
 .btn-edit-save {
   flex: 2;
@@ -2137,9 +2141,14 @@ tbody td {
   box-shadow: 0 10px 12px rgba(77, 165, 26, 0.45);
 }
 .edit-grid{
-  padding-bottom: 25px;
+  display: flexbox;
+  padding-bottom: 15px;
+  padding-top: 15px;
   
 }
+.edit-input-wrap{
+  padding: 5px;
+  }
 
 /* ── Ticket de impresión individual ── */
 #turnTicket {
