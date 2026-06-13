@@ -780,22 +780,21 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .slot-btn.disponible {
-  background: rgba(26, 165, 165, 0.08);
-  border-color: var(--teal);
+  background: rgba(26, 165, 165, 0.041);
+  border-color: var(--g300);
   color: var(--white);
 }
 .slot-btn.disponible .slot-badge {
-  background: rgba(26, 165, 165, 0.2);
-  color: var(--teal);
+  background: var(--amber);
+  color: var(--g100);
 }
 .slot-btn.disponible:hover {
-  background: rgba(26, 165, 165, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(26, 165, 165, 0.25);
+  box-shadow: 0 1px 2px var(--g50);
 }
 .slot-btn.seleccionado {
-  background: linear-gradient(135deg, var(--teal), var(--green-dk));
-  border-color: var(--teal);
+  background: linear-gradient(135deg, var(--green-dk), var(--green-dk));
+  border-color: var(--g100);
   color: #fff;
 }
 .slot-btn.seleccionado .slot-badge {
